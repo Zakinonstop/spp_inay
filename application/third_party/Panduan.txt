@@ -1,0 +1,28 @@
+Letakkan folder 'dompdf' ke dalam application/third_party,
+Letakkan 'dompdf_gen' kedalam application/librari,
+
+copas function di bawah, letakkan kedalam salah satu controller
+
+	public function print_pdf()
+	{
+		$data = [
+			'data' => $this->m_input_transaksi->get_all_data1(),
+			'data_bulan' => $this->m_input_transaksi->get_bulan(),
+		];
+
+        $html = $this->load->view('print_pdf',$data, true);
+
+		$pdf = new Dompdf();
+
+		$pdf->setPaper('A4', 'landscape');
+		
+        $pdf->loadHtml($html);
+        $pdf->render();
+        $pdf->stream("Invoice_Pembayaran.pdf", array('Attachment' =>0));
+
+	}
+
+Buat tombol di dalam index atau tampilan, kemudian arahkan ke controller dan function diatas,
+contoh =  <a type="button" class="btn btn-success" href="<?= base_url('transaksi/print_pdf')?>">Print</a>
+
+Buat file print_pdf.php di dalam application/view
