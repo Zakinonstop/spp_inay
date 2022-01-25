@@ -249,6 +249,13 @@
                                 </a>
                             </li>
                             </ul>
+                            <li class="nav-item">
+                                <a href="<?= base_url('jurnal_umum')?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List </p>
+                                </a>
+                            </li>
+                            </ul>
                         </li>
 <!-- 
                         <li class="nav-item">

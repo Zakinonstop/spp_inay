@@ -24,7 +24,7 @@
 
             </div>
             <br>
-            <div class="row d-flex">
+            <div class="row  ">
                 <div class="col-9">
                     <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_pdf')?>" target="_blank">Print</a>
                     <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_per_santri/')?><?= $idnya_santri ;?>" target="_blank">Print Per Santri</a>
