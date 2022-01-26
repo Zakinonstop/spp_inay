@@ -16,23 +16,20 @@
                 </div>
 
             <?php endif; ?>
-            <div class="form-group">
-                <label for="Nama">Nominal Penerimaan</label>
-                <input type="text" class="form-control" name="pemasukan" placeholder="-" value="<?= $data_jurnal_umum->pemasukan?>"
-                <?php if (!$data_jurnal_umum->pemasukan) {
-                   echo 'disabled';
-                }?>
-                >
-            </div>
+            <?php if ($data_jurnal_umum->pemasukan) { ?>
+                <div class="form-group">
+                    <label for="Nama">Nominal Penerimaan</label>
+                    <input type="text" class="form-control" name="pemasukan" placeholder="-" value="<?= $data_jurnal_umum->pemasukan?>">
+                </div>
+            <?php }?>
 
-            <div class="form-group">
-                <label for="Nama">Nominal Pengeluaran</label>
-                <input type="text" class="form-control" name="pengeluaran" placeholder="-" value="<?= $data_jurnal_umum->pengeluaran?>" 
-                <?php if (!$data_jurnal_umum->pengeluaran) {
-                   echo 'disabled';
-                }?>
-                >
-            </div>
+            <?php if ($data_jurnal_umum->pengeluaran) { ?>
+                <div class="form-group">
+                    <label for="Nama">Nominal Pengeluaran</label>
+                    <input type="text" class="form-control" name="pengeluaran" placeholder="-" value="<?= $data_jurnal_umum->pengeluaran?>" >
+                </div>
+            <?php    }?>
+            
 
             <div class="form-group">
                 <label for="Nama">Tanggal </label>

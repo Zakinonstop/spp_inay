@@ -182,9 +182,23 @@ class Jurnal_umum extends CI_Controller
 
 	public function edit_save($id)
 	{
-		// $bayar = $this->input->post('sudah_bayar');
-
 		$this->form_validation->set_rules('tgl_jurnal', 'tgl_jurnal', 'required');
+		// ambil max_id sebelum akhir
+		// max_id akhir
+		// $count_saldo = $this->db->query('SELECT id_jurnal_umum FROM tb_jurnal_umum')->num_rows();
+		// echo $count_saldo;
+		// die();
+		$saldo_sebelum_akhir = $this->m_jurnal_umum->saldo_sebelum_akhir();
+		// echo $saldo_sebelum_akhir;
+		// die();
+		$pemasukan = $this->input->post('pemasukan');
+		$pengeluaran = $this->input->post('pengeluaran');
+		if ($pemasukan) {
+			$saldo = $saldo_sebelum_akhir + $pemasukan;
+		}else {
+			$saldo = $saldo_sebelum_akhir - $pengeluaran;
+			
+		};
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = $this->session->set_flashdata('message', validation_errors());
@@ -195,7 +209,7 @@ class Jurnal_umum extends CI_Controller
 				'pengeluaran' => $this->input->post('pengeluaran'),
 				'keterangan' => $this->input->post('keterangan'),
 				'tgl_jurnal' => $this->input->post('tgl_jurnal'),
-				// 'saldo' => $saldo_sekarang,
+				'saldo' => $saldo,
 			];
 
 			$this->m_jurnal_umum->edit_save($data, $id);

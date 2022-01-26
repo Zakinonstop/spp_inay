@@ -210,7 +210,26 @@ class m_jurnal_umum extends CI_Model
 		return $this->db->get_where('tb_jurnal_umum', ['id_jurnal_umum' => $max_id])->row()->saldo;
 		// return $saldo->row()->id_jurnal_umum;
 	}
+
+	public function saldo_sebelum_akhir()
+	{
+		$count_saldo = $this->db->query('SELECT id_jurnal_umum FROM tb_jurnal_umum')->num_rows();
+		$max_id = $this->db->query('SELECT MAX(id_jurnal_umum) as id_jurnal_umum FROM tb_jurnal_umum')->row()->id_jurnal_umum;
+		// echo $max_id;
+		// die();
+		
+		if ($count_saldo > 1) {
+			$id_terakhir = $max_id - 1;
+			
+		}else {
+			$id_terakhir = $max_id;
+			
+		}
+
+		$this->db->select('saldo');
+		return $this->db->get_where('tb_jurnal_umum', ['id_jurnal_umum' => $id_terakhir])->row()->saldo;
+	}
 }
 
 
-// simpan lab
+
