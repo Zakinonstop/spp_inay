@@ -19,6 +19,8 @@ class Dashboard extends CI_Controller
 			// 'data_transaksi' => $data_transaksi,
 			'data_transaksi' => $this->m_data_transaksi->get_all_data(),
 			'total_pemasukan' => $this->m_data_transaksi->total_pemasukan(),
+			'jumlah_pemasukan' => $this->m_data_transaksi->jumlah_pemasukan(),
+			'jumlah_pengeluaran' => $this->m_data_transaksi->jumlah_pengeluaran(),
 			// 'total_pengeluaran' => $this->m_data_transaksi->total_pengeluaran(),
 			'start' => $this->uri->segment(3),
 			// 'pagination' => $pagination_link,

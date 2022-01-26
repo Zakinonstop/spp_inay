@@ -10,14 +10,14 @@ class m_data_tagihan extends CI_Model
 	// 	$this->db->order_by('nama_kamar', 'ASC');
 	// 	return $this->db->get('tb_kamar', $limit, $start)->result();
 	// }
-	public function get_all_data()
+	public function get_all_data($limit, $start)
 	{
 		// $this->db->group_by("nama_kamar");
 		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
 		$this->db->join('tb_bulan', 'tb_data_tagihan.id_bulan = tb_bulan.id_bulan');
 		$this->db->order_by('nama_tahun', 'ASC');
 		$this->db->order_by('tb_bulan.id_bulan', 'ASC');
-		return $this->db->get('tb_data_tagihan')->result();
+		return $this->db->get('tb_data_tagihan', $limit, $start)->result();
 	}
 
 	// public function get_count_data()
@@ -29,9 +29,9 @@ class m_data_tagihan extends CI_Model
 
 	public function count_search_data()
 	{
-		$keyword = $this->input->post('keyword');
-		$this->db->like('nama_tahun', $keyword);
-		return $this->db->get('tb_tahun')->num_rows();
+		// $keyword = $this->input->post('keyword');
+		// $this->db->like('nama_tahun', $keyword);
+		return $this->db->get('tb_data_tagihan')->num_rows();
 	}
 
 	// public function get_search_data($limit, $start)

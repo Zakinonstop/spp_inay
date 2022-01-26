@@ -9,12 +9,11 @@
     <h3 align='center'>LAPORAN PEMBAYARAN SPP BULANAN</h3>
     <h3 align='center'>PONDOK PESANTREN INAYATULLAH</h3>
     <hr>
-    
-
+ 
         <h4>Tahun : 2022 </h4>
         <h4>Kamar : Umar 2 </h4>
-        <!-- <h4>Tahun : <?= $lp->nama_tahun ;?> </h4>
-        <h4>Kamar : <?= $lp->nama_kamar ;?> </h4> -->
+        <!-- <h4>Tahun : <?= $lp->nama_tahun ;?> </h4> -->
+        <!-- <h4>Kamar : <?= $lp->nama_kamar ;?> </h4> -->
         <!-- <h4>Kamar : Umar 3</h4> -->
 
         <table border="1" class="table table-striped">

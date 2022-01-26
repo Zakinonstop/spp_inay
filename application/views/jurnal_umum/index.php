@@ -111,10 +111,12 @@
                                     </td>
                                     <td><?= $ju->saldo ;?></td>
 
-                                    <td width="50">
+                                    <!-- <td width="50">
                                         <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Detail" href="<?= base_url('jurnal_umum/detail/') ?><?= $ju->id_jurnal_umum ?>"><i class="fa fa-eye"></i></a>
-                                    </td>
+                                    </td> -->
                                     <td width="50">
+                                        
+
                                         <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url('jurnal_umum/edit/') ?><?= $ju->id_jurnal_umum ?>"><i class="fa fa-edit"></i></a>
                                     </td>
                                     <td width="50">
@@ -140,7 +142,7 @@
                 </div>
                 <div class="col-sm-12 col-md-7 float-right">
                     <div class="dataTables_paginate paging_simple_numbers float-right" id="example1_paginate">
-                        <!-- <?= $pagination; ?> -->
+                        <?= $pagination; ?>
                     </div>
                 </div>
             </div>

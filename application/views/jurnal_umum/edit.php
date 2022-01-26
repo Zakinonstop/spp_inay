@@ -5,7 +5,7 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form role="form" action="<?= base_url('data_transaksi/edit_save/' . $data_tr_santri->id_data_transaksi) ?>" method="POST">
+    <form role="form" action="<?= base_url('jurnal_umum/edit_save/') ?><?= $data_jurnal_umum->id_jurnal_umum?>" method="POST">
         <div class="card-body">
             <?php if ($this->session->flashdata('message')) : ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -17,43 +17,31 @@
 
             <?php endif; ?>
             <div class="form-group">
-                <label for="Nama">Nama : </label>
-                <label for="Nama"><?= $data_tr_santri->nama ?></label>
-                <!-- <label for="Nama"><?= $data_tr_santri->id_data_transaksi ?></label> -->
-            </div>
-
-
-            <div class="form-group">
-                <label for="Nama">Bulan : </label>
-                <label for="Nama"><?= $data_tr_santri->nama_bulan ?></label>
+                <label for="Nama">Nominal Penerimaan</label>
+                <input type="text" class="form-control" name="pemasukan" placeholder="-" value="<?= $data_jurnal_umum->pemasukan?>"
+                <?php if (!$data_jurnal_umum->pemasukan) {
+                   echo 'disabled';
+                }?>
+                >
             </div>
 
             <div class="form-group">
-                <label for="Nama">Tahun : </label>
-                <label for="Nama"><?= $data_tr_santri->nama_tahun ?></label>
+                <label for="Nama">Nominal Pengeluaran</label>
+                <input type="text" class="form-control" name="pengeluaran" placeholder="-" value="<?= $data_jurnal_umum->pengeluaran?>" 
+                <?php if (!$data_jurnal_umum->pengeluaran) {
+                   echo 'disabled';
+                }?>
+                >
             </div>
 
             <div class="form-group">
-                <label for="Nama">Besar Tagihan : </label>
-                <label for="Nama"><?= $data_tr_santri->nominal ?></label>
+                <label for="Nama">Tanggal </label>
+                <input type="date" class="form-control" name="tgl_jurnal" value="<?= $data_jurnal_umum->tgl_jurnal?>">
             </div>
 
             <div class="form-group">
-                <label for="Nama">Sudah Bayar : </label>
-                <label for="Nama"><?= $data_tr_santri->jumlah_bayar ?></label>
-                <input type="hidden" name="sudah_bayar" value="<?= $data_tr_santri->jumlah_bayar ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="Nama">Kurangan : </label>
-                <label for="Nama"><?= $data_tr_santri->nominal - $data_tr_santri->jumlah_bayar  ?></label>
-            </div>
-
-            <div class="form-group">
-                <label for="Nama">Jumlah Bayar : </label>
-
-                <input type="number" class="form-control" name="jumlah_bayar" id="jumlah_bayar" value="<?= $data_tr_santri->nominal - $data_tr_santri->jumlah_bayar  ?>">
-
+                <label for="Nama">Keterangan</label>
+                <input type="text" class="form-control" name="keterangan" placeholder="cth : jariah bendahara" value="<?= $data_jurnal_umum->keterangan?>">
             </div>
 
         </div>

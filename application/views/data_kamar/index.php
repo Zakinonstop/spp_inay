@@ -107,7 +107,7 @@
                 </div>
                 <div class="col-sm-12 col-md-7 float-right">
                     <div class="dataTables_paginate paging_simple_numbers float-right" id="example1_paginate">
-                        <!-- <?= $pagination; ?> -->
+                        <?= $pagination; ?>
                     </div>
                 </div>
             </div>

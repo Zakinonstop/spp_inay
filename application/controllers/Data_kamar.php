@@ -12,59 +12,59 @@ class Data_kamar extends CI_Controller
 
 	public function index()
 	{
-		// $this->load->library('pagination');
+		$this->load->library('pagination');
 
-		// $config['base_url'] = 'http://localhost/spp_inay/data_kamar/index/';
-		// $config['total_rows'] = $this->m_data_kamar->count_search_data();
-		// $config['per_page'] = 10;
-		// $config['start'] = $this->uri->segment(3);
-		// // $config['use_page_numbers'] = true;
-		// $config["full_tag_open"] = ' <nav><ul class="pagination justify-content-end">';
-		// $config["full_tag_close"] = '</ul></nav>';
+		$config['base_url'] = 'http://localhost/spp_inay/data_kamar/index/';
+		$config['total_rows'] = $this->m_data_kamar->count_search_data();
+		$config['per_page'] = 5;
+		$config['start'] = $this->uri->segment(3);
+		// $config['use_page_numbers'] = true;
+		$config["full_tag_open"] = ' <nav><ul class="pagination justify-content-end">';
+		$config["full_tag_close"] = '</ul></nav>';
 
-		// $config['first_link'] = 'First';
-		// $config["first_tag_open"] = '<li class="page-item">';
-		// $config["first_tag_close"] = '</li>';
+		$config['first_link'] = 'First';
+		$config["first_tag_open"] = '<li class="page-item">';
+		$config["first_tag_close"] = '</li>';
 
-		// $config['last_link'] = 'Last';
-		// $config["last_tag_open"] = '<li class="page-item">';
-		// $config["last_tag_close"] = '</li>';
+		$config['last_link'] = 'Last';
+		$config["last_tag_open"] = '<li class="page-item">';
+		$config["last_tag_close"] = '</li>';
 
-		// $config['prev_link'] = '&laquo';
-		// $config["prev_tag_open"] = '<li class="page-item">';
-		// $config["prev_tag_close"] = '</li>';
+		$config['prev_link'] = '&laquo';
+		$config["prev_tag_open"] = '<li class="page-item">';
+		$config["prev_tag_close"] = '</li>';
 
-		// $config['next_link'] = '&raquo;';
-		// $config["next_tag_open"] = '<li>';
-		// $config["next_tag_close"] = '</li>';
+		$config['next_link'] = '&raquo;';
+		$config["next_tag_open"] = '<li>';
+		$config["next_tag_close"] = '</li>';
 
-		// $config["cur_tag_open"] = "<li class='page-item active'><a class='page-link' href='#'>";
-		// $config["cur_tag_close"] = "</a></li>";
+		$config["cur_tag_open"] = "<li class='page-item active'><a class='page-link' href='#'>";
+		$config["cur_tag_close"] = "</a></li>";
 
-		// $config["num_tag_open"] = "<li class='page-item'>";
-		// $config["num_tag_close"] = "</li>";
+		$config["num_tag_open"] = "<li class='page-item'>";
+		$config["num_tag_close"] = "</li>";
 
-		// $config["attributes"] = array('class' => 'page-link');
+		$config["attributes"] = array('class' => 'page-link');
 
-		// // $config["num_links"] = 1;
+		// $config["num_links"] = 1;
 
-		// $this->pagination->initialize($config);
+		$this->pagination->initialize($config);
 
-		// $pagination_link = $this->pagination->create_links();
+		$pagination_link = $this->pagination->create_links();
 
 		// if ($this->input->post('keyword')) {
-		// 	$data_kamar = $this->m_data_kamar->get_search_data($config['per_page'], $config['start']);
+			// $data_kamar = $this->m_data_kamar->get_search_data($config['per_page'], $config['start']);
 		// } else {
-		// 	$data_kamar = $this->m_data_kamar->get_all_data($config['per_page'], $config['start']);
+			$data_kamar = $this->m_data_kamar->get_all_data($config['per_page'], $config['start']);
 		// }
 
 		$data = [
 			'title' => 'Data kamar',
 			'isi' => 'data_kamar/index',
-			// 'data_kamar' => $data_kamar,
-			'data_kamar' => $this->m_data_kamar->get_all_data(),
+			'data_kamar' => $data_kamar,
+			// 'data_kamar' => $this->m_data_kamar->get_all_data(),
 			'start' => $this->uri->segment(3),
-			// 'pagination' => $pagination_link,
+			'pagination' => $pagination_link,
 			'jumlah_data' => $this->m_data_kamar->count_search_data(),
 		];
 

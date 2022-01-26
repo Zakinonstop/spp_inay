@@ -10,11 +10,11 @@ class m_data_kamar extends CI_Model
 	// 	$this->db->order_by('nama_kamar', 'ASC');
 	// 	return $this->db->get('tb_kamar', $limit, $start)->result();
 	// }
-	public function get_all_data()
+	public function get_all_data($limit, $start)
 	{
 		// $this->db->group_by("nama_kamar");
 		$this->db->order_by('nama_kamar', 'ASC');
-		return $this->db->get('tb_kamar')->result();
+		return $this->db->get('tb_kamar', $limit, $start)->result();
 	}
 
 	// public function get_count_data()
@@ -26,8 +26,8 @@ class m_data_kamar extends CI_Model
 
 	public function count_search_data()
 	{
-		$keyword = $this->input->post('keyword');
-		$this->db->like('nama_kamar', $keyword);
+		// $keyword = $this->input->post('keyword');
+		// $this->db->like('nama_kamar', $keyword);
 		return $this->db->get('tb_kamar')->num_rows();
 	}
 

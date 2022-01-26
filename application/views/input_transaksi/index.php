@@ -114,12 +114,20 @@
                                             <!-- <a type="button" class="btn btn-sm btn-primary" onclick="return confirm('Uang sisa digunakan untuk spp bulan selanjutnya ?')" data-toggle="tooltip" data-placement="top" title="Untuk bulan Selanjutnya" href="<?= base_url('input_transaksi/next/') ?><?= $ds->id_data_transaksi ?>">next</a> -->
                                             <?php $ambil_id_trans = $ds->id_data_transaksi ?>
                                             <?php $ambil_id_santri = $ds->id_data_santri ?>
-                                            
-                                            <!-- <a type="button" class="btn btn-sm btn-primary" onclick="return confirm('Untuk Kembalian ?')" data-toggle="tooltip" data-placement="top" title="Untuk bulan Selanjutnya" href="<?= base_url('input_transaksi/kembalian/') ?><?= $ds->id_data_transaksi ?>">Kembalian</a> -->
+
                                             <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" "><?= $ds->sisa; ?></a>
-                                            <button type="button" class="btn btn-default btn-success btn-sm" data-toggle="modal" data-target="#modal-default">
-                                                Next
-                                            </button>
+
+                                            <!-- ambil bulan transaksi -->
+                                            <?php 
+                                            if ($ds->nama_bulan != 'Desember') { ?>
+                                                
+                                                <button type="button" class="btn btn-default btn-success btn-sm" data-toggle="modal" data-target="#modal-default">
+                                                    Next
+                                                </button>
+                                            <?php }
+                                            ?>
+                                            
+
                                             <button type="button" class="btn btn-default btn-success btn-sm" data-toggle="modal" data-target="#modal-kembalian">
                                                 Kembalian
                                             </button>

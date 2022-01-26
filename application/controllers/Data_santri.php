@@ -16,7 +16,7 @@ class Data_santri extends CI_Controller
 
 		$config['base_url'] = 'http://localhost/spp_inay/data_santri/index/';
 		$config['total_rows'] = $this->m_data_santri->count_search_data();
-		$config['per_page'] = 10;
+		$config['per_page'] = 5;
 		$config['start'] = $this->uri->segment(3);
 		// $config['use_page_numbers'] = true;
 		$config["full_tag_open"] = ' <nav><ul class="pagination justify-content-end">';
