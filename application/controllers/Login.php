@@ -32,6 +32,21 @@ class Login extends CI_Controller
 
 	public function login()
 	{
-		redirect('dashboard');
+		// cek inputan 
+		$data = [
+			
+			'username' => $this->input->post('username'),
+			'status' => 'login',
+		];
+
+		// cek inputan di database
+		$cek_login = $this->m_login->cek_login();
+
+		if ($cek_login > 0) {
+			$this->session->set_userdata($data);
+			redirect('dashboard');
+		}else {
+			redirect('login');
+		}
 	}
 }
