@@ -74,6 +74,7 @@
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Sisa / Kurang</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Keterangan</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Waktu Bayar</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Created By</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Kelas: activate to sort column ascending">Action</th>
                             </tr>
                         </thead>
@@ -163,6 +164,7 @@
                                     <!-- <?=date('d F Y h:i:s ', strtotime($ds->tanggal_bayar));  ?> -->
                                 
                                     </td>
+                                    <td><?= $ds->created_by; ?></td>
                                     <!-- <td><?= $ds->tanggal_bayar; ?></td> -->
                                     <!-- <td><?= date_format(date_create($ds->tanggal_bayar), 'd-m-Y'); ?></td> -->
                                     <td width="50">

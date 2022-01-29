@@ -298,6 +298,7 @@ class input_transaksi extends CI_Controller
 		} else {
 			$data = [
 				'jumlah_bayar' => $this->input->post('jumlah_bayar'),
+				'created_by' => $this->session->userdata['username'],
 			];
 			$data2 = [
 				'id_data_santri' => $this->input->post('id_data_santri'),

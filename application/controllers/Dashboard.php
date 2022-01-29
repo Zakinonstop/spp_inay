@@ -27,6 +27,10 @@ class Dashboard extends CI_Controller
 			'jumlah_data' => $this->m_data_transaksi->count_search_data(),
 		];
 
-		return $this->load->view('master/index', $data);
+		if ($this->session->userdata['username']) {
+			return $this->load->view('master/index', $data);
+		}else {
+			redirect('login');
+		}
 	}
 }
