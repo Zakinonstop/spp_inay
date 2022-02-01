@@ -178,6 +178,20 @@
                                 <p>Jurnal Umum </p>
                                 </a>
                         </li>
+                        <hr>
+                        <li class="nav-item">
+                                <a href="<?= base_url('admin')?>" class="nav-link">
+                                <i class="fas fa-edit nav-icon"></i>
+                                <p>Administrator<p>
+                                </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                                <a href="<?= base_url('user_profile')?>" class="nav-link">
+                                <i class="fas fa-edit nav-icon"></i>
+                                <p>User Profile<p>
+                                </a>
+                        </li> -->
+        
 <!-- 
                         <li class="nav-item">
                             <a href="http://localhost/spp_inay/input_transaksi" class="nav-link">

@@ -70,6 +70,7 @@
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Debit</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Alamat: activate to sort column ascending">Kredit</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kamar: activate to sort column ascending">Saldo</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kamar: activate to sort column ascending">Created By</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Kelas: activate to sort column ascending">Action</th>
                             </tr>
                         </thead>
@@ -110,6 +111,7 @@
                                 
                                     </td>
                                     <td><?= $ju->saldo ;?></td>
+                                    <td><?= $ju->created_by ;?></td>
 
                                     <!-- <td width="50">
                                         <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Detail" href="<?= base_url('jurnal_umum/detail/') ?><?= $ju->id_jurnal_umum ?>"><i class="fa fa-eye"></i></a>

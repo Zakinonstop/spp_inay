@@ -15,7 +15,7 @@ class Dashboard extends CI_Controller
 
 		$data = [
 			'title' => 'Dashboard',
-			'isi' => 'admin/index',
+			'isi' => 'dashboard/index',
 			// 'data_transaksi' => $data_transaksi,
 			'data_transaksi' => $this->m_data_transaksi->get_all_data(),
 			'total_pemasukan' => $this->m_data_transaksi->total_pemasukan(),

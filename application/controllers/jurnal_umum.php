@@ -144,6 +144,7 @@ class Jurnal_umum extends CI_Controller
 				'keterangan' => $this->input->post('keterangan'),
 				'tgl_jurnal' => $this->input->post('tgl_jurnal'),
 				'saldo' => $saldo_sekarang,
+				'created_by' => $this->session->userdata['username'],
 			];
 
 			$this->m_jurnal_umum->save($data);
@@ -172,6 +173,7 @@ class Jurnal_umum extends CI_Controller
 				'keterangan' => $this->input->post('keterangan'),
 				'tgl_jurnal' => $this->input->post('tgl_jurnal'),
 				'saldo' => $saldo_sekarang,
+				'created_by' => $this->session->userdata['username'],
 			];
 
 			$this->m_jurnal_umum->save($data);

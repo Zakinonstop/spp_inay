@@ -1,85 +1,120 @@
-<div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+<!-- Default box -->
+<div class="card">
 
-              <div class="info-box-content">
-                <span class="info-box-text">Pemasukan SPP</span>
-                <span class="info-box-number">
-                  Rp. <?= $total_pemasukan->jumlah_bayar ;?>
-                  <!-- <small>%</small> -->
-                </span>
-              </div>
-              <!-- /.info-box-content -->
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+            <div class="row d-flex">
+                <div class="col-6">
+                    <!-- <div class="dataTables_length" id="example1_length"><label>Show <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select> entries</label></div> -->
+
+                </div>
+
+                <div class="col-6">
+
+                    <div class="dataTables_length float-right" id="example1_length">
+                        <a href="<?= base_url('admin/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a>
+                    </div>
+                </div>
+
             </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+            <br>
+            <div class="row d-flex">
+                <div class="col-9">
 
-              <div class="info-box-content">
-                <span class="info-box-text">Pemasukan Non SPP</span>
-                <span class="info-box-number"><?= $jumlah_pemasukan?></span>
-              </div>
-              <!-- /.info-box-content -->
+                </div>
+
+                <div class="col-3">
+
+                    <!-- <div class="dataTables_length float-right" id="example1_length">
+                        <a href="<?= base_url('admin/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a>
+                    </div>
+
+                    <form action="" method="post">
+                        <div class="input-group input-group-md">
+                            <input type="text" class="form-control" placeholder="Cari data kamar.." name="keyword">
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Cari">Cari</button>
+                            </span>
+                        </div>
+                    </form> -->
+                </div>
+
             </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Pengeluaran Total</span>
-                <span class="info-box-number"><?= $jumlah_pengeluaran?></span>
-              </div>
-              <!-- /.info-box-content -->
+            <br>
+            <div>
+                <?php if ($this->session->flashdata('message')) : ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Data <strong>Berhasil</strong> <?= $this->session->flashdata('message'); ?>.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php endif; ?>
             </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
 
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending">No</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Username</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Email</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Nama: activate to sort column ascending">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 0;
+                            foreach ($admin as $ds) {
+                                $no++ ?>
 
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Saldo</span>
-                <span class="info-box-number"><?= $jumlah_pemasukan - $jumlah_pengeluaran?></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-        </div>       
-       
-       <!-- Default box -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Title</h3>
-
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fas fa-minus"></i></button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fas fa-times"></i></button>
+                                <tr role="row" class="odd">
+                                    <!-- <td class="sorting_1"></td> -->
+                                    <td width="50"><?= ++$start ?></td>
+                                    <td><?= $ds->username; ?></td>
+                                    <td><?= $ds->email; ?></td>
+                                    <td width="50">
+                                        <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Detail" href="<?= base_url('admin/detail/') ?><?= $ds->id_admin ?>"><i class="fa fa-eye"></i></a>
+                                    </td>
+                                    <td width="50">
+                                        <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url('admin/edit/') ?><?= $ds->id_admin ?>"><i class="fa fa-edit"></i></a>
+                                    </td>
+                                    <td width="50">
+                                        
+                                        <a onclick="return confirm('Anda Yakin ?')" class="text-danger" data-toggle="tooltip" data-placement="top" title="Hapus" href="<?= base_url('admin/hapus/') ?><?= $ds->id_admin ?>"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                    <?php
+                    if (empty($admin)) {
+                        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Data kamar Tidak Di Temukan.
+                    </div>';
+                    }
+                    ?>
                 </div>
             </div>
-            <div class="card-body">
-                Start creating your amazing application!
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing <?= $no; ?> of <?= $jumlah_data; ?> entries</div>
+                </div>
+                <div class="col-sm-12 col-md-7 float-right">
+                    <div class="dataTables_paginate paging_simple_numbers float-right" id="example1_paginate">
+                        <?= $pagination; ?>
+                    </div>
+                </div>
             </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-                Footer
-            </div>
-            <!-- /.card-footer-->
         </div>
-        <!-- /.card -->
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
