@@ -166,7 +166,7 @@
 
                         <li class="nav-item">
                             <a href="http://localhost/spp_inay/grafik" class="nav-link">
-                            <i class="nav-icon fas fa-history"></i>
+                            <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
                                     Grafik                                 </p>
                             </a>
@@ -181,7 +181,7 @@
                         <hr>
                         <li class="nav-item">
                                 <a href="<?= base_url('admin')?>" class="nav-link">
-                                <i class="fas fa-edit nav-icon"></i>
+                                <i class="fas fa-user-cog nav-icon"></i>
                                 <p>Administrator<p>
                                 </a>
                         </li>

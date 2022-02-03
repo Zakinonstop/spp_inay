@@ -85,6 +85,17 @@ class m_data_santri extends CI_Model
 		$this->db->join('tb_kelas', 'tb_kelas.id_kelas = tb_data_santri.id_kelas');
 		return $this->db->get_where('tb_data_santri', ['id' => $id])->row();
 	}
+
+	public function send_wa($id)
+	{
+		$data = $this->get_data_by_id($id);
+		$no_hp = $data->no_hp;
+		$nama = $data->nama;
+		$text = 'Assalamualaikum kang'. $nama .'Kami dari bendahara ingin memberitahu bahwa akan diadakan sistem pembayaran spp berbasis websitemakadari itu silakan kang xxxxbisa login ke link http......';
+
+		$url = prep_url('https://api.whatsapp.com/send?phone='.$no_hp.'&text='.$text);
+		redirect($url);
+	}
 }
 
 

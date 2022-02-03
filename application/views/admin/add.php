@@ -5,7 +5,7 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form role="form" action="<?= base_url('data_kamar/add_save') ?>" method="POST">
+    <form role="form" action="<?= base_url('admin/add_save') ?>" method="POST">
         <div class="card-body">
             <?php if ($this->session->flashdata('message')) : ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -17,8 +17,16 @@
 
             <?php endif; ?>
             <div class="form-group">
-                <label for="Nama">Nama Kamar</label>
-                <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" placeholder="Masukkan username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" name="password" placeholder="Masukkan password">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" placeholder="Masukkan email">
             </div>
 
         </div>
