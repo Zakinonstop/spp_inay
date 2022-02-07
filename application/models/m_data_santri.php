@@ -91,12 +91,10 @@ class m_data_santri extends CI_Model
 		$data = $this->get_data_by_id($id);
 		$no_hp = $data->no_hp;
 		$nama = $data->nama;
-		$text = 'Assalamualaikum kang'. $nama .'Kami dari bendahara ingin memberitahu bahwa akan diadakan sistem pembayaran spp berbasis websitemakadari itu silakan kang xxxxbisa login ke link http......';
+		$enter = '%0A';
+		$text = 'Assalamualaikum kang '. $nama .''.$enter.'Kami dari bendahara ingin memberitahukan bahwa akan diadakan *sistem pembayaran spp berbasis website*'.$enter.'makadari itu silakan kang '.$nama.' bisa login ke link berikut '.$enter.'http......';
 
 		$url = prep_url('https://api.whatsapp.com/send?phone='.$no_hp.'&text='.$text);
 		redirect($url);
 	}
 }
-
-
-// simpan lab

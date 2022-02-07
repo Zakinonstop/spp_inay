@@ -22,16 +22,16 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?= base_url('') ?>template/AdminLTE/index2.html"><b>Login ADMIN</b></a>
+    <a href="<?= base_url('') ?>template/AdminLTE/index2.html"><b>Login SANTRI</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="<?= base_url('login/login') ?>" method="post">
+      <form action="<?= base_url('login_santri/login') ?>" method="post">
         <div class="input-group mb-3">
-          <input type="username" class="form-control" name="username" placeholder="Username">
+          <input type="text" class="form-control" name="nis" placeholder="Nomor Induk Santri">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

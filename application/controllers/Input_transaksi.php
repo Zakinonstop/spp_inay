@@ -410,7 +410,7 @@ class input_transaksi extends CI_Controller
 			'get_transaksi_bulan' => $this->m_input_transaksi->get_transaksi_bulan($id_santri),
 		];
 
-        $html = $this->load->view('print_pdf/zaki',$data, true);
+        $html = $this->load->view('print_pdf/semua',$data, true);
 
 		$pdf = new Dompdf();
 
