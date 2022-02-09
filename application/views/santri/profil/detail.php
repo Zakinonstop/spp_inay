@@ -95,6 +95,9 @@
                         ?>
                     </div>
                 </div>
+                <div>
+                <a type="button" class="btn btn-warning" href="<?= base_url('profil_santri/edit/') ?><?= $data->id ?>">Edit Data</a>
+                </div>
             </div>
         </div>
         

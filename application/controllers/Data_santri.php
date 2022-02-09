@@ -176,6 +176,22 @@ class Data_santri extends CI_Controller
 
 	public function edit_save($id)
 	{
+		$foto = $_FILES['foto'];
+		if ($foto = '') {
+			
+		}else {
+			$config = [
+				'upload_path' => './assets/foto',
+				'allowed_types' => 'jpg|jpeg|png',
+			];
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('foto')) {
+				// echo 'Gagal Upload Foto';
+			}else {
+				$foto = $this->upload->data('file_name');
+			}
+		}
+
 		$data = [
 			'nama' => $this->input->post('nama'),
 			'alamat' => $this->input->post('alamat'),
@@ -183,6 +199,7 @@ class Data_santri extends CI_Controller
 			'id_kamar' => $this->input->post('kamar'),
 			'id_kelas' => $this->input->post('kelas'),
 			'no_hp' => $this->input->post('no_hp'),
+			'foto' => $foto,
 		];
 
 		$edit = $this->m_data_santri->update($data, $id);

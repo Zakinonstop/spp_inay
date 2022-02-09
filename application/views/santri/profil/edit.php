@@ -4,7 +4,7 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <?= form_open_multipart('data_santri/edit_save/'. $data->id) ?>
+    <?= form_open_multipart('profil_santri/edit_save/'. $data->id) ?>
         <div class="card-body">
             <div class="form-group">
                 <label for="Nama">Nama</label>
@@ -61,7 +61,7 @@
             
             <div class="form-group">
                 <label for="foto">Foto</label>
-                <input type="text" name="foto_asli" id="foto" value="<?= $data->foto ?>">
+                <input type="hidden" name="foto_asli" id="foto" value="<?= $data->foto ?>">
                 <input type="file" class="form-control" name="foto" id="foto" value="<?= $data->foto ?>">
             </div>
 

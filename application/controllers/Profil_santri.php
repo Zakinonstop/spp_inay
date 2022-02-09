@@ -176,6 +176,22 @@ class Profil_santri extends CI_Controller
 
 	public function edit_save($id)
 	{
+		$foto = $_FILES['foto'];
+		if ($foto = '') {
+			$foto = $this->input->post('foto_asli');
+		}else {
+			$config = [
+				'upload_path' => './assets/foto',
+				'allowed_types' => 'jpg|jpeg|png',
+			];
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('foto')) {
+				// echo 'Gagal Upload Foto';
+			}else {
+				$foto = $this->upload->data('file_name');
+			}
+		}
+
 		$data = [
 			'nama' => $this->input->post('nama'),
 			'alamat' => $this->input->post('alamat'),
@@ -183,6 +199,7 @@ class Profil_santri extends CI_Controller
 			'id_kamar' => $this->input->post('kamar'),
 			'id_kelas' => $this->input->post('kelas'),
 			'no_hp' => $this->input->post('no_hp'),
+			'foto' => $foto,
 		];
 
 		$edit = $this->m_profil_santri->update($data, $id);
@@ -190,7 +207,7 @@ class Profil_santri extends CI_Controller
 
 		$data = $this->session->set_flashdata('message', 'diedit');
 
-		redirect('data_santri');
+		redirect('profil_santri/detail/'.$id);
 	}
 
 	public function hapus($id)
@@ -210,14 +227,14 @@ class Profil_santri extends CI_Controller
 	{
 		$data = [
 			'title' => 'Edit Data Santri ',
-			'isi' => 'data_santri/edit',
+			'isi' => 'santri/profil/edit',
 			'data_kamar' => $this->m_profil_santri->get_kamar(),
 			'data_kelas' => $this->m_profil_santri->get_kelas(),
 			'data' => $this->m_profil_santri->get_data($id),
 		];
 		// var_dump($data['data']->nama);
 		// die;
-		return $this->load->view('master/index', $data);
+		return $this->load->view('master_santri/index', $data);
 	}
 
 	public function detail($id)

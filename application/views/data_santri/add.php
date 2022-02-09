@@ -5,7 +5,6 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form role="form" action="<?= base_url('data_santri/add_save') ?>" method="POST" enctype="multipart/form-data">
     <?= form_open_multipart('data_santri/add_save') ?>
 
         <div class="card-body">
