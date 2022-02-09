@@ -177,7 +177,7 @@ class Profil_santri extends CI_Controller
 	public function edit_save($id)
 	{
 		$foto = $_FILES['foto'];
-		if ($foto = '') {
+		if ($foto['name'] == '') {
 			$foto = $this->input->post('foto_asli');
 		}else {
 			$config = [
@@ -199,6 +199,7 @@ class Profil_santri extends CI_Controller
 			'id_kamar' => $this->input->post('kamar'),
 			'id_kelas' => $this->input->post('kelas'),
 			'no_hp' => $this->input->post('no_hp'),
+			'tgl_masuk' => $this->input->post('tgl_masuk'),
 			'foto' => $foto,
 		];
 

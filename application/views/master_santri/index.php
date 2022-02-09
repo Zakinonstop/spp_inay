@@ -10,7 +10,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Top Navigation</title>
+  <title>Inayatullah
+        <?php if (isset($title)) {
+            echo ' | ' . $title;
+        }  ?>
+
+    </title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?= base_url('') ?>template/AdminLTE/plugins/fontawesome-free/css/all.min.css">
@@ -25,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="#" class="navbar-brand">
+      <a href="<?= base_url('dashboard_santri')?>" class="navbar-brand">
         <img src="<?= base_url('') ?>template/AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light"><u> INAY APP SISTEM</u></span>
@@ -39,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="<?= base_url('')?>" class="nav-link">SPP</a>
+            <a href="<?= base_url('santri_spp/view/')?><?= $this->session->userdata['id']?>" class="nav-link">SPP</a>
           </li>
          
         </ul>

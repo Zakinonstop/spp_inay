@@ -1,5 +1,25 @@
+<div class="row">
+          <div class="col-lg-12">
+            <div class="card card-info card-outline">
+              <div class="card-body">
+                <h4 class="card-title"><b>History Pembayaran</b></h4>
+
+                <p class="card-text">
+                  Ini adalah halaman dimana para santri dapat melihat history pembayaran spp-nya.
+                </p>
+              </div>
+            </div><!-- /.card -->
+          </div>
+          <!-- /.col-md-6 -->
+          
+        </div>
+
+        <div class="row">
+    <div class="col-md-12">
+        
+
 <!-- Default box -->
-<div class="card">
+<div class="card card-info">
 
     <!-- /.card-header -->
     <div class="card-body">
@@ -24,11 +44,8 @@
 
             </div>
             <br>
-            <div class="row  ">
+            <div class="row">
                 <div class="col-9">
-                    <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_pdf')?>" target="_blank">Print</a>
-                    <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_per_santri/')?><?= $idnya_santri ;?>" target="_blank">Print Per Santri</a>
-                    <!-- <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_pdf')?>">Print</a> -->
                 </div>
 
                 <div class="col-3">
@@ -37,14 +54,7 @@
                         <!-- <a href="<?= base_url('input_transaksi/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
                     </div>
 
-                    <form action="" method="post">
-                        <div class="input-group input-group-md">
-                            <input type="text" class="form-control" placeholder="Cari data transaksi.." name="keyword">
-                            <span class="input-group-append">
-                                <button type="submit" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Cari">Cari</button>
-                            </span>
-                        </div>
-                    </form>
+                   
                 </div>
 
             </div>
@@ -75,7 +85,6 @@
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Keterangan</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Waktu Bayar</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Created By</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Kelas: activate to sort column ascending">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -103,9 +112,9 @@
                                             echo $ds->jumlah_bayar;
                                         } else if ($urut == 0) { ?>
                                             <?php $urut++; ?>
-                                            <a type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Input Transaksi</a>
+                                            <!-- <a type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Input Transaksi</a> -->
                                         <?php } else { ?>
-                                            <a type="button" aria-disabled="true" class="btn btn-sm btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Input Transaksi</a>
+                                            <!-- <a type="button" aria-disabled="true" class="btn btn-sm btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Input Transaksi</a> -->
                                         <?php } ?>
 
                                     </td>
@@ -144,14 +153,16 @@
                                     </td>
 
                                     <td>
-                                        <?php
-                                        if ($ds->keterangan == 1) { ?>
-                                            <a type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="#">Lunas</a>
-                                        <?php } elseif ($ds->keterangan == '0') { ?>
-                                            <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Belum Lunas" href="#">Belum Lunas</a>
-                                        <?php } ?>
-                                        <!-- <?= $ds->keterangan; ?> -->
-                                    </td>
+                                            <?php
+                                            if ($ds->keterangan == 1) { ?>
+                                            <h6><span class="badge badge-pill badge-success">LUNAS</span></h6>
+                                            <!-- <a type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="#">Lunas</a> -->
+                                            <?php } elseif ($ds->keterangan == '0') { ?>
+                                                <h6><span class="badge badge-pill badge-success">BELUM LUNAS</span></h6>
+                                                <!-- <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Belum Lunas" href="#">Belum Lunas</a> -->
+                                                <?php } ?>
+                                                <!-- <?= $ds->keterangan; ?> -->
+                                            </td>
 
 
                                     <td>
@@ -163,17 +174,7 @@
  
                                     </td>
                                     <td><?= $ds->created_by; ?></td>
-                                    <!-- <td><?= $ds->tanggal_bayar; ?></td> -->
-                                    <!-- <td><?= date_format(date_create($ds->tanggal_bayar), 'd-m-Y'); ?></td> -->
-                                    <td width="50">
-                                        <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Detail" href="<?= base_url('input_transaksi/detail/') ?><?= $ds->id_data_transaksi ?>"><i class="fa fa-eye"></i></a>
-                                    </td>
-                                    <td width="50">
-                                        <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url('input_transaksi/edit/') ?><?= $ds->id_data_transaksi ?>"><i class="fa fa-edit"></i></a>
-                                    </td>
-                                    <!-- <td width="50">
-                                        <a onclick="return confirm('Anda Yakin ?')" class="text-danger" data-toggle="tooltip" data-placement="top" title="Hapus" href="<?= base_url('input_transaksi/hapus/') ?><?= $ds->id_data_transaksi ?>"><i class="fa fa-trash"></i></a>
-                                    </td> -->
+                                   
                                 </tr>
                             <?php
                             } ?>
@@ -201,68 +202,13 @@
         </div>
     </div>
     <!-- /.card-body -->
+    <!-- <div class="card-footer">
+        cek
+    </div> -->
 </div>
 <!-- /.card -->
 
 
-<div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Default Modal</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                
-                <form action="<?= base_url('input_transaksi/next/') ?><?= $ambil_id_trans ?>" method="post">
-                    <input hidden type="text" name="id_data_santri" value="<?= $ambil_id_santri ?>">
-                   
-
-                    <div class="modal-body">
-                        <p>Untuk Bulan Depan ?</p>
-                    </div>
-
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Yes</button>
-                    </div>
-                </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-
-<div class="modal fade" id="modal-kembalian">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Default Modal</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                
-                <form action="<?= base_url('input_transaksi/kembalian/') ?><?= $ambil_id_trans ?>" method="post">
-                    <input hidden type="text" name="id_data_santri" value="<?= $ambil_id_santri ?>">
-                   
-
-                    <div class="modal-body">
-                        <p>Untuk Kembalian ?</p>
-                    </div>
-
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Yes</button>
-                    </div>
-                </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 
 
 <!-- /.content -->

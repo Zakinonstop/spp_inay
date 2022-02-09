@@ -126,8 +126,8 @@
                                                 </td>
                                                 
                                                 <td>
-                                                    <?php
-                                        if ($ds->keterangan == 1) { ?>
+                                            <?php
+                                            if ($ds->keterangan == 1) { ?>
                                             <h6><span class="badge badge-pill badge-success">LUNAS</span></h6>
                                             <!-- <a type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="#">Lunas</a> -->
                                             <?php } elseif ($ds->keterangan == '0') { ?>

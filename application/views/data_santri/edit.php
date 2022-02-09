@@ -61,7 +61,7 @@
             
             <div class="form-group">
                 <label for="foto">Foto</label>
-                <input type="text" name="foto_asli" id="foto" value="<?= $data->foto ?>">
+                <input type="hidden" name="foto_asli" id="foto_asli" value="<?= $data->foto ?>">
                 <input type="file" class="form-control" name="foto" id="foto" value="<?= $data->foto ?>">
             </div>
 
