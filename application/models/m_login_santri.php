@@ -18,7 +18,7 @@ class m_login_santri extends CI_Model
 		$this->db->select('*');
 		$this->db->where('nis', $nis);
 		$this->db->where('password', $password);
-		return $this->db->get('tb_data_santri')->num_rows();
+		return $this->db->get('tb_data_santri');
 	}
 }
 

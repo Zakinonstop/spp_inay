@@ -24,7 +24,7 @@ class Login_santri extends CI_Controller
 
 	public function login()
 	{
-		redirect('dashboard_santri');
+		// redirect('dashboard_santri');
 		// cek inputan 
 		// $data = [
 			
@@ -32,20 +32,36 @@ class Login_santri extends CI_Controller
 		// 	'status' => 'login',
 		// ];
 
-		// // cek inputan di database
-		// $cek_login = $this->m_login_santri->cek_login();
+		// cek inputan di database
+		$cek_login = $this->m_login_santri->cek_login()->num_rows();
+		$session_santri = $this->m_login_santri->cek_login()->result();
+		foreach ($session_santri as $key => $ses) {
+			$id = $ses->id;
+			$nama = $ses->nama;
+			$nis = $ses->nis;
+		}
 
-		// if ($cek_login > 0) {
-		// 	$this->session->set_userdata($data);
-		// 	redirect('dashboard_santri');
-		// }else {
-		// 	redirect('login_santri');
-		// }
+		$data = [
+			'id' => $id,
+			'nama' => $nama,
+			'nis' => $nis,
+			'status' => 'login',
+		];
+
+		if ($cek_login > 0) {
+
+			$this->session->set_userdata($data);
+			// echo 'ada';
+			// echo $nama;
+			redirect('dashboard_santri');
+		}else {
+			redirect('login_santri');
+		}
 	}
 
 	public function logout()
 	{
 		$this->session_destroy;
-		redirect('login');
+		redirect('');
 	}
 }

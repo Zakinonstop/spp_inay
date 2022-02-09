@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <a href="#" class="navbar-brand">
         <img src="<?= base_url('') ?>template/AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light"><u> INAY APP SISTEM</u></span>
       </a>
       
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="<?= base_url('user_profile')?>" class="nav-link">Profil</a>
+            <a href="<?= base_url('')?>" class="nav-link">SPP</a>
           </li>
          
         </ul>
@@ -55,15 +55,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">15</span>
+            <p><?= $this->session->userdata['nama']?> <i class="far fa-user"></i></p>
+            <!-- <span class="badge badge-warning navbar-badge">15</span> -->
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-header">15 Notifications</span>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
+            <a href="<?= base_url('profil_santri/detail/')?><?= $this->session->userdata['id']?>" class="dropdown-item">
+              <i class="fas fa-user mr-2"></i> Profil
+            </a>
+            <a href="<?= base_url('login_santri/logout')?>" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> Logout
             </a>
            
           </div>
@@ -80,14 +82,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content-header">
       <div class="container">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> Top Navigation <small>Example 3.0</small></h1>
+          <div class="col-sm-10">
+            <h5 class="m-0 text-dark"> <marquee>Inay Aplication Sistem || Nek ora ngaji yo mulang ngaji.Iki mung conto sak sakke kata katane mung pengin
+              dowo dowo wae, anandan sariharjo ngaglik sleman yogyakarta.
+            </marquee></h5>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          <div class="col-sm-2">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Layout</a></li>
-              <li class="breadcrumb-item active">Top Navigation</li>
+              <li class="breadcrumb-item"><a href="#">Profil</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
