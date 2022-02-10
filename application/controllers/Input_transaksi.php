@@ -411,6 +411,7 @@ class input_transaksi extends CI_Controller
 		];
 
         $html = $this->load->view('print_pdf/semua',$data, true);
+		$html .= '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">';
 
 		$pdf = new Dompdf();
 
@@ -447,8 +448,8 @@ class input_transaksi extends CI_Controller
 
 	}
 
-	public function print_pdf_view()
+	public function print_kamar()
 	{
-		$this->load->view('print_pdf/transaksi');
+		$this->load->view('print_pdf/kamar');
 	}
 }

@@ -1,4 +1,20 @@
-<div class="card card-success">
+<div class="row">
+          <div class="col-lg-12">
+            <div class="card card-info card-outline">
+              <div class="card-body">
+                <h4 class="card-title"><b>History Pembayaran</b></h4>
+
+                <p class="card-text">
+                  Ini adalah halaman dimana para santri dapat melihat history pembayaran spp-nya.
+                </p>
+              </div>
+            </div><!-- /.card -->
+          </div>
+          <!-- /.col-md-6 -->
+          
+        </div>
+
+<div class="card card-info">
     <div class="card-header">
         <!-- <h3 class="card-title">Quick Example</h3> -->
     </div>
@@ -69,7 +85,7 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
     <?= form_close();?>
 </div>

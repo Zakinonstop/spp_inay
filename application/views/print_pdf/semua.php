@@ -1,282 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<h2 align='center'>Laporan Pembayaran SPP</h2>
-<hr>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<h3 align='left'>Tahun : 2022</h3>
-<h3 align='left'>Kamar : Umar 1</h3>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
 
-<div class="row" style="display : flex;flex-wrap: nowrap;background-color: DodgerBlue;">
-  <div class="col" style="margin: 10px;" >
-    <table border="1" >
-      <td>1</td>
-    </table>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
 
-    <table border="1" style="margin: 10px;">
-      <td>2</td>
-    </table>
-  </div>
-</div>
-
-<div class="row">
-  <div class="column">
-   <table border="1">
-      <tr>
-        <th>No</th>
-        <th>Nama</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Smith</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Stark</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Pogba</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="column">
-   <table>
-      <tr>
-        <th>Januari</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="column">
-   <table>
-      <tr>
-        <th>Februari</th>
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="column">
-   <table>
-      <tr>
-        <th>Maret</th>
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="column">
-   <table>
-      <tr>
-        <th>April</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="column">
-   <table>
-      <tr>
-        <th>Mei</th>
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="column">
-   <table>
-      <tr>
-        <th>Juni</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="column">
-   <table>
-      <tr>
-        <th>Juli</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="column">
-   <table>
-      <tr>
-        <th>Agustus</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-  
-  <div class="column">
-   <table>
-      <tr>
-        <th>September</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-  <div class="column">
-   <table>
-      <tr>
-        <th>Oktober</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-  <div class="column">
-   <table>
-      <tr>
-        <th>November</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-  <div class="column">
-   <table>
-      <tr>
-        <th>Desember</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-  <div class="column">
-   <table>
-      <tr>
-        <th>Keterangan</th>
-        
-      </tr>
-      <tr>
-        <td>Belly</td>
-      </tr>
-      <tr>
-        <td>Eva</td>
-      </tr>
-      <tr>
-        <td>Diena</td>
-      </tr>
-    </table>
-  </div>
-
-</div>
-<br><br>
-        <h4 align='right'>Bendahara</h4><br><br>
-        <h4 align='right'>Zaki Nafi</h4>
-
-
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>

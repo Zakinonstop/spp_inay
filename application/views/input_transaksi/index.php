@@ -28,7 +28,8 @@
                 <div class="col-9">
                     <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_pdf')?>" target="_blank">Print</a>
                     <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_per_santri/')?><?= $idnya_santri ;?>" target="_blank">Print Per Santri</a>
-                    <!-- <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_pdf')?>">Print</a> -->
+                    <!-- <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_kamar')?>">Print</a> -->
+                    <a type="button" class="btn btn-primary" href="<?= base_url('input_transaksi/print_kamar')?>" target="_blank">Print</a>
                 </div>
 
                 <div class="col-3">
