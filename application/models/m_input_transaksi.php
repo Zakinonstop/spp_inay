@@ -42,9 +42,99 @@ class m_input_transaksi extends CI_Model
 		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '1'])->result();
 	}
 
+	public function get_februari()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '2'])->result();
+	}
+	
+	public function get_maret()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '3'])->result();
+	}
+
+	public function get_april()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '4'])->result();
+	}
+
+	public function get_mei()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '5'])->result();
+	}
+
+	public function get_juni()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '6'])->result();
+	}
+
+	public function get_juli()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '7'])->result();
+	}
+
+	public function get_agustus()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '8'])->result();
+	}
+
+	public function get_september()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '9'])->result();
+	}
+
+	public function get_oktober()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '10'])->result();
+	}
+
+	public function get_november()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '11'])->result();
+	}
+
+	public function get_desember()
+	{
+		$this->db->select('tanggal_bayar');
+		$this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '12'])->result();
+	}
+
 	public function get_data_santri()
 	{
 		$this->db->select('*');
+		// $this->db->join('tb_kamar', 'tb_kamar.id_kamar = tb_data_santri.id_kamar');
+		// $this->db->order_by('id_data_santri', 'ASC');
 		return $this->db->get('tb_data_santri')->result();
 	}
 
@@ -374,6 +464,8 @@ class m_input_transaksi extends CI_Model
 	{
 		return $this->db->get_where('tb_data_transaksi', ['id_data_transaksi' => $id])->row();
 	}
+
+	
 }
 
 

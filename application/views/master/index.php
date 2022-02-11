@@ -178,6 +178,12 @@
                                 <p>Jurnal Umum </p>
                                 </a>
                         </li>
+                        <li class="nav-item">
+                                <a href="<?= base_url('laporan')?>" class="nav-link">
+                                <i class="fas fa-edit nav-icon"></i>
+                                <p>Laporan Keuangan</p>
+                                </a>
+                        </li>
                         <hr>
                         <li class="nav-item">
                                 <a href="<?= base_url('admin')?>" class="nav-link">

@@ -450,6 +450,30 @@ class input_transaksi extends CI_Controller
 
 	public function print_kamar()
 	{
-		$this->load->view('print_pdf/kamar');
+		$data = [
+			'title' => 'Print ',
+			'isi' => 'input_transaksi/index',
+			'data_santri' => $this->m_input_transaksi->get_data_santri(),
+			'data_januari' => $this->m_input_transaksi->get_januari(),
+			'data_februari' => $this->m_input_transaksi->get_februari(),
+			'data_maret' => $this->m_input_transaksi->get_maret(),
+			'data_april' => $this->m_input_transaksi->get_april(),
+			'data_mei' => $this->m_input_transaksi->get_mei(),
+			'data_juni' => $this->m_input_transaksi->get_juni(),
+			'data_juli' => $this->m_input_transaksi->get_juli(),
+			'data_agustus' => $this->m_input_transaksi->get_agustus(),
+			'data_september' => $this->m_input_transaksi->get_september(),
+			'data_oktober' => $this->m_input_transaksi->get_oktober(),
+			'data_november' => $this->m_input_transaksi->get_november(),
+			'data_desember' => $this->m_input_transaksi->get_desember(),
+			// 'input_transaksi' => $input_transaksi,
+			// 'input_transaksi' => $this->m_input_transaksi->get_all_data($idnya_santri),
+			// 'start' => 0,
+			// 'idnya_santri' => $idnya_santri,
+			// 'start' => $this->uri->segment(5),
+			// 'pagination' => $pagination_link,
+			// 'jumlah_data' => $this->m_input_transaksi->count_search_data($idnya_santri),
+		];
+		$this->load->view('print_pdf/kamar', $data);
 	}
 }
