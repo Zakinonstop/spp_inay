@@ -18,18 +18,18 @@
                 <div class="col-6">
 
                     <div class="dataTables_length float-right" id="example1_length">
-                        <a href="<?= base_url('data_santri/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a>
+                        <!-- <a href="<?= base_url('data_santri/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
                     </div>
                 </div>
 
             </div>
             <br>
-            <div class="row d-flex">
-                <div class="col-9">
+            <div class="row d-flex ml-4">
+                <div class="col-8">
 
                 </div>
 
-                <div class="col-3">
+                <div class="col-2">
 
                     <div class="dataTables_length float-right" id="example1_length">
                         <!-- <a href="<?= base_url('data_santri/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
@@ -43,6 +43,10 @@
                             </span>
                         </div>
                     </form>
+                </div>
+                
+                <div class="col-2">
+                    <a href="<?= base_url('data_santri/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a>
                 </div>
 
             </div>

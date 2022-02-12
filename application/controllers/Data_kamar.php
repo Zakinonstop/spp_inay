@@ -140,6 +140,8 @@ class Data_kamar extends CI_Controller
 			'title' => 'Detail kamar ',
 			'isi' => 'data_kamar/detail',
 			'data' => $this->m_data_kamar->get_data_by_id($id),
+			'jumlah_anggota' => $this->m_data_kamar->get_jumlah_anggota_by_id($id),
+			'nama_anggota' => $this->m_data_kamar->get_nama_anggota_by_id($id),
 		];
 		// var_dump($data['data']->nama);
 		// die;

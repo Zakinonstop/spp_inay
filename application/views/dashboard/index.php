@@ -64,7 +64,7 @@
        <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Title</h3>
+                <h3 class="card-title">SISTEM PEMBAYARAN SPP PONPES INAYATULLAH</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -74,11 +74,11 @@
                 </div>
             </div>
             <div class="card-body">
-                Start creating your amazing application!
+                Ini adalah aplikasi berbasis website yang digunakan untuk mengelola pembayaran SPP pada <b>PONDOK PESANTREN INAYATULLAH</b>.
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                Footer
+                Semoga Bermanfaat.
             </div>
             <!-- /.card-footer-->
         </div>
