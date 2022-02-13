@@ -59,7 +59,7 @@ class Data_kamar extends CI_Controller
 		// }
 
 		$data = [
-			'title' => 'Data kamar',
+			'title' => 'Data Kamar',
 			'isi' => 'data_kamar/index',
 			'data_kamar' => $data_kamar,
 			// 'data_kamar' => $this->m_data_kamar->get_all_data(),

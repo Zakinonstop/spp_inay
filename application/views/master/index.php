@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="<?= base_url('') ?>assets/foto/logo_pondok.png">
     <title>Inayatullah
         <?php if (isset($title)) {
             echo ' | ' . $title;
@@ -37,48 +38,21 @@
 
             </ul>
 
-            <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <!-- Messages Dropdown Menu -->
-               
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <p><?= $this->session->userdata['username'];?></p>
-                        <!-- <i class="far fa-bell"></i> -->
-                        <!-- <span class="badge badge-warning navbar-badge">15</span> -->
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <!-- <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div> -->
-                        <!-- <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a> -->
-                        <div class="dropdown-divider"></div>
-                        <a href="<?= base_url('login/logout')?>" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> Logout
-                            <!-- <span class="float-right text-muted text-sm">2 days</span> -->
-                        </a>
-                        <!-- <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a> -->
-                    </div>
+                <li class="nav-item">
+                <a type="button" href="<?= base_url('login/logout')?>" class="btn btn-block btn-warning btn-sm"><b>LOGOUT</b></a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li> -->
+
             </ul>
+
+            
+            <!-- Right navbar links -->
+           
+           
         </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-succes elevation-2">
+        <aside class="main-sidebar sidebar-dark-succes elevation-1">
             <!-- Brand Logo -->
             <a href="#" class="brand-link navbar-success">
                 <img src="<?= base_url('') ?>assets/foto/logo_pondok.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -87,14 +61,21 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
+                <div class="card-body box-profile flex-column">
+                    <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle" src="<?= base_url('') ?>assets/foto/logo_pondok.png" alt="User profile picture">
+                    </div>
+
+                    <h3 style="color : white;" class="profile-username text-center"><?= $this->session->userdata['username']?></h3>
+
+                    <p style="color : white;" class="text-muted text-center"><?= $this->session->userdata['email']?></p>
+
+
+                    <a href="#" class="btn btn-warning btn-block btn-sm"><b style="color: black;">Lihat Profile</b></a>
+                </div>
                 <!-- Sidebar user (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="<?= base_url('') ?>template/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block"><?= $this->session->userdata['username']?></a>
-                    </div>
+                <div class="user-panel pb-3 mb-3 d-flex">
+                   
                 </div>
 
                 <!-- Sidebar Menu -->
@@ -221,9 +202,9 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1><?php if (isset($title)) {
-                                    echo $title;
-                                }  ?></h1>
+                            <h5><?php if (isset($title)) {
+                                    echo strtoupper($title);
+                                }  ?></h5>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">

@@ -72,7 +72,7 @@ tr:nth-child(even) {
 
 <hr>
 <h4>Tahun : 2022 </h4>
-<h4>Kamar : Umar 2 </h4>
+<h4>Kamar : <?= $data_kamar?> </h4>
 
 <div class="row">
   <div class="column">

@@ -139,7 +139,7 @@ class Admin extends CI_Controller
 	public function detail($id)
 	{
 		$data = [
-			'title' => 'Detail kamar ',
+			'title' => 'Detail Administrator ',
 			'isi' => 'admin/detail',
 			'data' => $this->m_admin->get_data_by_id($id),
 		];

@@ -6,20 +6,12 @@
         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
             <div class="row d-flex">
                 <div class="col-6">
-                    <!-- <div class="dataTables_length" id="example1_length"><label>Show <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select> entries</label></div> -->
-
+                   
                 </div>
 
                 <div class="col-6">
 
-                    <div class="dataTables_length float-right" id="example1_length">
-                        <a href="<?= base_url('kamar/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a>
-                    </div>
+                    
                 </div>
 
             </div>

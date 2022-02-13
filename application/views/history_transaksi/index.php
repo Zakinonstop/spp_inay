@@ -35,14 +35,14 @@
                         <!-- <a href="<?= base_url('history_transaksi/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
                     </div>
 
-                    <form action="" method="post">
+                    <!-- <form action="" method="post">
                         <div class="input-group input-group-md">
                             <input type="text" class="form-control" placeholder="Cari data transaksi.." name="keyword">
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Cari">Cari</button>
                             </span>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
 
             </div>

@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+  <nav class="main-header navbar navbar-expand-md navbar-light navbar-green">
     <div class="container">
       <a href="<?= base_url('dashboard_santri')?>" class="navbar-brand">
         <img src="<?= base_url('') ?>template/AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -52,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div>
 
       <!-- Right navbar links -->
-      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+      <ul class="order-1 order-md-3 navbar-nav  navbar-no-expand ml-auto">
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
       

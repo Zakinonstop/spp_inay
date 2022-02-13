@@ -41,7 +41,10 @@ class Laporan extends CI_Controller
 			'data_oktober' => $this->m_laporan->get_oktober($id),
 			'data_november' => $this->m_laporan->get_november($id),
 			'data_desember' => $this->m_laporan->get_desember($id),
+			'data_kamar' => $this->m_laporan->get_kamar($id),
+
 		];
+		$nama_kamar = $this->m_laporan->get_kamar($id);
 
 		$this->load->view('print_pdf/cetak_laporan', $data);
 	}

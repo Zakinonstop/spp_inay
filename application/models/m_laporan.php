@@ -132,6 +132,11 @@ class m_laporan extends CI_Model
 		$this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
 		return $this->db->get_where('tb_data_transaksi', ['id_bulan' => '12', 'id_kamar' => $id])->result();
 	}
+
+	public function get_kamar($id)
+	{
+		return $this->db->get_where('tb_kamar', ['id_kamar' => $id])->row();
+	}
 }
 
 

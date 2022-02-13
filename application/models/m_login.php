@@ -18,7 +18,7 @@ class m_login extends CI_Model
 		$this->db->select('*');
 		$this->db->where('username', $username);
 		$this->db->where('password', $password);
-		return $this->db->get('tb_admin')->num_rows();
+		return $this->db->get('tb_admin');
 	}
 }
 

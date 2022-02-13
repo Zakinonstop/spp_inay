@@ -55,7 +55,7 @@ class History_transaksi extends CI_Controller
 		$history_transaksi = $this->m_history_transaksi->get_search_data($config['per_page'], $config['start']);
 		
 		$data = [
-			'title' => 'History transaksi',
+			'title' => 'History Transaksi',
 			'isi' => 'history_transaksi/index',
 			'history_transaksi' => $history_transaksi,
 			// 'history_transaksi' => $this->m_history_transaksi->get_all_data(),

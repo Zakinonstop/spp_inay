@@ -72,7 +72,7 @@ tr:nth-child(even) {
 
 <hr>
 <h4>Tahun : 2022 </h4>
-<h4>Kamar : Umar 2 </h4>
+<h4>Kamar : <?= $data_kamar->nama_kamar?> </h4>
 
 <div class="row">
   <div class="column">
@@ -80,7 +80,6 @@ tr:nth-child(even) {
       <tr>
         <th>No</th>
         <th>Nama</th>
-        <th>Kamar</th>
       </tr>
 
       <?php
@@ -90,7 +89,6 @@ tr:nth-child(even) {
         <tr>
           <td><?= $no++?></td>
           <td><?= $ns->nama?></td>
-          <td><?= $ns->id_kamar?></td>
         </tr>
 
         <?php }?>

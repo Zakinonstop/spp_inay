@@ -8,17 +8,17 @@
     <div class="card-body">
         <div class="row">
             <div class="col-lg-8">
-                <table class="table table-striped table-sm">
+                <table class="table table-striped table-bordered table-sm">
                     <tr>
                         <td>Nama Kamar</td>
-                        <td>:</td>
+                        <td align="center">:</td>
                         <td><?= $data->nama_kamar ?></td>
                         <!-- <td rowspan="8"></td> -->
                         <!-- <td rowspan="8"><td><img width="100 %" src="<?= base_url('assets/foto/')?><?= $data->foto?>" alt=""></td></td> -->
                     </tr>
                     <tr>
                         <td>Jumlah Anggota</td>
-                        <td>:</td>
+                        <td align="center">:</td>
                         <td><?= $jumlah_anggota ?></td>
                     </tr>
                   

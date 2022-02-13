@@ -16,7 +16,7 @@ class Data_tagihan extends CI_Controller
 
 		$config['base_url'] = 'http://localhost/spp_inay/data_tagihan/index/';
 		$config['total_rows'] = $this->m_data_tagihan->count_search_data();
-		$config['per_page'] = 5;
+		$config['per_page'] = 12;
 		$config['start'] = $this->uri->segment(3);
 		// $config['use_page_numbers'] = true;
 		$config["full_tag_open"] = ' <nav><ul class="pagination justify-content-end">';
@@ -59,7 +59,7 @@ class Data_tagihan extends CI_Controller
 		// }
 
 		$data = [
-			'title' => 'Data tagihan',
+			'title' => 'Data Tagihan',
 			'isi' => 'data_tagihan/index',
 			'data_tagihan' => $data_tagihan,
 			// 'data_tagihan' => $this->m_data_tagihan->get_all_data(),

@@ -59,7 +59,7 @@ class Data_tahun extends CI_Controller
 		// }
 
 		$data = [
-			'title' => 'Data tahun',
+			'title' => 'Data Tahun',
 			'isi' => 'data_tahun/index',
 			// 'data_tahun' => $data_tahun,
 			'data_tahun' => $this->m_data_tahun->get_all_data(),
