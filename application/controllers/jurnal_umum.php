@@ -16,7 +16,7 @@ class Jurnal_umum extends CI_Controller
 
 		$config['base_url'] = 'http://localhost/spp_inay/jurnal_umum/index/';
 		$config['total_rows'] = $this->m_jurnal_umum->count_search_data();
-		$config['per_page'] = 5;
+		$config['per_page'] = 10;
 		$config['start'] = $this->uri->segment(3);
 		// $config['use_page_numbers'] = true;
 		$config["full_tag_open"] = ' <nav><ul class="pagination justify-content-end">';
@@ -127,10 +127,10 @@ class Jurnal_umum extends CI_Controller
 	{
 
 		$this->form_validation->set_rules('pemasukan', 'Nominal Pemasukan', 'required');
-		$pemasukan = $this->input->post('pemasukan');
+		// $pemasukan = $this->input->post('pemasukan');
 		
-		$saldo_terakhir =$this->m_jurnal_umum->get_last_saldo();
-		$saldo_sekarang = $saldo_terakhir + $pemasukan ;
+		// $saldo_terakhir =$this->m_jurnal_umum->get_last_saldo();
+		// $saldo_sekarang = $saldo_terakhir + $pemasukan ;
 
 		// echo $saldo_terakhir;
 		// die();
@@ -143,7 +143,7 @@ class Jurnal_umum extends CI_Controller
 				'pemasukan' => $this->input->post('pemasukan'),
 				'keterangan' => $this->input->post('keterangan'),
 				'tgl_jurnal' => $this->input->post('tgl_jurnal'),
-				'saldo' => $saldo_sekarang,
+				// 'saldo' => $saldo_sekarang,
 				'created_by' => $this->session->userdata['username'],
 			];
 
@@ -157,9 +157,9 @@ class Jurnal_umum extends CI_Controller
 	{
 
 		$this->form_validation->set_rules('pengeluaran', 'Nominal Pengeluaran', 'required');
-		$saldo_terakhir =$this->m_jurnal_umum->get_last_saldo();
-		$pengeluaran = $this->input->post('pengeluaran');
-		$saldo_sekarang = $saldo_terakhir - $pengeluaran ;
+		// $saldo_terakhir =$this->m_jurnal_umum->get_last_saldo();
+		// $pengeluaran = $this->input->post('pengeluaran');
+		// $saldo_sekarang = $saldo_terakhir - $pengeluaran ;
 
 		// echo $saldo_terakhir;
 		// die();
@@ -172,7 +172,7 @@ class Jurnal_umum extends CI_Controller
 				'pengeluaran' => $this->input->post('pengeluaran'),
 				'keterangan' => $this->input->post('keterangan'),
 				'tgl_jurnal' => $this->input->post('tgl_jurnal'),
-				'saldo' => $saldo_sekarang,
+				// 'saldo' => $saldo_sekarang,
 				'created_by' => $this->session->userdata['username'],
 			];
 
@@ -190,17 +190,17 @@ class Jurnal_umum extends CI_Controller
 		// $count_saldo = $this->db->query('SELECT id_jurnal_umum FROM tb_jurnal_umum')->num_rows();
 		// echo $count_saldo;
 		// die();
-		$saldo_sebelum_akhir = $this->m_jurnal_umum->saldo_sebelum_akhir();
+		// $saldo_sebelum_akhir = $this->m_jurnal_umum->saldo_sebelum_akhir();
 		// echo $saldo_sebelum_akhir;
 		// die();
-		$pemasukan = $this->input->post('pemasukan');
-		$pengeluaran = $this->input->post('pengeluaran');
-		if ($pemasukan) {
-			$saldo = $saldo_sebelum_akhir + $pemasukan;
-		}else {
-			$saldo = $saldo_sebelum_akhir - $pengeluaran;
+		// $pemasukan = $this->input->post('pemasukan');
+		// $pengeluaran = $this->input->post('pengeluaran');
+		// if ($pemasukan) {
+		// 	$saldo = $saldo_sebelum_akhir + $pemasukan;
+		// }else {
+		// 	$saldo = $saldo_sebelum_akhir - $pengeluaran;
 			
-		};
+		// };
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = $this->session->set_flashdata('message', validation_errors());
@@ -211,7 +211,7 @@ class Jurnal_umum extends CI_Controller
 				'pengeluaran' => $this->input->post('pengeluaran'),
 				'keterangan' => $this->input->post('keterangan'),
 				'tgl_jurnal' => $this->input->post('tgl_jurnal'),
-				'saldo' => $saldo,
+				// 'saldo' => $saldo,
 			];
 
 			$this->m_jurnal_umum->edit_save($data, $id);

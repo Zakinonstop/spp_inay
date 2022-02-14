@@ -71,7 +71,7 @@
                     <p style="color : white;" class="text-muted text-center"><?= $this->session->userdata['email']?></p>
 
 
-                    <a href="#" class="btn btn-warning btn-block btn-sm"><b style="color: black;">Lihat Profile</b></a>
+                    <a href="<?= base_url('admin/view')?>" class="btn btn-warning btn-block btn-sm"><b style="color: black;">Lihat Profile</b></a>
                 </div>
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel pb-3 mb-3 d-flex">

@@ -90,11 +90,20 @@ class m_data_santri extends CI_Model
 	{
 		$data = $this->get_data_by_id($id);
 		$no_hp = $data->no_hp;
+		// echo $no_hp;
+		if(substr(trim($no_hp), 0, 1)=='0'){
+			$hp = '62'.substr(trim($no_hp), 1);
+		}else {
+			$hp = $no_hp;
+		}
+		// echo '<br>';
+		// echo $hp;
+		// die();
 		$nama = $data->nama;
 		$enter = '%0A';
-		$text = 'Assalamualaikum kang '. $nama .''.$enter.'Kami dari bendahara ingin memberitahukan bahwa akan diadakan *sistem pembayaran spp berbasis website*'.$enter.'makadari itu silakan kang '.$nama.' bisa login ke link berikut '.$enter.'http......';
+		$text = 'Assalamualaikum kang '. $nama .''.$enter.'Kami dari bendahara ingin memberitahukan bahwa akan diadakan *sistem pembayaran spp berbasis website*'.$enter.'maka dari itu silakan kang '.$nama.' bisa login ke link berikut '.$enter.'http......';
 
-		$url = prep_url('https://api.whatsapp.com/send?phone='.$no_hp.'&text='.$text);
+		$url = prep_url('https://api.whatsapp.com/send?phone='.$hp.'&text='.$text);
 		redirect($url);
 	}
 }

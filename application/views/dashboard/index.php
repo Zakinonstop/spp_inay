@@ -52,7 +52,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Saldo</span>
-                <span class="info-box-number"><?= $jumlah_pemasukan - $jumlah_pengeluaran?></span>
+                <span class="info-box-number"><?= $total_pemasukan->jumlah_bayar + $jumlah_pemasukan  - $jumlah_pengeluaran?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
