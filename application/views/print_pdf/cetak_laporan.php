@@ -13,7 +13,12 @@
 }
   
 .container {
-  padding: 20px;
+  /* align:center; */
+  /* text-align: center; */
+  /* margin-left: 400px; */
+  width: 297mm;
+  height: 210mm;
+  padding: 2px;
 }
   
 .column {
@@ -34,16 +39,19 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  border: 0px solid #ddd;
+  border: 0.1px solid #ddd;
 }
 
 th, td {
   text-align: center;
-  padding: 16px;
+  padding: 4px;
+  width: 50px;
+  height: 30px;
 }
 
+
 tr{
-  height: 50px;
+  height: 30px;
 }
 
 tr:nth-child(even) {
@@ -56,30 +64,54 @@ tr:nth-child(even) {
     width: 100%;
   }
 
-  @media print {
-        html, body {
-            width: 210mm;
-            height: 297mm;        
-        }
-      }
+  
 }
+
+@media print {
+    .container{
+      width: 297mm;
+      height: 210mm;
+      padding: 2px;
+    }
+
+    th, td {
+      text-align: center;
+      padding: 4px;
+      width: 50px;
+      height: 30px;
+    }
+
+    #printPageButton {
+    display: none;
+  }
+} 
 </style>
 </head>
-<body>
+<body onload="myFunction()">
 
-<div class="container">
+<div class="container" >
 <h2 align="center">Laporan Pembayaran SPP </h2>
 
 <hr>
-<h4>Tahun : 2022 </h4>
-<h4>Kamar : <?= $data_kamar->nama_kamar?> </h4>
+<div class="row">
+  <div class="column">
+    
+    <h4>Tahun : 
+      <?php foreach ($data_tahun as $dt ) { ?>
+      <?= $dt->nama_tahun;?> 
+      <?php }?> </h4>
+  </div>
+
+  <div style="margin-left: 917px;" class="column">
+    <h4>Kamar : <?= $data_kamar->nama_kamar?> </h4>
+  </div>
+</div>
 
 <div class="row">
   <div class="column">
     <table>
       <tr>
         <th>No</th>
-        <th>Nama</th>
       </tr>
 
       <?php
@@ -88,7 +120,24 @@ tr:nth-child(even) {
         
         <tr>
           <td><?= $no++?></td>
-          <td><?= $ns->nama?></td>
+        </tr>
+
+        <?php }?>
+      
+    </table>
+  </div>
+  <div class="column">
+    <table>
+      <tr>
+        <th>Nama</th>
+      </tr>
+
+      <?php
+      $no = 1;
+      foreach ($data_santri as $ns) { ?>
+        
+        <tr>
+          <td style="width: 300px;"><?= $ns->nama?></td>
         </tr>
 
         <?php }?>
@@ -106,11 +155,16 @@ tr:nth-child(even) {
         
         
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+            echo 'style="background-color: red;"';
+            }?>
+          >
                                         
                                     <?php 
                                     if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
+                                        <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+                                        <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
                                     <?php }?>
  
                                     </td>
@@ -130,11 +184,16 @@ tr:nth-child(even) {
       foreach ($data_februari as $jan) { ?>
 
         <tr>
-          <td>
+        <td 
+            <?php if ($jan->tanggal_bayar == '') {
+            echo 'style="background-color: red;"';
+            }?>
+          >
                                         
                                     <?php 
                                     if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
+                                        <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+                                        <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
                                     <?php }?>
  
                                     </td>
@@ -154,14 +213,21 @@ tr:nth-child(even) {
       foreach ($data_maret as $jan) { ?>
 
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+              echo 'style="background-color: red; width: 50px;"';
+            }else {
+              echo 'width: 50px;"';
+            }?>
+          >
                                         
-                                    <?php 
-                                    if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
-                                    <?php }?>
- 
-                                    </td>
+          <?php 
+          if ($jan->tanggal_bayar != '') { ?>
+              <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+              <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
+          <?php }?>
+
+          </td>
         </tr>
 
         <?php }?>
@@ -178,14 +244,21 @@ tr:nth-child(even) {
       foreach ($data_april as $jan) { ?>
 
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+              echo 'style="background-color: red; width: 50px;"';
+            }else {
+              echo 'width: 50px;"';
+            }?>
+          >
                                         
-                                    <?php 
-                                    if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
-                                    <?php }?>
- 
-                                    </td>
+          <?php 
+          if ($jan->tanggal_bayar != '') { ?>
+              <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+              <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
+          <?php }?>
+
+          </td>
         </tr>
 
         <?php }?>
@@ -202,14 +275,21 @@ tr:nth-child(even) {
       foreach ($data_mei as $jan) { ?>
 
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+            echo 'style="background-color: red; width: 50px;"';
+            }else {
+              echo 'width: 50px;"';
+            }?>
+          >
                                         
-                                    <?php 
-                                    if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
-                                    <?php }?>
- 
-                                    </td>
+          <?php 
+          if ($jan->tanggal_bayar != '') { ?>
+              <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+              <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
+          <?php }?>
+
+          </td>
         </tr>
 
         <?php }?>
@@ -226,14 +306,21 @@ tr:nth-child(even) {
       foreach ($data_juni as $jan) { ?>
 
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+              echo 'style="background-color: red;  width: 50px;"';
+            }else {
+              echo 'width: 50px;"';
+            }?>
+          >
                                         
-                                    <?php 
-                                    if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
-                                    <?php }?>
- 
-                                    </td>
+          <?php 
+          if ($jan->tanggal_bayar != '') { ?>
+              <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+              <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
+          <?php }?>
+
+          </td>
         </tr>
 
         <?php }?>
@@ -250,14 +337,21 @@ tr:nth-child(even) {
       foreach ($data_juli as $jan) { ?>
 
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+              echo 'style="background-color: red; width: 50px;"';
+            }else {
+              echo 'width: 50px;"';
+            }?>
+          >
                                         
-                                    <?php 
-                                    if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
-                                    <?php }?>
- 
-                                    </td>
+          <?php 
+          if ($jan->tanggal_bayar != '') { ?>
+              <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+              <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
+          <?php }?>
+
+          </td>
         </tr>
 
         <?php }?>
@@ -274,14 +368,19 @@ tr:nth-child(even) {
       foreach ($data_agustus as $jan) { ?>
 
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+            echo 'style="background-color: red;"';
+            }?>
+          >
                                         
-                                    <?php 
-                                    if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
-                                    <?php }?>
- 
-                                    </td>
+          <?php 
+          if ($jan->tanggal_bayar != '') { ?>
+              <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+              <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
+          <?php }?>
+
+          </td>
         </tr>
 
         <?php }?>
@@ -298,14 +397,19 @@ tr:nth-child(even) {
       foreach ($data_september as $jan) { ?>
 
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+            echo 'style="background-color: red;"';
+            }?>
+          >
                                         
-                                    <?php 
-                                    if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
-                                    <?php }?>
- 
-                                    </td>
+          <?php 
+          if ($jan->tanggal_bayar != '') { ?>
+              <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+              <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
+          <?php }?>
+
+          </td>
         </tr>
 
         <?php }?>
@@ -322,14 +426,19 @@ tr:nth-child(even) {
       foreach ($data_oktober as $jan) { ?>
 
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+            echo 'style="background-color: red;"';
+            }?>
+          >
                                         
-                                    <?php 
-                                    if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
-                                    <?php }?>
- 
-                                    </td>
+          <?php 
+          if ($jan->tanggal_bayar != '') { ?>
+              <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+              <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
+          <?php }?>
+
+          </td>
         </tr>
 
         <?php }?>
@@ -346,11 +455,16 @@ tr:nth-child(even) {
       foreach ($data_november as $jan) { ?>
 
         <tr>
-          <td>
+          <td 
+            <?php if ($jan->tanggal_bayar == '') {
+            echo 'style="background-color: red;"';
+            }?>
+          >
                                         
                                     <?php 
                                     if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
+                                        <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+                                        <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
                                     <?php }?>
  
                                     </td>
@@ -370,14 +484,19 @@ tr:nth-child(even) {
       foreach ($data_desember as $jan) { ?>
 
         <tr>
-          <td>
+        <td 
+            <?php if ($jan->tanggal_bayar == '') {
+            echo 'style="background-color: red;"';
+            }?>
+          >
                                         
-                                    <?php 
-                                    if ($jan->tanggal_bayar != '') { ?>
-                                        <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?>
-                                    <?php }?>
- 
-                                    </td>
+          <?php 
+          if ($jan->tanggal_bayar != '') { ?>
+              <!-- <?=date('d-m-Y ', strtotime($jan->tanggal_bayar));  ?> -->
+                <span style="font-family: wingdings; font-size: 120%;">&#252;</span>
+          <?php }?>
+
+          </td>
         </tr>
 
         <?php }?>
@@ -386,7 +505,14 @@ tr:nth-child(even) {
   </div>
 </div>
 
-<button onclick="window.print()">Print this page</button>
+<h4>NB : Silakan kepada santri - santri yang belum melunasi pembayaran untuk segera melunasinya.</h4><br><br>
+
+<!-- <button id="printPageButton" onclick="window.print()">Print this page</button> -->
 </div>
 </body>
+<script>
+function myFunction() {
+  window.print()
+}
+</script>
 </html>

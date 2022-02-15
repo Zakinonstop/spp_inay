@@ -18,6 +18,7 @@ class Laporan extends CI_Controller
 			'isi' => 'laporan/index',
 			// 'admin' => $admin,
 			'kamar' => $this->m_laporan->get_all_data(),
+			'tahun' => $this->m_laporan->get_all_tahun(),
 
 			'jumlah_data' => $this->m_laporan->count_search_data(),
 		];
@@ -25,26 +26,30 @@ class Laporan extends CI_Controller
 		return $this->load->view('master/index', $data);
 	}
 
-	public function cetak($id)
+
+	public function cetak()
 	{
+		$id = $this->input->post('id_kamar');
+		$tahun = $this->input->post('id_tahun');
+
 		$data = [
 			'data_santri' => $this->m_laporan->get_data_santri($id),
-			'data_januari' => $this->m_laporan->get_januari($id),
-			'data_februari' => $this->m_laporan->get_februari($id),
-			'data_maret' => $this->m_laporan->get_maret($id),
-			'data_april' => $this->m_laporan->get_april($id),
-			'data_mei' => $this->m_laporan->get_mei($id),
-			'data_juni' => $this->m_laporan->get_juni($id),
-			'data_juli' => $this->m_laporan->get_juli($id),
-			'data_agustus' => $this->m_laporan->get_agustus($id),
-			'data_september' => $this->m_laporan->get_september($id),
-			'data_oktober' => $this->m_laporan->get_oktober($id),
-			'data_november' => $this->m_laporan->get_november($id),
-			'data_desember' => $this->m_laporan->get_desember($id),
+			'data_januari' => $this->m_laporan->get_januari($id, $tahun),
+			'data_februari' => $this->m_laporan->get_februari($id, $tahun),
+			'data_maret' => $this->m_laporan->get_maret($id, $tahun),
+			'data_april' => $this->m_laporan->get_april($id, $tahun),
+			'data_mei' => $this->m_laporan->get_mei($id, $tahun),
+			'data_juni' => $this->m_laporan->get_juni($id, $tahun),
+			'data_juli' => $this->m_laporan->get_juli($id, $tahun),
+			'data_agustus' => $this->m_laporan->get_agustus($id, $tahun),
+			'data_september' => $this->m_laporan->get_september($id, $tahun),
+			'data_oktober' => $this->m_laporan->get_oktober($id, $tahun),
+			'data_november' => $this->m_laporan->get_november($id, $tahun),
+			'data_desember' => $this->m_laporan->get_desember($id, $tahun),
 			'data_kamar' => $this->m_laporan->get_kamar($id),
+			'data_tahun' => $this->m_laporan->get_tahun($tahun),
 
 		];
-		$nama_kamar = $this->m_laporan->get_kamar($id);
 
 		$this->load->view('print_pdf/cetak_laporan', $data);
 	}
