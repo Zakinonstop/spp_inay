@@ -40,7 +40,7 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                <a type="button" href="<?= base_url('login/logout')?>" class="btn btn-block btn-warning btn-sm"><b>LOGOUT</b></a>
+                <a type="button" href="<?= base_url('login/logout')?>" class="btn btn-block btn-danger btn-sm"><b>LOGOUT</b></a>
                 </li>
 
             </ul>

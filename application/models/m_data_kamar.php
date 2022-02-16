@@ -7,7 +7,7 @@ class m_data_kamar extends CI_Model
 	public function get_all_data($limit, $start)
 	{
 		// $this->db->group_by("nama_kamar");
-		$this->db->order_by('nama_kamar', 'ASC');
+		$this->db->order_by('id_kamar', 'ASC');
 		return $this->db->get('tb_kamar', $limit, $start)->result();
 	}
 

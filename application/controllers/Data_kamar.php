@@ -16,7 +16,7 @@ class Data_kamar extends CI_Controller
 
 		$config['base_url'] = 'http://localhost/spp_inay/data_kamar/index/';
 		$config['total_rows'] = $this->m_data_kamar->count_search_data();
-		$config['per_page'] = 5;
+		$config['per_page'] = 10;
 		$config['start'] = $this->uri->segment(3);
 		// $config['use_page_numbers'] = true;
 		$config["full_tag_open"] = ' <nav><ul class="pagination justify-content-end">';
@@ -55,7 +55,7 @@ class Data_kamar extends CI_Controller
 		// if ($this->input->post('keyword')) {
 			// $data_kamar = $this->m_data_kamar->get_search_data($config['per_page'], $config['start']);
 		// } else {
-			$data_kamar = $this->m_data_kamar->get_all_data($config['per_page'], $config['start']);
+		$data_kamar = $this->m_data_kamar->get_all_data($config['per_page'], $config['start']);
 		// }
 
 		$data = [

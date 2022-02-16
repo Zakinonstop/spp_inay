@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-12">
         
-<div class="card card-success">
+<div class="card card-secondary">
     <div class="card-header">
         <h3 class="card-title">Informasi Santri</h3>
     </div>
@@ -96,7 +96,7 @@
     <!-- /.card-body -->
 
     <div class="card-footer">
-        <a type="button" class="btn btn-success" href="<?= base_url('data_santri') ?>">Kembali</a>
+        <a type="button" class="btn btn-warning" href="<?= base_url('data_santri') ?>">Kembali</a>
         <a type="button" class="btn btn-success" target="_blank" href="<?= base_url('data_santri/send_wa/') ?><?= $data->id ?>">Send WA</a>
     </div>
 

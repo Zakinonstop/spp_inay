@@ -7,20 +7,88 @@
     <title>Grafik Jurnal Umum</title>
 </head>
 <body>
+  <div class="card card-secondary">
+    <div class="card-header">
+      Grafik
+    </div>
     <div class="row">
+      <div class="col-lg-2">
+
+      </div>
         <div class="col-lg-4">
-            <div>
+            <div class="mt-4 ml-4 mb-4">
             <canvas id="myChart" style="width: 200px;"></canvas>
             </div>  
         </div>
+
+        <div class="col-lg-4">
+        <ul class="nav nav-pills flex-column mt-4 mr-4">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Pemasukan
+                      <span class="float-right text-danger">
+                        <?= $total_pemasukan->jumlah_bayar + $jumlah_pemasukan;?>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Pengeluaran
+                      <span class="float-right text-success">
+                        <?= $jumlah_pengeluaran;?>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Saldo
+                      <span class="float-right text-bold">
+                        <?= $total_pemasukan->jumlah_bayar + $jumlah_pemasukan - $jumlah_pengeluaran;?>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+        </div>
     </div>
 
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-lg-4">
       <br>
            <h3 >Saldo : <?= $jumlah_pemasukan - $jumlah_pengeluaran;?></h3> 
     </div>
+  </div> -->
+  <div class="card-footer bg-white p-0">
+                <ul class="nav nav-pills flex-column">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <!-- Pemasukan -->
+                      <span class="float-right text-danger">
+                        <!-- <?= $total_pemasukan->jumlah_bayar + $jumlah_pemasukan;?> -->
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <!-- Pengeluaran -->
+                      <!-- <span class="float-right text-success"> -->
+                        <!-- <?= $jumlah_pengeluaran;?> -->
+                      <!-- </span> -->
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <!-- Saldo -->
+                      <!-- <span class="float-right text-bold"> -->
+                        <!-- <?= $total_pemasukan->jumlah_bayar + $jumlah_pemasukan - $jumlah_pengeluaran;?> -->
+                      <!-- </span> -->
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.footer -->
+
   </div>
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -40,7 +108,7 @@
     datasets: [{
       label: 'My First Dataset',
       data: [
-        <?= $jumlah_pemasukan;?>
+        <?= $total_pemasukan->jumlah_bayar + $jumlah_pemasukan;?>
         ,
         <?= $jumlah_pengeluaran;?>
         ],

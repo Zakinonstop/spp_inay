@@ -127,7 +127,7 @@ class Admin extends CI_Controller
 	public function edit($id)
 	{
 		$data = [
-			'title' => 'Edit Data kamar ',
+			'title' => 'Edit Data Administrator ',
 			'isi' => 'admin/edit',
 			'data' => $this->m_admin->get_data($id),
 		];

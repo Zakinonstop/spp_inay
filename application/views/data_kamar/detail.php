@@ -1,13 +1,18 @@
-<div class="card card-success ">
-    <div class="card-header">
-        <!-- <h3 class="card-title">Quick Example</h3> -->
-    </div>
-    <!-- /.card-header -->
-    <!-- form start -->
 
-    <div class="card-body">
-        <div class="row">
-            <div class="col-lg-8">
+<!-- ss -->
+<div class="card direct-chat direct-chat-primary card-success">
+              <div class="card-header ui-sortable-handle" style="cursor: move;">
+                <h3 class="card-title">Direct Chat</h3>
+
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                 
+                  <div class="row">
+            <div class="col-lg-4">
                 <table class="table table-striped table-bordered table-sm">
                     <tr>
                         <td>Nama Kamar</td>
@@ -24,7 +29,7 @@
                   
                 </table>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-8">
                 
                 <div class="card">
               <div class="card-header">
@@ -62,15 +67,10 @@
             </div>
           
         </div>
-
-
-      
-
-    </div>
-    <!-- /.card-body -->
-
-    <div class="card-footer">
-        <a type="button" class="btn btn-success" href="<?= base_url('data_kamar') ?>">Kembali</a>
-    </div>
-
+                </div>
+                
+              </div>
+              <!-- /.card-body -->
+              
 </div>
+

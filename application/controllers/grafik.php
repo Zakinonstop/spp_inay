@@ -9,6 +9,7 @@ class Grafik extends CI_Controller
 		// $this->load->model('m_history_transaksi');
 		// $this->load->library('form_validation');
 		$this->load->model('m_jurnal_umum');
+		$this->load->model('m_data_transaksi');
 	}
 
 	public function index()
@@ -16,6 +17,7 @@ class Grafik extends CI_Controller
 		$data = [
 			'title' => 'Grafik Jurnal Umum',
 			'isi' => 'grafik/index',
+			'total_pemasukan' => $this->m_data_transaksi->total_pemasukan(),
 			'jurnal_umum' => $this->m_jurnal_umum->get_all_data(),
 			'jumlah_pemasukan' => $this->m_jurnal_umum->jumlah_pemasukan(),
 			'jumlah_pengeluaran' => $this->m_jurnal_umum->jumlah_pengeluaran(),
