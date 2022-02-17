@@ -17,7 +17,7 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Pemasukan Non SPP</span>
@@ -31,10 +31,10 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-receipt"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Pengeluaran Total</span>
+                <span class="info-box-text">Pengeluaran</span>
                 <span class="info-box-number"><?= $jumlah_pengeluaran?></span>
               </div>
               <!-- /.info-box-content -->
@@ -48,7 +48,7 @@
 
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-file-invoice-dollar"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Saldo</span>
@@ -62,7 +62,7 @@
         </div>       
        
        <!-- Default box -->
-        <div class="card">
+        <div class="card card-secondary">
             <div class="card-header">
                 <h3 class="card-title">SISTEM PEMBAYARAN SPP PONPES INAYATULLAH</h3>
 

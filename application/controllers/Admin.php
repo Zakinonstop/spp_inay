@@ -106,10 +106,12 @@ class Admin extends CI_Controller
 	public function edit_save($id)
 	{
 		$data = [
-			'nama_kamar' => $this->input->post('nama'),
+			'username' => $this->input->post('username'),
+			'password' => $this->input->post('password'),
+			'email' => $this->input->post('email'),
 		];
 
-		$edit = $this->m_admin->update($data, $id);
+		$this->m_admin->update($data, $id);
 
 
 		$data = $this->session->set_flashdata('message', 'diedit');

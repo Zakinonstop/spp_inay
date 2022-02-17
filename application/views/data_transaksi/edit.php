@@ -46,7 +46,7 @@
 
             <div class="form-group">
                 <label for="Nama">Kurangan : </label>
-                <label for="Nama"><?= $data_tr_santri->nominal - $data_tr_santri->jumlah_bayar  ?></label>
+                <label for="Nama"><?= $data_tr_santri->jumlah_bayar - $data_tr_santri->nominal ?></label>
             </div>
 
             <div class="form-group">

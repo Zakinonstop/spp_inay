@@ -40,15 +40,12 @@
 
             <div class="form-group">
                 <label for="Nama">Jumlah Bayar : </label>
-
                 <input type="number" class="form-control" name="jumlah_bayar" id="jumlah_bayar" value="<?= $data_tr_santri->nominal ?>">
                 <input hidden type="text" class="form-control" name="id_transaksi" id="id_transaksi" value="<?= $data_tr_santri->id_data_transaksi ?>">
-
             </div>
 
         </div>
         <!-- /.card-body -->
-
         <div class="card-footer">
             <button type="submit" class="btn btn-success">Submit</button>
         </div>

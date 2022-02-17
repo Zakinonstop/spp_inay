@@ -1,6 +1,8 @@
 <!-- Default box -->
-<div class="card">
-
+<div class="card card-secondary">
+    <div class="card-header">
+    Tagihan
+    </div>
     <!-- /.card-header -->
     <div class="card-body">
         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">

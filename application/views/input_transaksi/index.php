@@ -26,10 +26,7 @@
             <br>
             <div class="row  ">
                 <div class="col-9">
-                    <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_pdf')?>" target="_blank">Print</a>
                     <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_per_santri/')?><?= $idnya_santri ;?>" target="_blank">Print Per Santri</a>
-                    <!-- <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_kamar')?>">Print</a> -->
-                    <a type="button" class="btn btn-primary" href="<?= base_url('input_transaksi/print_kamar')?>" target="_blank">Print</a>
                 </div>
 
                 <div class="col-3">
@@ -38,14 +35,7 @@
                         <!-- <a href="<?= base_url('input_transaksi/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
                     </div>
 
-                    <form action="" method="post">
-                        <div class="input-group input-group-md">
-                            <input type="text" class="form-control" placeholder="Cari data transaksi.." name="keyword">
-                            <span class="input-group-append">
-                                <button type="submit" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Cari">Cari</button>
-                            </span>
-                        </div>
-                    </form>
+                   
                 </div>
 
             </div>
@@ -66,7 +56,7 @@
                     <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="start: activate to sort column descending">start</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="start: activate to sort column descending">No</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nama</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Alamat: activate to sort column ascending">Tahun Bayar</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kamar: activate to sort column ascending">Bulan Bayar</th>
@@ -84,6 +74,7 @@
                             <?php
                             // $start = 0;
                             $urut = 0;
+                            $urut2 = 0;
                             foreach ($input_transaksi as $ds) {
 
                                 // $start++ ;
@@ -96,24 +87,24 @@
                                     <td><?= $ds->nama_tahun; ?></td>
                                     <td><?= $ds->nama_bulan; ?></td>
                                     <td><?= $ds->nominal; ?></td>
-                                    <!-- <td><?= $ds->jumlah_bayar; ?></td> -->
                                     <td>
                                         <?php
                                         $cek_keterangan = $ds->keterangan;
-                                        if ($ds->jumlah_bayar) {
+                                        if ($ds->jumlah_bayar != null) {
                                             echo $ds->jumlah_bayar;
                                         } else if ($urut == 0) { ?>
                                             <?php $urut++; ?>
-                                            <a type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Input Transaksi</a>
+                                            <a type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Bayar" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>"> Bayar </a>
+                                            <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/set_lunas/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Set Lunas</a>
                                         <?php } else { ?>
-                                            <a type="button" aria-disabled="true" class="btn btn-sm btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Input Transaksi</a>
+                                            <a type="button" aria-disabled="true" class="btn btn-sm btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Bayar" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Bayar</a>
+                                            <a type="button" aria-disabled="true" class="btn btn-sm btn-warning disabled" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/set_lunas/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Set Lunas</a>
                                         <?php } ?>
 
                                     </td>
                                     <td>
                                         <?php if ($ds->sisa > 0) { ?>
                                             <?php $urut--; ?>
-                                            <!-- <a type="button" class="btn btn-sm btn-primary" onclick="return confirm('Uang sisa digunakan untuk spp bulan selanjutnya ?')" data-toggle="tooltip" data-placement="top" title="Untuk bulan Selanjutnya" href="<?= base_url('input_transaksi/next/') ?><?= $ds->id_data_transaksi ?>">next</a> -->
                                             <?php $ambil_id_trans = $ds->id_data_transaksi ?>
                                             <?php $ambil_id_santri = $ds->id_data_santri ?>
 
@@ -151,7 +142,6 @@
                                         <?php } elseif ($ds->keterangan == '0') { ?>
                                             <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Belum Lunas" href="#">Belum Lunas</a>
                                         <?php } ?>
-                                        <!-- <?= $ds->keterangan; ?> -->
                                     </td>
 
 
@@ -172,9 +162,19 @@
                                     <td width="50">
                                         <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url('input_transaksi/edit/') ?><?= $ds->id_data_transaksi ?>"><i class="fa fa-edit"></i></a>
                                     </td>
-                                    <!-- <td width="50">
-                                        <a onclick="return confirm('Anda Yakin ?')" class="text-danger" data-toggle="tooltip" data-placement="top" title="Hapus" href="<?= base_url('input_transaksi/hapus/') ?><?= $ds->id_data_transaksi ?>"><i class="fa fa-trash"></i></a>
-                                    </td> -->
+                                    
+                                    <td  width="50">
+                                        <?php
+                                        $cek_keterangan = $ds->keterangan;
+                                        if ($ds->jumlah_bayar != null) {
+                                        } else if ($urut2 == 0) { ?>
+                                            <?php $urut2++; ?>
+                                            <a type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
+                                        <?php } else { ?>
+                                            <a type="button" aria-disabled="true" class="btn btn-sm btn-success disabled" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
+                                        <?php } ?>
+                                    </td>
+                                   
                                 </tr>
                             <?php
                             } ?>

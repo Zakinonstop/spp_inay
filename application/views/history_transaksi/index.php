@@ -1,8 +1,11 @@
 <!-- Default box -->
-<div class="card">
+<div class="card card-secondary">
 
+    <div class="card-header">
+        History 
+    </div>
     <!-- /.card-header -->
-    <div class="card-body">
+    <div class="card-body card-outline">
         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
             <div class="row d-flex">
                 <div class="col-6">
@@ -35,14 +38,6 @@
                         <!-- <a href="<?= base_url('history_transaksi/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
                     </div>
 
-                    <!-- <form action="" method="post">
-                        <div class="input-group input-group-md">
-                            <input type="text" class="form-control" placeholder="Cari data transaksi.." name="keyword">
-                            <span class="input-group-append">
-                                <button type="submit" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Cari">Cari</button>
-                            </span>
-                        </div>
-                    </form> -->
                 </div>
 
             </div>

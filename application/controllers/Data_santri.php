@@ -283,6 +283,5 @@ class Data_santri extends CI_Controller
 	public function send_wa($id)
 	{
 		$this->m_data_santri->send_wa($id);
-		// echo 'jos';
 	}
 }

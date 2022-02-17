@@ -284,13 +284,9 @@ class m_input_transaksi extends CI_Model
 		$query2 = $this->db->get_where('tb_data_transaksi', ['id_data_transaksi' => $cek_id])->row();
 		$id_tagihan = $query2->id_data_tagihan;
 		$query3 = $this->db->get_where('tb_data_tagihan', ['id' => $id_tagihan])->row();
-		// print_r($id_tagihan);
-		// die();
 
 		$jumlah_baru = $query->jumlah_bayar - $query->sisa;
 		$sisa_baru = $query->sisa - $query3->nominal;
-		// print_r($sisa_baru);
-		// die();
 
 		if ($sisa_baru >= 0) {
 			$keterangan = '1'; //lunas
@@ -305,7 +301,7 @@ class m_input_transaksi extends CI_Model
 			'jumlah_bayar' => $query->sisa,
 			'sisa' => $sisa_baru,
 			'keterangan' => $keterangan,
-			'tanggal_bayar' => date("Y/m/d"),
+			'tanggal_bayar' => date("Y-m-d H:i:s"),
 
 		];
 		$this->db->where('id_data_transaksi', $cek_id);
@@ -342,12 +338,8 @@ class m_input_transaksi extends CI_Model
 		$data = [
 			'sisa' => $sisa,
 			'tanggal_bayar' => date("Y-m-d H:i:s"),
-			// 'tanggal_bayar' => date("Y/m/d"),
 			'keterangan' => $keterangan,
 		];
-		// print_r($sisa);
-		// die();
-		// $sisa = $data -
 
 		$this->db->where('id_data_transaksi', $id);
 		return $this->db->update('tb_data_transaksi', $data);
@@ -383,10 +375,13 @@ class m_input_transaksi extends CI_Model
 		} else {
 			$keterangan = '0';
 		}
+		date_default_timezone_set('ASIA/JAKARTA');
 		$data = [
 			'sisa' => $sisa,
 			'tanggal_bayar' => date("Y/m/d"),
 			'keterangan' => $keterangan,
+			'tanggal_bayar' => date("Y-m-d H:i:s"),
+			'created_by' => $this->session->userdata['username'],
 		];
 		// print_r($sisa);
 		// die();
@@ -431,12 +426,9 @@ class m_input_transaksi extends CI_Model
 		$data = [
 			'sisa' => $sisa,
 			'tanggal_bayar' => date("Y-m-d H:i:s"),
-			// 'tanggal_bayar' => date("Y/m/d"),
 			'keterangan' => $keterangan,
+			'created_by' => $this->session->userdata['username'],
 		];
-		// print_r($sisa);
-		// die();
-		// $sisa = $data -
 
 		$this->db->where('id_data_transaksi', $id);
 		return $this->db->update('tb_data_transaksi', $data);
@@ -465,7 +457,40 @@ class m_input_transaksi extends CI_Model
 		return $this->db->get_where('tb_data_transaksi', ['id_data_transaksi' => $id])->row();
 	}
 
-	
+	public function set_lunas($id_data_transaksi)
+	{
+		$data = [
+			'jumlah_bayar' => '0',
+			'sisa' => '0',
+			'tanggal_bayar' => date("Y-m-d H:i:s"),
+			'keterangan' => '1',
+			'created_by' => $this->session->userdata['username'],
+		];
+
+		$this->db->where('id_data_transaksi', $id_data_transaksi);
+		return $this->db->update('tb_data_transaksi', $data);
+	}
+
+	public function reminder($id_data_transaksi, $id_data_santri)
+	{
+		$data = $this->get_data_by_id($id_data_santri);
+		$no_hp = $data->no_hp;
+		// echo $no_hp;
+		if(substr(trim($no_hp), 0, 1)=='0'){
+			$hp = '62'.substr(trim($no_hp), 1);
+		}else {
+			$hp = $no_hp;
+		}
+		// echo '<br>';
+		// echo $hp;
+		// die();
+		$nama = $data->nama;
+		$enter = '%0A';
+		$text = 'Assalamualaikum kang '. $nama .''.$enter.'Kami dari bendahara ingin memberitahukan bahwa akan diadakan *sistem pembayaran spp berbasis website*'.$enter.'maka dari itu silakan kang '.$nama.' bisa login ke link berikut '.$enter.'http......';
+
+		$url = prep_url('https://api.whatsapp.com/send?phone='.$hp.'&text='.$text);
+		redirect($url);
+	}
 }
 
 

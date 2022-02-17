@@ -36,11 +36,13 @@ class Login extends CI_Controller
 		$cek_login = $this->m_login->cek_login();
 
 		foreach ($cek_login->result() as $cl) {
+			$id_admin = $cl->id_admin;
 			$username = $cl->username;
 			$email = $cl->email;
 		};
 
 		$data = [
+			'id_admin' => $id_admin,
 			'username' => $username,
 			'email' => $email,
 		];

@@ -1,6 +1,6 @@
 <div class="card card-secondary">
     <div class="card-header">
-    <h3 class="card-title">Cetak</h3>
+    Cetak
     </div>
     <form action="<?= base_url('laporan/cetak')?>" method="post">
         <div class="card-body">

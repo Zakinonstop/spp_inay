@@ -466,14 +466,21 @@ class input_transaksi extends CI_Controller
 			'data_oktober' => $this->m_input_transaksi->get_oktober(),
 			'data_november' => $this->m_input_transaksi->get_november(),
 			'data_desember' => $this->m_input_transaksi->get_desember(),
-			// 'input_transaksi' => $input_transaksi,
-			// 'input_transaksi' => $this->m_input_transaksi->get_all_data($idnya_santri),
-			// 'start' => 0,
-			// 'idnya_santri' => $idnya_santri,
-			// 'start' => $this->uri->segment(5),
-			// 'pagination' => $pagination_link,
-			// 'jumlah_data' => $this->m_input_transaksi->count_search_data($idnya_santri),
 		];
 		$this->load->view('print_pdf/kamar', $data);
+	}
+
+	public function set_lunas($id_data_transaksi, $id_data_santri)
+	{
+
+		$this->m_input_transaksi->set_lunas($id_data_transaksi);
+		$data = $this->session->set_flashdata('message', 'disimpan');
+		redirect('input_transaksi/view/'.$id_data_santri, $data);
+
+	}
+
+	public function reminder($id_data_transaksi, $id_data_santri)
+	{
+		$this->m_input_transaksi->reminder($id_data_transaksi, $id_data_santri);
 	}
 }

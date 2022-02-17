@@ -91,7 +91,7 @@
                                     <td><?= $ds->alamat; ?></td>
                                     <td><?= $ds->nama_kamar; ?></td>
                                     <td><?= $ds->nama_kelas; ?></td>
-                                    <td width="50">
+                                    <td style="padding: 5px;" width="70">
                                         <a type="button" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('input_transaksi/view/') ?><?= $ds->id ?>">Input Transaksi</a>
                                     </td>
                                     <td width="50">

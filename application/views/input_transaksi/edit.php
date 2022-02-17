@@ -45,13 +45,20 @@
 
             <div class="form-group">
                 <label for="Nama">Kurangan : </label>
-                <label for="Nama"><?= $data_tr_santri->nominal - $data_tr_santri->jumlah_bayar  ?></label>
+                <label for="Nama">
+                <?php
+                
+                if ($data_tr_santri->jumlah_bayar - $data_tr_santri->nominal < 0) {
+                   echo $hasil = $data_tr_santri->jumlah_bayar - $data_tr_santri->nominal;
+                }else {
+                    echo '-';
+                }  ?></label>
             </div>
 
             <div class="form-group">
                 <label for="Nama">Jumlah Bayar : </label>
 
-                <input type="number" class="form-control" name="jumlah_bayar" id="jumlah_bayar" value="<?= $data_tr_santri->nominal - $data_tr_santri->jumlah_bayar  ?>">
+                <input type="number" class="form-control" name="jumlah_bayar" id="jumlah_bayar" value="<?= $data_tr_santri->jumlah_bayar ?>">
                 <input hidden type="text" class="form-control" name="id_transaksi" id="id_transaksi" value="<?= $data_tr_santri->id_data_transaksi ?>">
 
             </div>

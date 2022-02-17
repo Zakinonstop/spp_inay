@@ -5,7 +5,7 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form role="form" action="<?= base_url('admin/add_save') ?>" method="POST">
+    <form role="form" action="<?= base_url('admin/edit_save/'. $data->id_admin) ?>" method="POST">
         <div class="card-body">
             <?php if ($this->session->flashdata('message')) : ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
