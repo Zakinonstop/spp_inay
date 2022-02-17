@@ -481,6 +481,10 @@ class input_transaksi extends CI_Controller
 
 	public function reminder($id_data_transaksi, $id_data_santri)
 	{
+		// ambil data santri
+		$this->m_input_transaksi->get_data_santri_by_id($id_data_santri);
+		// ambil data transaksi
+		$this->m_input_transaksi->get_tr_santri($id_data_transaksi);
 		$this->m_input_transaksi->reminder($id_data_transaksi, $id_data_santri);
 	}
 }

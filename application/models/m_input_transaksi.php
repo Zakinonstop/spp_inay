@@ -4,12 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class m_input_transaksi extends CI_Model
 {
 
-	// public function get_all_data($limit, $start)
-	// {
-	// 	// $this->db->group_by("nama_transaksi");
-	// 	$this->db->order_by('nama_transaksi', 'ASC');
-	// 	return $this->db->get('tb_data_transaksi', $limit, $start)->result();
-	// }
 	public function get_all_data1($idnya_santri)
 	{
 		// $this->db->group_by("nama_transaksi");
@@ -177,13 +171,6 @@ class m_input_transaksi extends CI_Model
 		return $this->db->get_where('tb_data_transaksi', array('id_data_santri' => $idnya_santri), $limit, $start)->result();
 		// return $this->db->get('tb_data_transaksi')->result();
 	}
-
-	// public function get_count_data()
-	// {
-	// 	$this->db->join('tb_data_transaksi', 'tb_data_transaksi.id_transaksi = tb_data_transaksi.id_transaksi');
-	// 	$this->db->join('tb_kelas', 'tb_kelas.id_kelas = tb_data_transaksi.id_kelas');
-	// 	return $this->db->get('tb_data_transaksi')->num_rows();
-	// }
 
 	public function count_search_data($idnya_santri)
 	{
@@ -471,23 +458,36 @@ class m_input_transaksi extends CI_Model
 		return $this->db->update('tb_data_transaksi', $data);
 	}
 
+	
+	public function get_data_santri_by_id($id_data_santri)
+	{
+		$this->db->select('*');
+		return $this->db->get_where('tb_data_santri',['id' => $id_data_santri])->row();
+	}
+
 	public function reminder($id_data_transaksi, $id_data_santri)
 	{
-		$data = $this->get_data_by_id($id_data_santri);
+
+
+		$data = $this->get_data_santri_by_id($id_data_santri);
+		$data_transaksi = $this->m_input_transaksi->get_tr_santri($id_data_transaksi);
+
 		$no_hp = $data->no_hp;
-		// echo $no_hp;
+		$bulan = $data_transaksi->nama_bulan;
+		$nominal = $data_transaksi->nominal;
+
 		if(substr(trim($no_hp), 0, 1)=='0'){
 			$hp = '62'.substr(trim($no_hp), 1);
 		}else {
 			$hp = $no_hp;
 		}
-		// echo '<br>';
 		// echo $hp;
 		// die();
+
 		$nama = $data->nama;
 		$enter = '%0A';
-		$text = 'Assalamualaikum kang '. $nama .''.$enter.'Kami dari bendahara ingin memberitahukan bahwa akan diadakan *sistem pembayaran spp berbasis website*'.$enter.'maka dari itu silakan kang '.$nama.' bisa login ke link berikut '.$enter.'http......';
-
+		$text = 'Assalamualaikum kang '. $nama .''.$enter.$enter.'Kami dari bendahara ingin memberitahukan bahwa sudah waktunya membayar syahriah bulan '.$bulan.' ini sebesar '.$nominal.$enter.$enter.'Untuk datanya bisa diakses di https://www.sppinay.com/'.$enter.$enter.'Terimakasih'.$enter.'Ttd'.$enter.$enter.'*Bendahara*';
+		
 		$url = prep_url('https://api.whatsapp.com/send?phone='.$hp.'&text='.$text);
 		redirect($url);
 	}

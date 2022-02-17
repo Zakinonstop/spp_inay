@@ -167,11 +167,12 @@
                                         <?php
                                         $cek_keterangan = $ds->keterangan;
                                         if ($ds->jumlah_bayar != null) {
+                                            
                                         } else if ($urut2 == 0) { ?>
                                             <?php $urut2++; ?>
-                                            <a type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
-                                        <?php } else { ?>
-                                            <a type="button" aria-disabled="true" class="btn btn-sm btn-success disabled" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
+                                                <a type="button" target="__blank" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
+                                            <?php } else { ?>
+                                                <a type="button" target="__blank" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
                                         <?php } ?>
                                     </td>
                                    
