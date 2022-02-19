@@ -37,7 +37,7 @@
                 <h6 class="card-title">Berisi data diri.</h6>
 
                 <p class="card-text">Santri dapat mengedit atau melengkapi data diri-nya.</p>
-                <a href="<?= base_url('profil_santri/detail/')?><?= $this->session->userdata['id'];?>" class="btn btn-primary">Lihat Profil</a>
+                <a href="<?= base_url('profil_santri/detail/')?><?= $this->session->userdata['id'];?>" class="btn btn-info">Lihat Profil</a>
               </div>
             </div>
 
@@ -49,7 +49,7 @@
                 <h6 class="card-title">Berisi Informasi pembayaran syahriah.</h6>
 
                 <p class="card-text">Santri dapat melihat history pembayaran syahriah-nya..</p>
-                <a href="<?= base_url('santri_spp/view/')?><?= $this->session->userdata['id'];?>" class="btn btn-primary">Lihat</a>
+                <a href="<?= base_url('santri_spp/view/')?><?= $this->session->userdata['id'];?>" class="btn btn-info">Lihat</a>
               </div>
             </div>
           </div>

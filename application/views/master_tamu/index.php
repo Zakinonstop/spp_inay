@@ -9,6 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="icon" href="<?= base_url('') ?>assets/foto/logo_pondok.png">
 
   <title>Inayatullah
         <?php if (isset($title)) {
@@ -31,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-green">
     <div class="container">
       <a href="<?= base_url('dashboard_tamu')?>" class="navbar-brand">
-        <img src="<?= base_url('') ?>template/AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="<?= base_url('') ?>assets/foto/logo_pondok.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light"><u> INAY APP SISTEM</u></span>
       </a>
@@ -49,32 +50,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
          
         </ul>
 
+        <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a type="button" href="<?= base_url('login_tamu/logout')?>" class="btn btn-block btn-danger btn-sm"><b>LOGOUT</b></a>
+                </li>
+
+            </ul>
+
       </div>
 
-      <!-- Right navbar links -->
-      <ul class="order-1 order-md-3 navbar-nav  navbar-no-expand ml-auto">
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-      
-        </li>
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <p>GUEST <i class="far fa-user"></i></p>
-            <!-- <span class="badge badge-warning navbar-badge">15</span> -->
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-header">15 Notifications</span>
-            <div class="dropdown-divider"></div>
-            </a>
-            <a href="<?= base_url('login_tamu/logout')?>" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> Logout
-            </a>
-           
-          </div>
-        </li>
-       
-      </ul>
     </div>
   </nav>
   <!-- /.navbar -->

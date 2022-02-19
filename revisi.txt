@@ -1,0 +1,36 @@
+guest inay app ganti putih
+ganti logo inay
+---------------
+Dashboard santri
+- Tambahin foto
+- navbar ganti logo pondok
+- navbar tulisannya ganti warna putih dan font tebal
+- navbar SPP ganti warna + font
+- navbar ditambah menu profile
+- navbar kanan di logout
+- footer diganti
+## Profil santri
+- Fotonya terlalu melebar
+- warna tombol edit diubah abu"
+##  History Pembayaran
+- Start -> ganti No
+- Kolom waktu bayar di lebarkan lagi
+- Ditambah tombol kembali
+----------------------------------------------------
+DASHBOARD TAMU
+- Ditambah Nduwuran kotakkan
+- Tulisan APP SISTEM DIGANTI diganti
+- Breadcroumb diganti Home / History Transaksi
+- Title masih salah
+----------------------------------------------------
+DASHBOARD ADMIN
+- Keterangan lunas diganti bukan kayak tombol
+# History transaksi 
+- saat pembayaran 0 jangan tampil tombol
+#GrAfik 
+- dikanankan lagi dikit
+
++++++
+Tampilan awal di tambah background pondok
+19-02-2022
+ 
