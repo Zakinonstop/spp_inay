@@ -91,7 +91,7 @@
                                     <td>
                                         <?php
                                         $cek_keterangan = $ds->keterangan;
-                                        if ($ds->jumlah_bayar) {
+                                        if ($ds->jumlah_bayar >= 0) {
                                             echo $ds->jumlah_bayar;
                                         } else if ($urut == 0) { ?>
                                             <?php $urut++; ?>

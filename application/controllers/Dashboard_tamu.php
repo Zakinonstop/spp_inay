@@ -60,7 +60,7 @@ class Dashboard_tamu extends CI_Controller
 		}
 
 		$data = [
-			'title' => 'Data Santri',
+			'title' => 'Dashboard Tamu',
 			'isi' => 'tamu/dashboard_tamu/index',
 			'data_santri' => $data_santri,
 			'start' => $this->uri->segment(3),

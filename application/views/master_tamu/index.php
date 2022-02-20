@@ -34,7 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <a href="<?= base_url('dashboard_tamu')?>" class="navbar-brand">
         <img src="<?= base_url('') ?>assets/foto/logo_pondok.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light"><u> INAY APP SISTEM</u></span>
+             <a href="#" class="nav-link" style=" color: white; ">INAY APP SISTEM</a>
       </a>
       
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,15 +69,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content-header">
       <div class="container">
         <div class="row mb-2">
-          <div class="col-sm-10">
+          <div class="col-sm-9">
             <h5 class="m-0 text-dark"> <marquee>Inay Aplication Sistem || Nek ora ngaji yo mulang ngaji.Iki mung conto sak sakke kata katane mung pengin
               dowo dowo wae, anandan sariharjo ngaglik sleman yogyakarta.
             </marquee></h5>
           </div><!-- /.col -->
-          <div class="col-sm-2">
+          <div class="col-sm-3">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Profil</a></li>
+              <li class="breadcrumb-item"><a href="#">History Transaksi</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

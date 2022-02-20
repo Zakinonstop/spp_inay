@@ -119,7 +119,7 @@
                                     <td>
                                         <?php
                                         if ($ds->keterangan == 1) { ?>
-                                            <a type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="#">Lunas</a>
+                                            <h6><span class="badge badge-pill badge-success">LUNAS</span></h6>
                                         <?php } elseif ($ds->keterangan == '0') { ?>
                                             <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Belum Lunas" href="#">Belum Lunas</a>
                                         <?php } ?>

@@ -95,10 +95,10 @@
                                         } else if ($urut == 0) { ?>
                                             <?php $urut++; ?>
                                             <a type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Bayar" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>"> Bayar </a>
-                                            <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/set_lunas/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Set Lunas</a>
+                                            <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Set Lunas" href="<?= base_url('input_transaksi/set_lunas/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Set Lunas</a>
                                         <?php } else { ?>
                                             <a type="button" aria-disabled="true" class="btn btn-sm btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Bayar" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Bayar</a>
-                                            <a type="button" aria-disabled="true" class="btn btn-sm btn-warning disabled" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/set_lunas/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Set Lunas</a>
+                                            <a type="button" aria-disabled="true" class="btn btn-sm btn-warning disabled" data-toggle="tooltip" data-placement="top" title="Set Lunas" href="<?= base_url('input_transaksi/set_lunas/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Set Lunas</a>
                                         <?php } ?>
 
                                     </td>
@@ -138,9 +138,9 @@
                                     <td>
                                         <?php
                                         if ($ds->keterangan == 1) { ?>
-                                            <a type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="#">Lunas</a>
+                                            <h6><span class="badge badge-pill badge-success">LUNAS</span></h6>
                                         <?php } elseif ($ds->keterangan == '0') { ?>
-                                            <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Belum Lunas" href="#">Belum Lunas</a>
+                                            <h6><span class="badge badge-pill badge-success">BELUM LUNAS</span></h6>
                                         <?php } ?>
                                     </td>
 

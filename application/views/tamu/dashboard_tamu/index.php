@@ -1,8 +1,24 @@
+<div class="row">
+          <div class="col-lg-12">
+            <div class="card card-info card-outline">
+              <div class="card-body">
+                <h4 class="card-title"><b>Data Santri</b></h4>
+
+                <p class="card-text">
+                  Ini adalah halaman dimana para orang tua dapat melihat history pembayaran spp putra-putrinya.
+                </p>
+              </div>
+            </div><!-- /.card -->
+          </div>
+          <!-- /.col-md-6 -->
+          
+        </div>
+
 <!-- Default box -->
 <div class="card card-secondary">
-    <div class="card-header">
+    <!-- <div class="card-header">
         Data Santri
-    </div>
+    </div> -->
 
     <!-- /.card-header -->
     <div class="card-body">

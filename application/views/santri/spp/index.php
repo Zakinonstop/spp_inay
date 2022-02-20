@@ -75,7 +75,7 @@
                     <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="start: activate to sort column descending">start</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="no: activate to sort column descending">No</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nama</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Alamat: activate to sort column ascending">Tahun Bayar</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kamar: activate to sort column ascending">Bulan Bayar</th>
@@ -165,7 +165,7 @@
                                             </td>
 
 
-                                    <td>
+                                    <td style="width: 200px;">
                                         
                                     <?php 
                                     if ($ds->tanggal_bayar != '') { ?>
@@ -202,9 +202,9 @@
         </div>
     </div>
     <!-- /.card-body -->
-    <!-- <div class="card-footer">
-        cek
-    </div> -->
+    <div class="card-footer">
+        <a type="button" class="btn btn-warning" href="<?= base_url('dashboard_santri') ?>">Kembali</a>
+    </div>
 </div>
 <!-- /.card -->
 

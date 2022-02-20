@@ -32,9 +32,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-green">
     <div class="container">
       <a href="<?= base_url('dashboard_santri')?>" class="navbar-brand">
-        <img src="<?= base_url('') ?>template/AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="<?= base_url('') ?>assets/foto/logo_pondok.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light"><u> INAY APP SISTEM</u></span>
+        <!-- <span class="brand-text" style=" color: white;">INAY APP SISTEM</span> -->
       </a>
       
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,39 +45,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="<?= base_url('santri_spp/view/')?><?= $this->session->userdata['id']?>" class="nav-link">SPP</a>
+            <a href="#" class="nav-link" style=" color: white; ">INAY APP SISTEM</a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url('santri_spp/view/')?><?= $this->session->userdata['id']?>" class="nav-link" style=" color: white; font-family: 'Lucida Console', 'Courier New', monospace;">SPP</a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url('profil_santri/detail/')?><?= $this->session->userdata['id']?>" class="nav-link" style=" color: white; font-family: 'Lucida Console', 'Courier New', monospace;">PROFILE</a>
           </li>
          
         </ul>
 
+        <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a type="button" href="<?= base_url('login/logout')?>" class="btn btn-block btn-danger btn-sm"><b>LOGOUT</b></a>
+                </li>
+
+            </ul>
       </div>
 
       <!-- Right navbar links -->
-      <ul class="order-1 order-md-3 navbar-nav  navbar-no-expand ml-auto">
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-      
-        </li>
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <p><?= $this->session->userdata['nama']?> <i class="far fa-user"></i></p>
-            <!-- <span class="badge badge-warning navbar-badge">15</span> -->
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-header">15 Notifications</span>
-            <div class="dropdown-divider"></div>
-            <a href="<?= base_url('profil_santri/detail/')?><?= $this->session->userdata['id']?>" class="dropdown-item">
-              <i class="fas fa-user mr-2"></i> Profil
-            </a>
-            <a href="<?= base_url('login_santri/logout')?>" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> Logout
-            </a>
-           
-          </div>
-        </li>
-       
-      </ul>
+     
     </div>
   </nav>
   <!-- /.navbar -->
@@ -125,10 +113,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      <b>Beta</b> 1.0.0
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2021-2022 |</strong> PONDOK PESANTREN INAYATULLAH.
   </footer>
 </div>
 <!-- ./wrapper -->

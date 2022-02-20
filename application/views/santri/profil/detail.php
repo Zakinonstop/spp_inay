@@ -88,13 +88,13 @@
                         <!-- <img src="<?= base_url('assets/foto/')?><?= $data->foto?>" alt="..." class="img-thumbnail"> -->
                            <img width="350px" src="<?= base_url('assets/foto/')?><?= $data->foto?>" alt="">
                         <?php }else { ?>
-                           <img width="450px" src="<?= base_url('assets/foto/foto_santri.png')?>" alt="">
+                           <img width="350px" src="<?= base_url('assets/foto/foto_santri.png')?>" alt="">
                         <?php }
                         ?>
                     </div>
                 </div>
                 <div>
-                <a type="button" class="btn btn-warning" href="<?= base_url('profil_santri/edit/') ?><?= $data->id ?>">Edit Data</a>
+                <a type="button" class="btn btn-secondary" href="<?= base_url('profil_santri/edit/') ?><?= $data->id ?>">Edit Data</a>
                 </div>
             </div>
         </div>
