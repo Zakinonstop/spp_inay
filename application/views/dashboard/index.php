@@ -6,8 +6,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Pemasukan SPP</span>
                 <span class="info-box-number">
-                  Rp. <?= $total_pemasukan->jumlah_bayar ;?>
-                  <!-- <small>%</small> -->
+                <?= "Rp. " . number_format($total_pemasukan->jumlah_bayar,0,',','.')?>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -21,7 +20,9 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Pemasukan Non SPP</span>
-                <span class="info-box-number"><?= $jumlah_pemasukan?></span>
+                <span class="info-box-number">
+                  <?= "Rp. " . number_format($jumlah_pemasukan,0,',','.')?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -35,7 +36,9 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Pengeluaran</span>
-                <span class="info-box-number"><?= $jumlah_pengeluaran?></span>
+                <span class="info-box-number">
+                <?= "Rp. " . number_format($jumlah_pengeluaran,0,',','.')?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -52,7 +55,10 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Saldo</span>
-                <span class="info-box-number"><?= $total_pemasukan->jumlah_bayar + $jumlah_pemasukan  - $jumlah_pengeluaran?></span>
+                <span class="info-box-number">
+                  <?php $saldo = $total_pemasukan->jumlah_bayar + $jumlah_pemasukan  - $jumlah_pengeluaran?>
+                <?= "Rp. " . number_format($saldo,0,',','.')?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
