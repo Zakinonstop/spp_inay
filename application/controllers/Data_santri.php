@@ -149,6 +149,7 @@ class Data_santri extends CI_Controller
 		} else {
 			$data = [
 				'nama' => $this->input->post('nama'),
+				'tgl_lahir' => $this->input->post('tgl_lahir'),
 				'alamat' => $this->input->post('alamat'),
 				'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 				'id_kamar' => $this->input->post('kamar'),
@@ -195,6 +196,7 @@ class Data_santri extends CI_Controller
 
 		$data = [
 			'nama' => $this->input->post('nama'),
+			'tgl_lahir' => $this->input->post('tgl_lahir'),
 			'alamat' => $this->input->post('alamat'),
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 			'id_kamar' => $this->input->post('kamar'),

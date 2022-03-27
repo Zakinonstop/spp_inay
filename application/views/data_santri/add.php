@@ -21,10 +21,17 @@
                 <label for="Nama">Nama</label>
                 <input type="text" class="form-control" name="nama" id="alamat" placeholder="Masukkan Nama">
             </div>
+            
+            <div class="form-group">
+                <label for="tgl_lahir">Tanggal Lahir</label>
+                <input type="date" class="form-control" name="tgl_lahir" id="tgl_lahir" placeholder="Masukkan tgl_lahir">
+            </div>
+
             <div class="form-group">
                 <label for="alamat">Alamat</label>
                 <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat">
             </div>
+
             <div class="form-group">
                 <label for="kamar">Kamar</label>
                 <select name="kamar" id="kamar" class="form-control">
@@ -33,6 +40,7 @@
                     <?php } ?>
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="jenis_kelamin">Jenis Kelamin</label>
                 <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">

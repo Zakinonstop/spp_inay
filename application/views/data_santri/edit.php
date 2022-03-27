@@ -10,10 +10,17 @@
                 <label for="Nama">Nama</label>
                 <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $data->nama ?>">
             </div>
+
+            <div class="form-group">
+                <label for="tgl_lahir">Tgl Lahir</label>
+                <input type="date" class="form-control" name="tgl_lahir" id="tgl_lahir" placeholder="Masukkan tgl_lahir" value="<?= $data->tgl_lahir ?>">
+            </div>
+
             <div class="form-group">
                 <label for="alamat">Alamat</label>
                 <input type="text" class="form-control" name="alamat" id="nama" placeholder="Masukkan alamat" value="<?= $data->alamat ?>">
             </div>
+
             <div class="form-group">
                 <label for="kamar">Kamar</label>
                 <select name="kamar" id="kamar" class="form-control">

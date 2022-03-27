@@ -1,11 +1,27 @@
 Password enkripsi
 # Dashboard Admin
 + Dashboard
-- Diubah ke format rupiah + titik
+- Diubah ke format rupiah + titik | DONE
+- Ganti Icon Pemasukan
+- Alamat ga perlu ditampilin
+- Detail Santri :
+ - Ditambah Tanggal Lahir
+ - Status (Ustadz / Ustadzah)
+- EDIT DATA
+ - Saat Ganti Foto baru, foto lama dihapus
 
-# Tampilan Start for login
+# TAMPILAN START FROM LOGIN
 - Titlenya diubah
+
+# DATA KAMAR
+- Tampilan dibenahi
+- ditambah input transaksi
+
+#ADMINISTRATOR
+- Password yg ditampilkan 2 depan 2 belakang
+
 +++++
 Tampilan awal di tambah background pondok
 21-02-2022
+22-03-2022
  

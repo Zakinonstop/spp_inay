@@ -28,6 +28,11 @@
                         <td><?= $data->nis ?></td>
                     </tr>
                     <tr>
+                        <td>Tgl Lahir</td>
+                        <td>:</td>
+                        <td><?= $data->tgl_lahir ?></td>
+                    </tr>
+                    <tr>
                         <td>Alamat</td>
                         <td>:</td>
                         <td><?= $data->alamat ?></td>
