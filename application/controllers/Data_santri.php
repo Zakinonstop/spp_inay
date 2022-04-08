@@ -158,6 +158,7 @@ class Data_santri extends CI_Controller
 				'password' => $password,
 				'nis' => $nis_fix,
 				'tgl_masuk' => $this->input->post('tgl_masuk'),
+				'status' => $this->input->post('status'),
 				'foto' => $foto,
 			];
 
@@ -203,6 +204,7 @@ class Data_santri extends CI_Controller
 			'id_kelas' => $this->input->post('kelas'),
 			'no_hp' => $this->input->post('no_hp'),
 			'tgl_masuk' => $this->input->post('tgl_masuk'),
+			'status' => $this->input->post('status'),
 			'foto' => $foto,
 		];
 

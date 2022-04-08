@@ -67,6 +67,16 @@
                 <label for="tgl_masuk">Tanggal Masuk Pondok</label>
                 <input type="date" class="form-control" name="tgl_masuk" id="tgl_masuk" >
             </div>
+
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select name="status" id="status" class="form-control">
+                    <option value="1">Santri Aktif</option>
+                    <option value="2">Pengurus</option>
+                    <option value="3">Ustadz / Ustadzah</option>
+                    <option value="4">Alumni</option>
+                </select>
+            </div>
             
             <div class="form-group">
                 <label for="foto">Foto</label>

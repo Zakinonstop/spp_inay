@@ -76,6 +76,12 @@
                             <?php 
                                 if ($data->status == 1) {
                                     echo 'Santri Aktif';
+                                }elseif ($data->status == 2) {
+                                    echo 'Pengurus';
+                                }elseif ($data->status == 3) {
+                                    echo 'Ustadz / Ustadzah';
+                                }elseif ($data->status == 4) {
+                                    echo 'Alumni';
                                 }
                             ?>
                         </td>

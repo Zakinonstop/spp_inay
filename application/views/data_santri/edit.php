@@ -67,6 +67,24 @@
             </div>
             
             <div class="form-group">
+                <label for="status">Status</label>
+                <select name="status" id="status" class="form-control">
+                    <option value="1" <?php if ($data->status == '1') {
+                        echo 'selected';
+                    }?>>Santri Aktif</option>
+                    <option value="2" <?php if ($data->status == '2') {
+                        echo 'selected';
+                    }?>>Pengurus</option>
+                    <option value="3" <?php if ($data->status == '3') {
+                        echo 'selected';
+                    }?>>Ustadz / Ustadzah</option>
+                    <option value="4" <?php if ($data->status == '4') {
+                        echo 'selected';
+                    }?>>Alumni</option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="foto">Foto</label>
                 <input type="hidden" name="foto_asli" id="foto_asli" value="<?= $data->foto ?>">
                 <input type="file" class="form-control" name="foto" id="foto" value="<?= $data->foto ?>">
