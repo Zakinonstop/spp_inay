@@ -69,6 +69,17 @@
                         <td>:</td>
                         <td><?= $data->tgl_masuk ?></td>
                     </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>:</td>
+                        <td> 
+                            <?php 
+                                if ($data->status == 1) {
+                                    echo 'Santri Aktif';
+                                }
+                            ?>
+                        </td>
+                    </tr>
                 </table>
             </div>
             <div class="col-lg-4">

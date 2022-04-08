@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Log in</title>
+  <link rel="icon" href="<?= base_url('') ?>assets/foto/logo_pondok.png">
+  <title>LOGIN</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,20 +23,17 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?= base_url('') ?>template/AdminLTE/index2.html"><b>Login Via</b></a>
+    <b>Login Via</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-  
+      <p class="login-box-msg"></p>
       <a href="<?= base_url('login')?>" type="button" class="btn btn-block bg-gradient-warning btn-lg">ADMIN</a>
       <a href="<?= base_url('login_santri')?>" type="button" class="btn btn-block bg-gradient-success btn-lg">SANTRI</a>
       <a href="<?= base_url('login_tamu')?>" type="button" class="btn btn-block bg-gradient-info btn-lg">GUEST</a>
       <div class="social-auth-links text-center mb-3">
-        
       </div>
-     
     </div>
     <!-- /.login-card-body -->
   </div>

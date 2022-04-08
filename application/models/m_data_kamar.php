@@ -59,7 +59,7 @@ class m_data_kamar extends CI_Model
 
 	public function get_nama_anggota_by_id($id)
 	{
-		$this->db->select('nama');
+		$this->db->select('nama','id');
 		return $this->db->get_where('tb_data_santri', ['id_kamar' => $id])->result();
 	}
 }

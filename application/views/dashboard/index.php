@@ -1,7 +1,7 @@
 <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-receipt"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Pemasukan SPP</span>
@@ -16,7 +16,7 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-thumbs-up"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-receipt"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Pemasukan Non SPP</span>
