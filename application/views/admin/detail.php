@@ -19,7 +19,19 @@
                     <tr>
                         <td>Password</td>
                         <td>:</td>
-                        <td><?= $data->password ?></td>
+                        <td>
+                            <?php
+                            $pass=$data->password;
+                            $jumlah_tampil=2;
+                            $setelah_angka_ke=0;
+                            $censored = substr($pass, $setelah_angka_ke, $jumlah_tampil);
+
+                            // $jumlah_kata = strlen($pass);
+                            // $tampil_bintang = '*'*3;
+                             echo $censored.'*****'; 
+                             ?>
+                        
+                        </td>
                     </tr>
                     <tr>
                         <td>Email</td>

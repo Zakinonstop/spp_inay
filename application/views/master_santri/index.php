@@ -45,13 +45,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="#" class="nav-link" style=" color: white; ">INAY APP SISTEM</a>
+            <a href="<?= base_url('dashboard_santri')?>" class="nav-link" style=" color: white; ">INAY APP SISTEM</a>
           </li>
           <li class="nav-item">
             <a href="<?= base_url('santri_spp/view/')?><?= $this->session->userdata['id']?>" class="nav-link" style=" color: white; font-family: 'Lucida Console', 'Courier New', monospace;">SPP</a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('profil_santri/detail/')?><?= $this->session->userdata['id']?>" class="nav-link" style=" color: white; font-family: 'Lucida Console', 'Courier New', monospace;">PROFILE</a>
+            <a href="<?= base_url('profil_santri/detail/')?><?= $this->session->userdata['id']?>" class="nav-link" style=" color: white; font-family: 'Lucida Console', 'Courier New', monospace;">PROFIL</a>
           </li>
          
         </ul>
@@ -77,8 +77,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-10">
-            <h5 class="m-0 text-dark"> <marquee>Inay Aplication Sistem || Nek ora ngaji yo mulang ngaji.Iki mung conto sak sakke kata katane mung pengin
-              dowo dowo wae, anandan sariharjo ngaglik sleman yogyakarta.
+            <h5 class="m-0 text-dark"> <marquee>Inay Aplication Sistem || Sistem ini dibuat untuk memudahkan teman - teman santri dalam hal informasi 
+              pembayaran biaya bulanan atau SPP atau Syahriah  Semoga bermanfaat.
             </marquee></h5>
           </div><!-- /.col -->
           <div class="col-sm-2">

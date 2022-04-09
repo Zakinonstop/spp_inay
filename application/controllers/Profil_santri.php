@@ -195,6 +195,7 @@ class Profil_santri extends CI_Controller
 		$data = [
 			'nama' => $this->input->post('nama'),
 			'alamat' => $this->input->post('alamat'),
+			'tgl_lahir' => $this->input->post('tgl_lahir'),
 			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 			'id_kamar' => $this->input->post('kamar'),
 			'id_kelas' => $this->input->post('kelas'),

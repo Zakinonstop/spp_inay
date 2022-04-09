@@ -41,6 +41,11 @@
                         <td><?= $data->nis ?></td>
                     </tr>
                     <tr>
+                        <td>Tanggal Lahir</td>
+                        <td>:</td>
+                        <td><?= $data->tgl_lahir ?></td>
+                    </tr>
+                    <tr>
                         <td>Alamat</td>
                         <td>:</td>
                         <td><?= $data->alamat ?></td>
@@ -76,6 +81,23 @@
                         <td>Tanggal Masuk Pondok</td>
                         <td>:</td>
                         <td><?= $data->tgl_masuk ?></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>:</td>
+                        <td>
+                        <?php 
+                                if ($data->status == 1) {
+                                    echo 'Santri Aktif';
+                                }elseif ($data->status == 2) {
+                                    echo 'Pengurus';
+                                }elseif ($data->status == 3) {
+                                    echo 'Ustadz / Ustadzah';
+                                }elseif ($data->status == 4) {
+                                    echo 'Alumni';
+                                }
+                            ?>
+                        </td>
                     </tr>
                 </table>
             </div>

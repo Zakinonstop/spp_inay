@@ -32,9 +32,9 @@
                         <tr>
                             <td><?= $no++?></td>
                             <td><?= $na->nama?></td>
-                            <!-- <td style="padding: 5px;" width="70">
+                            <td >
                               <a type="button" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('input_transaksi/view/') ?><?= $na->id ?>">Input Transaksi</a>
-                            </td> -->
+                            </td>
                         </tr>
                     <?php } ?>
                    
