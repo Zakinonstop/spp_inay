@@ -85,7 +85,8 @@ class Data_tahun extends CI_Controller
 	public function add_save()
 	{
 
-		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('nama', 'Nama Tahun', 'required');
+		$this->form_validation->set_rules('nominal_tagihan', 'Nominal Tagihan', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = $this->session->set_flashdata('message', validation_errors());
@@ -133,16 +134,25 @@ class Data_tahun extends CI_Controller
 
 	public function edit_save($id)
 	{
-		$data = [
-			'nama_tahun' => $this->input->post('nama'),
-		];
+		$this->form_validation->set_rules('nama', 'Nama Tahun', 'required');
+		$this->form_validation->set_rules('nominal_tagihan', 'Nominal Tagihan', 'required');
 
-		$edit = $this->m_data_tahun->update($data, $id);
+		if ($this->form_validation->run() == FALSE) {
+			$data = $this->session->set_flashdata('message', validation_errors());
+			redirect('data_tahun/edit/'.$id, $data);
+		} else {
+			$data = [
+				'nama_tahun' => $this->input->post('nama'),
+				'nominal_tagihan' => $this->input->post('nominal'),
+			];
+
+			$edit = $this->m_data_tahun->update($data, $id);
 
 
-		$data = $this->session->set_flashdata('message', 'diedit');
+			$data = $this->session->set_flashdata('message', 'diedit');
 
-		redirect('data_tahun');
+			redirect('data_tahun');
+		}
 	}
 
 	public function hapus($id)

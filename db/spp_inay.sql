@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2022 at 07:26 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Waktu pembuatan: 14 Apr 2022 pada 06.10
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_admin`
+-- Struktur dari tabel `tb_admin`
 --
 
 CREATE TABLE `tb_admin` (
@@ -35,19 +35,18 @@ CREATE TABLE `tb_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_admin`
+-- Dumping data untuk tabel `tb_admin`
 --
 
 INSERT INTO `tb_admin` (`id_admin`, `username`, `password`, `email`) VALUES
-(1, 'admin1', 'admin123', 'admin@gmail.com'),
 (4, 'zaki', 'zaki123', 'zakinonstop1@gmail.com'),
-(6, 'admin1', 'admin123', 'admin1@gmail.com'),
-(7, 'admin12', 'admin123', 'admin1@gmail.com');
+(7, 'admin123', 'admin123', 'admin1@gmail.com'),
+(8, 'admin1', 'admin123', 'admin1@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_bulan`
+-- Struktur dari tabel `tb_bulan`
 --
 
 CREATE TABLE `tb_bulan` (
@@ -56,7 +55,7 @@ CREATE TABLE `tb_bulan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_bulan`
+-- Dumping data untuk tabel `tb_bulan`
 --
 
 INSERT INTO `tb_bulan` (`id_bulan`, `nama_bulan`) VALUES
@@ -76,13 +75,14 @@ INSERT INTO `tb_bulan` (`id_bulan`, `nama_bulan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_data_santri`
+-- Struktur dari tabel `tb_data_santri`
 --
 
 CREATE TABLE `tb_data_santri` (
   `id` int(11) NOT NULL,
   `nama` varchar(200) NOT NULL,
   `nis` varchar(20) NOT NULL,
+  `tgl_lahir` date DEFAULT NULL,
   `alamat` varchar(200) NOT NULL,
   `jenis_kelamin` enum('L','P') NOT NULL,
   `id_kamar` int(11) NOT NULL,
@@ -90,34 +90,41 @@ CREATE TABLE `tb_data_santri` (
   `no_hp` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `tgl_masuk` date DEFAULT NULL,
+  `status` enum('1','2','3','4') NOT NULL DEFAULT '1',
   `foto` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_data_santri`
+-- Dumping data untuk tabel `tb_data_santri`
 --
 
-INSERT INTO `tb_data_santri` (`id`, `nama`, `nis`, `alamat`, `jenis_kelamin`, `id_kamar`, `id_kelas`, `no_hp`, `password`, `tgl_masuk`, `foto`) VALUES
-(79, 'zaki', '22.01.0001 ', 'magelang', 'L', 1, 1, '08921233214234', '62016', '0000-00-00', ''),
-(80, 'Muhammad Zakiyuddin', '22.01.0002 ', '', 'L', 1, 1, '6285777458649', '10860', '0000-00-00', ''),
-(81, 'M Abdul Khakim', '22.01.0003 ', '', 'L', 1, 1, '087767676669', '15867', '0000-00-00', ''),
-(82, 'alip', '22.01.0004 ', '', 'L', 1, 1, '08921233214234', '11459', '2022-02-15', ''),
-(83, 'namanya panjang banget sampai nggak muat', '22.01.0005 ', '', 'L', 1, 1, '08921233214234', '11862', '0000-00-00', ''),
-(84, 'risky fadhilah ramadhan', '22.01.0006 ', '', 'L', 1, 1, '08921233214230', '19825', '0000-00-00', ''),
-(85, 'risky', '22.01.0007 ', '', 'L', 1, 1, '08921233214234', '16998', '0000-00-00', ''),
-(86, 'Habib novel bin alaydrus', '22.01.0008 ', '', 'L', 1, 1, '08921233214234', '42555', '0000-00-00', ''),
-(87, 'Habib Husein ja\'far al haddad', '22.01.0009 ', '', 'L', 1, 1, '08921233214230', '77228', '0000-00-00', ''),
-(88, 'wildan aly haidar arvissalam muhammad', '22.01.0010 ', '', 'L', 1, 1, '08921233214230', '96543', '0000-00-00', ''),
-(89, 'raka', '22.01.0011 ', '', 'L', 1, 1, '08921233214230', '15383', '0000-00-00', ''),
-(90, 'sujiwo tedjo', '22.01.0012 ', '', 'L', 1, 1, '08921233214234', '19673', '0000-00-00', ''),
-(91, 'KH Bahaudin Nur salim', '22.01.0013 ', '', 'L', 1, 1, '08921233214230', '13477', '0000-00-00', ''),
-(92, 'Buya Arrazy Hasyim', '22.01.0014 ', '', 'L', 1, 1, '087767676669', '92026', '0000-00-00', ''),
-(93, 'Syeikh Ali al Jumah', '22.01.0015 ', '', 'L', 1, 1, '6285777458649', '60697', '0000-00-00', '');
+INSERT INTO `tb_data_santri` (`id`, `nama`, `nis`, `tgl_lahir`, `alamat`, `jenis_kelamin`, `id_kamar`, `id_kelas`, `no_hp`, `password`, `tgl_masuk`, `status`, `foto`) VALUES
+(79, 'zaki', '22.01.0001 ', NULL, 'magelang', 'L', 1, 1, '08921233214234', '62016', '0000-00-00', '1', ''),
+(80, 'Muhammad Zakiyuddin', '22.01.0002 ', '2001-03-06', '', 'L', 1, 1, '6285777458649', '10860', '0000-00-00', '1', ''),
+(81, 'M Abdul Khakim', '22.01.0003 ', NULL, '', 'L', 1, 1, '087767676669', '15867', '0000-00-00', '1', ''),
+(82, 'alip', '22.01.0004 ', NULL, '', 'L', 1, 1, '08921233214234', '11459', '2022-02-15', '1', ''),
+(83, 'namanya panjang banget sampai nggak muat', '22.01.0005 ', NULL, '', 'L', 1, 1, '08921233214234', '11862', '0000-00-00', '1', 'messi2.jpeg'),
+(84, 'risky fadhilah ramadhan', '22.01.0006 ', NULL, '', 'L', 1, 1, '08921233214230', '19825', '0000-00-00', '1', ''),
+(85, 'risky', '22.01.0007 ', NULL, '', 'L', 1, 1, '08921233214234', '16998', '0000-00-00', '1', ''),
+(86, 'Habib novel bin alaydrus', '22.01.0008 ', NULL, '', 'L', 1, 1, '08921233214234', '42555', '0000-00-00', '1', ''),
+(87, 'Habib Husein ja\'far al haddad', '22.01.0009 ', NULL, '', 'L', 1, 1, '08921233214230', '77228', '0000-00-00', '1', ''),
+(88, 'wildan aly haidar arvissalam muhammad', '22.01.0010 ', NULL, '', 'L', 1, 1, '08921233214230', '96543', '0000-00-00', '1', ''),
+(89, '2021', '22.01.0011 ', '0000-00-00', '', 'L', 1, 1, '08921233214230', '15383', '2022-02-17', '1', ''),
+(90, 'sujiwo tedjo', '22.01.0012 ', NULL, '', 'L', 1, 1, '085777458649', '19673', '0000-00-00', '1', ''),
+(91, 'KH Bahaudin Nur salim', '22.01.0013 ', NULL, '', 'L', 1, 1, '08921233214230', '13477', '0000-00-00', '1', ''),
+(92, 'Buya Arrazy Hasyim', '22.01.0014 ', NULL, '', 'L', 1, 1, '087767676669', '92026', '0000-00-00', '1', ''),
+(93, 'Syeikh Ali al Jumah', '22.01.0015 ', NULL, '', 'L', 1, 1, '6285777458649', '60697', '0000-00-00', '1', ''),
+(94, 'Nafi', '22.01.0016 ', NULL, '', 'L', 5, 4, '08921233214234', '29462', '0000-00-00', '1', 'Screenshot_(2).png'),
+(95, 'hakim', '22.01.0017 ', NULL, '', 'L', 1, 1, '085747054494', '15492', '0000-00-00', '1', 'Screenshot_(8)1.png'),
+(96, 'NNa', '22.01.0018 ', '2022-04-08', 'll', 'L', 2, 1, '081326404159', '30836', '2022-03-22', '1', ''),
+(98, 'Pandu', '22.01.0019 ', '2022-03-14', 'Kragilan RT 04 RW 03, Progowati', 'L', 3, 2, '089506453865', '69089', '2022-03-27', '1', ''),
+(99, 'zaos', '22.01.0020 ', '2022-04-08', 'Kragilan RT 04 RW 03, Progowati', 'L', 6, 3, '089506453865', '17894', '2022-04-04', '4', ''),
+(100, 'nn', '22.02.0021 ', '2022-04-14', 'Kragilan RT 04 RW 03, Progowati', 'P', 1, 2, '089506453865', '18548', '2022-04-08', '3', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_data_tagihan`
+-- Struktur dari tabel `tb_data_tagihan`
 --
 
 CREATE TABLE `tb_data_tagihan` (
@@ -128,39 +135,27 @@ CREATE TABLE `tb_data_tagihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_data_tagihan`
+-- Dumping data untuk tabel `tb_data_tagihan`
 --
 
 INSERT INTO `tb_data_tagihan` (`id`, `id_tahun`, `id_bulan`, `nominal`) VALUES
-(253, 20, 1, '200000'),
-(254, 20, 2, '200000'),
-(255, 20, 3, '200000'),
-(256, 20, 4, '200000'),
-(257, 20, 5, '200000'),
-(258, 20, 6, '200000'),
-(259, 20, 7, '200000'),
-(260, 20, 8, '200000'),
-(261, 20, 9, '200000'),
-(262, 20, 10, '200000'),
-(263, 20, 11, '200000'),
-(264, 20, 12, '200000'),
-(265, 21, 1, '120000'),
-(266, 21, 2, '120000'),
-(267, 21, 3, '120000'),
-(268, 21, 4, '120000'),
-(269, 21, 5, '120000'),
-(270, 21, 6, '120000'),
-(271, 21, 7, '120000'),
-(272, 21, 8, '120000'),
-(273, 21, 9, '120000'),
-(274, 21, 10, '120000'),
-(275, 21, 11, '120000'),
-(276, 21, 12, '120000');
+(277, 22, 1, '200000'),
+(278, 22, 2, '200000'),
+(279, 22, 3, '200000'),
+(280, 22, 4, '200000'),
+(281, 22, 5, '200000'),
+(282, 22, 6, '200000'),
+(283, 22, 7, '200000'),
+(284, 22, 8, '200000'),
+(285, 22, 9, '200000'),
+(286, 22, 10, '200000'),
+(287, 22, 11, '200000'),
+(288, 22, 12, '200000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_data_transaksi`
+-- Struktur dari tabel `tb_data_transaksi`
 --
 
 CREATE TABLE `tb_data_transaksi` (
@@ -175,375 +170,267 @@ CREATE TABLE `tb_data_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_data_transaksi`
+-- Dumping data untuk tabel `tb_data_transaksi`
 --
 
 INSERT INTO `tb_data_transaksi` (`id_data_transaksi`, `id_data_santri`, `id_data_tagihan`, `jumlah_bayar`, `sisa`, `keterangan`, `tanggal_bayar`, `created_by`) VALUES
-(2881, 79, 253, '200000', '0', '1', '2022-02-14 16:41:25', 'admin1'),
-(2882, 79, 254, '200000', '0', '1', '2022-02-14 16:41:29', 'admin1'),
-(2883, 79, 255, NULL, NULL, NULL, NULL, ''),
-(2884, 79, 256, NULL, NULL, NULL, NULL, ''),
-(2885, 79, 257, NULL, NULL, NULL, NULL, ''),
-(2886, 79, 258, NULL, NULL, NULL, NULL, ''),
-(2887, 79, 259, NULL, NULL, NULL, NULL, ''),
-(2888, 79, 260, NULL, NULL, NULL, NULL, ''),
-(2889, 79, 261, NULL, NULL, NULL, NULL, ''),
-(2890, 79, 262, NULL, NULL, NULL, NULL, ''),
-(2891, 79, 263, NULL, NULL, NULL, NULL, ''),
-(2892, 79, 264, NULL, NULL, NULL, NULL, ''),
-(2893, 79, 265, '120000', '0', '1', '2022-02-14 16:42:53', 'admin1'),
-(2894, 79, 266, '120000', '0', '1', '2022-02-14 16:43:35', 'admin1'),
-(2895, 79, 267, '120000', '0', '1', '2022-02-14 16:43:44', 'admin1'),
-(2896, 79, 268, '120000', '0', '1', '2022-02-14 16:45:50', 'admin1'),
-(2897, 79, 269, NULL, NULL, NULL, NULL, ''),
-(2898, 79, 270, NULL, NULL, NULL, NULL, ''),
-(2899, 79, 271, NULL, NULL, NULL, NULL, ''),
-(2900, 79, 272, NULL, NULL, NULL, NULL, ''),
-(2901, 79, 273, NULL, NULL, NULL, NULL, ''),
-(2902, 79, 274, NULL, NULL, NULL, NULL, ''),
-(2903, 79, 275, NULL, NULL, NULL, NULL, ''),
-(2904, 79, 276, NULL, NULL, NULL, NULL, ''),
-(2905, 80, 253, '200000', '0', '1', '2022-02-14 22:32:14', 'admin1'),
-(2906, 80, 254, '200000', '0', '1', '2022-02-14 22:32:17', 'admin1'),
-(2907, 80, 255, '200000', '0', '1', '2022-02-14 22:32:19', 'admin1'),
-(2908, 80, 256, '200000', '0', '1', '2022-02-14 22:32:22', 'admin1'),
-(2909, 80, 257, '200000', '0', '1', '2022-02-14 22:32:25', 'admin1'),
-(2910, 80, 258, '200000', '0', '1', '2022-02-14 22:32:28', 'admin1'),
-(2911, 80, 259, '200000', '0', '1', '2022-02-14 22:32:30', 'admin1'),
-(2912, 80, 260, '200000', '0', '1', '2022-02-14 22:32:33', 'admin1'),
-(2913, 80, 261, '200000', '0', '1', '2022-02-14 22:32:36', 'admin1'),
-(2914, 80, 262, '200000', '0', '1', '2022-02-14 22:32:39', 'admin1'),
-(2915, 80, 263, '200000', '0', '1', '2022-02-14 22:32:42', 'admin1'),
-(2916, 80, 264, '200000', '0', '1', '2022-02-14 22:32:45', 'admin1'),
-(2917, 80, 265, NULL, NULL, NULL, NULL, ''),
-(2918, 80, 266, NULL, NULL, NULL, NULL, ''),
-(2919, 80, 267, NULL, NULL, NULL, NULL, ''),
-(2920, 80, 268, NULL, NULL, NULL, NULL, ''),
-(2921, 80, 269, NULL, NULL, NULL, NULL, ''),
-(2922, 80, 270, NULL, NULL, NULL, NULL, ''),
-(2923, 80, 271, NULL, NULL, NULL, NULL, ''),
-(2924, 80, 272, NULL, NULL, NULL, NULL, ''),
-(2925, 80, 273, NULL, NULL, NULL, NULL, ''),
-(2926, 80, 274, NULL, NULL, NULL, NULL, ''),
-(2927, 80, 275, NULL, NULL, NULL, NULL, ''),
-(2928, 80, 276, NULL, NULL, NULL, NULL, ''),
-(2929, 81, 253, '200000', '0', '1', '2022-02-14 22:41:05', 'admin1'),
-(2930, 81, 254, '200000', '0', '1', '2022-02-14 22:41:08', 'admin1'),
-(2931, 81, 255, '200000', '0', '1', '2022-02-14 22:41:11', 'admin1'),
-(2932, 81, 256, '200000', '0', '1', '2022-02-14 22:41:14', 'admin1'),
-(2933, 81, 257, '200000', '0', '1', '2022-02-14 22:41:17', 'admin1'),
-(2934, 81, 258, '200000', '0', '1', '2022-02-14 22:41:20', 'admin1'),
-(2935, 81, 259, '200000', '0', '1', '2022-02-14 22:41:23', 'admin1'),
-(2936, 81, 260, '200000', '0', '1', '2022-02-14 22:41:27', 'admin1'),
-(2937, 81, 261, NULL, NULL, NULL, NULL, ''),
-(2938, 81, 262, NULL, NULL, NULL, NULL, ''),
-(2939, 81, 263, NULL, NULL, NULL, NULL, ''),
-(2940, 81, 264, NULL, NULL, NULL, NULL, ''),
-(2941, 81, 265, NULL, NULL, NULL, NULL, ''),
-(2942, 81, 266, NULL, NULL, NULL, NULL, ''),
-(2943, 81, 267, NULL, NULL, NULL, NULL, ''),
-(2944, 81, 268, NULL, NULL, NULL, NULL, ''),
-(2945, 81, 269, NULL, NULL, NULL, NULL, ''),
-(2946, 81, 270, NULL, NULL, NULL, NULL, ''),
-(2947, 81, 271, NULL, NULL, NULL, NULL, ''),
-(2948, 81, 272, NULL, NULL, NULL, NULL, ''),
-(2949, 81, 273, NULL, NULL, NULL, NULL, ''),
-(2950, 81, 274, NULL, NULL, NULL, NULL, ''),
-(2951, 81, 275, NULL, NULL, NULL, NULL, ''),
-(2952, 81, 276, NULL, NULL, NULL, NULL, ''),
-(2953, 82, 253, NULL, NULL, NULL, NULL, ''),
-(2954, 82, 254, NULL, NULL, NULL, NULL, ''),
-(2955, 82, 255, NULL, NULL, NULL, NULL, ''),
-(2956, 82, 256, NULL, NULL, NULL, NULL, ''),
-(2957, 82, 257, NULL, NULL, NULL, NULL, ''),
-(2958, 82, 258, NULL, NULL, NULL, NULL, ''),
-(2959, 82, 259, NULL, NULL, NULL, NULL, ''),
-(2960, 82, 260, NULL, NULL, NULL, NULL, ''),
-(2961, 82, 261, NULL, NULL, NULL, NULL, ''),
-(2962, 82, 262, NULL, NULL, NULL, NULL, ''),
-(2963, 82, 263, NULL, NULL, NULL, NULL, ''),
-(2964, 82, 264, NULL, NULL, NULL, NULL, ''),
-(2965, 82, 265, NULL, NULL, NULL, NULL, ''),
-(2966, 82, 266, NULL, NULL, NULL, NULL, ''),
-(2967, 82, 267, NULL, NULL, NULL, NULL, ''),
-(2968, 82, 268, NULL, NULL, NULL, NULL, ''),
-(2969, 82, 269, NULL, NULL, NULL, NULL, ''),
-(2970, 82, 270, NULL, NULL, NULL, NULL, ''),
-(2971, 82, 271, NULL, NULL, NULL, NULL, ''),
-(2972, 82, 272, NULL, NULL, NULL, NULL, ''),
-(2973, 82, 273, NULL, NULL, NULL, NULL, ''),
-(2974, 82, 274, NULL, NULL, NULL, NULL, ''),
-(2975, 82, 275, NULL, NULL, NULL, NULL, ''),
-(2976, 82, 276, NULL, NULL, NULL, NULL, ''),
-(2977, 83, 253, NULL, NULL, NULL, NULL, ''),
-(2978, 83, 254, NULL, NULL, NULL, NULL, ''),
-(2979, 83, 255, NULL, NULL, NULL, NULL, ''),
-(2980, 83, 256, NULL, NULL, NULL, NULL, ''),
-(2981, 83, 257, NULL, NULL, NULL, NULL, ''),
-(2982, 83, 258, NULL, NULL, NULL, NULL, ''),
-(2983, 83, 259, NULL, NULL, NULL, NULL, ''),
-(2984, 83, 260, NULL, NULL, NULL, NULL, ''),
-(2985, 83, 261, NULL, NULL, NULL, NULL, ''),
-(2986, 83, 262, NULL, NULL, NULL, NULL, ''),
-(2987, 83, 263, NULL, NULL, NULL, NULL, ''),
-(2988, 83, 264, NULL, NULL, NULL, NULL, ''),
-(2989, 83, 265, NULL, NULL, NULL, NULL, ''),
-(2990, 83, 266, NULL, NULL, NULL, NULL, ''),
-(2991, 83, 267, NULL, NULL, NULL, NULL, ''),
-(2992, 83, 268, NULL, NULL, NULL, NULL, ''),
-(2993, 83, 269, NULL, NULL, NULL, NULL, ''),
-(2994, 83, 270, NULL, NULL, NULL, NULL, ''),
-(2995, 83, 271, NULL, NULL, NULL, NULL, ''),
-(2996, 83, 272, NULL, NULL, NULL, NULL, ''),
-(2997, 83, 273, NULL, NULL, NULL, NULL, ''),
-(2998, 83, 274, NULL, NULL, NULL, NULL, ''),
-(2999, 83, 275, NULL, NULL, NULL, NULL, ''),
-(3000, 83, 276, NULL, NULL, NULL, NULL, ''),
-(3001, 84, 253, '200000', '0', '1', '2022-02-16 13:16:21', 'admin1'),
-(3002, 84, 254, '200000', '0', '1', '2022-02-16 13:16:26', 'admin1'),
-(3003, 84, 255, NULL, NULL, NULL, NULL, ''),
-(3004, 84, 256, NULL, NULL, NULL, NULL, ''),
-(3005, 84, 257, NULL, NULL, NULL, NULL, ''),
-(3006, 84, 258, NULL, NULL, NULL, NULL, ''),
-(3007, 84, 259, NULL, NULL, NULL, NULL, ''),
-(3008, 84, 260, NULL, NULL, NULL, NULL, ''),
-(3009, 84, 261, NULL, NULL, NULL, NULL, ''),
-(3010, 84, 262, NULL, NULL, NULL, NULL, ''),
-(3011, 84, 263, NULL, NULL, NULL, NULL, ''),
-(3012, 84, 264, NULL, NULL, NULL, NULL, ''),
-(3013, 84, 265, NULL, NULL, NULL, NULL, ''),
-(3014, 84, 266, NULL, NULL, NULL, NULL, ''),
-(3015, 84, 267, NULL, NULL, NULL, NULL, ''),
-(3016, 84, 268, NULL, NULL, NULL, NULL, ''),
-(3017, 84, 269, NULL, NULL, NULL, NULL, ''),
-(3018, 84, 270, NULL, NULL, NULL, NULL, ''),
-(3019, 84, 271, NULL, NULL, NULL, NULL, ''),
-(3020, 84, 272, NULL, NULL, NULL, NULL, ''),
-(3021, 84, 273, NULL, NULL, NULL, NULL, ''),
-(3022, 84, 274, NULL, NULL, NULL, NULL, ''),
-(3023, 84, 275, NULL, NULL, NULL, NULL, ''),
-(3024, 84, 276, NULL, NULL, NULL, NULL, ''),
-(3025, 85, 253, NULL, NULL, NULL, NULL, ''),
-(3026, 85, 254, NULL, NULL, NULL, NULL, ''),
-(3027, 85, 255, NULL, NULL, NULL, NULL, ''),
-(3028, 85, 256, NULL, NULL, NULL, NULL, ''),
-(3029, 85, 257, NULL, NULL, NULL, NULL, ''),
-(3030, 85, 258, NULL, NULL, NULL, NULL, ''),
-(3031, 85, 259, NULL, NULL, NULL, NULL, ''),
-(3032, 85, 260, NULL, NULL, NULL, NULL, ''),
-(3033, 85, 261, NULL, NULL, NULL, NULL, ''),
-(3034, 85, 262, NULL, NULL, NULL, NULL, ''),
-(3035, 85, 263, NULL, NULL, NULL, NULL, ''),
-(3036, 85, 264, NULL, NULL, NULL, NULL, ''),
-(3037, 85, 265, NULL, NULL, NULL, NULL, ''),
-(3038, 85, 266, NULL, NULL, NULL, NULL, ''),
-(3039, 85, 267, NULL, NULL, NULL, NULL, ''),
-(3040, 85, 268, NULL, NULL, NULL, NULL, ''),
-(3041, 85, 269, NULL, NULL, NULL, NULL, ''),
-(3042, 85, 270, NULL, NULL, NULL, NULL, ''),
-(3043, 85, 271, NULL, NULL, NULL, NULL, ''),
-(3044, 85, 272, NULL, NULL, NULL, NULL, ''),
-(3045, 85, 273, NULL, NULL, NULL, NULL, ''),
-(3046, 85, 274, NULL, NULL, NULL, NULL, ''),
-(3047, 85, 275, NULL, NULL, NULL, NULL, ''),
-(3048, 85, 276, NULL, NULL, NULL, NULL, ''),
-(3049, 86, 253, NULL, NULL, NULL, NULL, ''),
-(3050, 86, 254, NULL, NULL, NULL, NULL, ''),
-(3051, 86, 255, NULL, NULL, NULL, NULL, ''),
-(3052, 86, 256, NULL, NULL, NULL, NULL, ''),
-(3053, 86, 257, NULL, NULL, NULL, NULL, ''),
-(3054, 86, 258, NULL, NULL, NULL, NULL, ''),
-(3055, 86, 259, NULL, NULL, NULL, NULL, ''),
-(3056, 86, 260, NULL, NULL, NULL, NULL, ''),
-(3057, 86, 261, NULL, NULL, NULL, NULL, ''),
-(3058, 86, 262, NULL, NULL, NULL, NULL, ''),
-(3059, 86, 263, NULL, NULL, NULL, NULL, ''),
-(3060, 86, 264, NULL, NULL, NULL, NULL, ''),
-(3061, 86, 265, NULL, NULL, NULL, NULL, ''),
-(3062, 86, 266, NULL, NULL, NULL, NULL, ''),
-(3063, 86, 267, NULL, NULL, NULL, NULL, ''),
-(3064, 86, 268, NULL, NULL, NULL, NULL, ''),
-(3065, 86, 269, NULL, NULL, NULL, NULL, ''),
-(3066, 86, 270, NULL, NULL, NULL, NULL, ''),
-(3067, 86, 271, NULL, NULL, NULL, NULL, ''),
-(3068, 86, 272, NULL, NULL, NULL, NULL, ''),
-(3069, 86, 273, NULL, NULL, NULL, NULL, ''),
-(3070, 86, 274, NULL, NULL, NULL, NULL, ''),
-(3071, 86, 275, NULL, NULL, NULL, NULL, ''),
-(3072, 86, 276, NULL, NULL, NULL, NULL, ''),
-(3073, 87, 253, NULL, NULL, NULL, NULL, ''),
-(3074, 87, 254, NULL, NULL, NULL, NULL, ''),
-(3075, 87, 255, NULL, NULL, NULL, NULL, ''),
-(3076, 87, 256, NULL, NULL, NULL, NULL, ''),
-(3077, 87, 257, NULL, NULL, NULL, NULL, ''),
-(3078, 87, 258, NULL, NULL, NULL, NULL, ''),
-(3079, 87, 259, NULL, NULL, NULL, NULL, ''),
-(3080, 87, 260, NULL, NULL, NULL, NULL, ''),
-(3081, 87, 261, NULL, NULL, NULL, NULL, ''),
-(3082, 87, 262, NULL, NULL, NULL, NULL, ''),
-(3083, 87, 263, NULL, NULL, NULL, NULL, ''),
-(3084, 87, 264, NULL, NULL, NULL, NULL, ''),
-(3085, 87, 265, NULL, NULL, NULL, NULL, ''),
-(3086, 87, 266, NULL, NULL, NULL, NULL, ''),
-(3087, 87, 267, NULL, NULL, NULL, NULL, ''),
-(3088, 87, 268, NULL, NULL, NULL, NULL, ''),
-(3089, 87, 269, NULL, NULL, NULL, NULL, ''),
-(3090, 87, 270, NULL, NULL, NULL, NULL, ''),
-(3091, 87, 271, NULL, NULL, NULL, NULL, ''),
-(3092, 87, 272, NULL, NULL, NULL, NULL, ''),
-(3093, 87, 273, NULL, NULL, NULL, NULL, ''),
-(3094, 87, 274, NULL, NULL, NULL, NULL, ''),
-(3095, 87, 275, NULL, NULL, NULL, NULL, ''),
-(3096, 87, 276, NULL, NULL, NULL, NULL, ''),
-(3097, 88, 253, '200000', '0', '1', '2022-02-15 11:45:36', 'admin1'),
-(3098, 88, 254, NULL, NULL, NULL, NULL, ''),
-(3099, 88, 255, NULL, NULL, NULL, NULL, ''),
-(3100, 88, 256, NULL, NULL, NULL, NULL, ''),
-(3101, 88, 257, NULL, NULL, NULL, NULL, ''),
-(3102, 88, 258, NULL, NULL, NULL, NULL, ''),
-(3103, 88, 259, NULL, NULL, NULL, NULL, ''),
-(3104, 88, 260, NULL, NULL, NULL, NULL, ''),
-(3105, 88, 261, NULL, NULL, NULL, NULL, ''),
-(3106, 88, 262, NULL, NULL, NULL, NULL, ''),
-(3107, 88, 263, NULL, NULL, NULL, NULL, ''),
-(3108, 88, 264, NULL, NULL, NULL, NULL, ''),
-(3109, 88, 265, NULL, NULL, NULL, NULL, ''),
-(3110, 88, 266, NULL, NULL, NULL, NULL, ''),
-(3111, 88, 267, NULL, NULL, NULL, NULL, ''),
-(3112, 88, 268, NULL, NULL, NULL, NULL, ''),
-(3113, 88, 269, NULL, NULL, NULL, NULL, ''),
-(3114, 88, 270, NULL, NULL, NULL, NULL, ''),
-(3115, 88, 271, NULL, NULL, NULL, NULL, ''),
-(3116, 88, 272, NULL, NULL, NULL, NULL, ''),
-(3117, 88, 273, NULL, NULL, NULL, NULL, ''),
-(3118, 88, 274, NULL, NULL, NULL, NULL, ''),
-(3119, 88, 275, NULL, NULL, NULL, NULL, ''),
-(3120, 88, 276, NULL, NULL, NULL, NULL, ''),
-(3121, 89, 253, NULL, NULL, NULL, NULL, ''),
-(3122, 89, 254, NULL, NULL, NULL, NULL, ''),
-(3123, 89, 255, NULL, NULL, NULL, NULL, ''),
-(3124, 89, 256, NULL, NULL, NULL, NULL, ''),
-(3125, 89, 257, NULL, NULL, NULL, NULL, ''),
-(3126, 89, 258, NULL, NULL, NULL, NULL, ''),
-(3127, 89, 259, NULL, NULL, NULL, NULL, ''),
-(3128, 89, 260, NULL, NULL, NULL, NULL, ''),
-(3129, 89, 261, NULL, NULL, NULL, NULL, ''),
-(3130, 89, 262, NULL, NULL, NULL, NULL, ''),
-(3131, 89, 263, NULL, NULL, NULL, NULL, ''),
-(3132, 89, 264, NULL, NULL, NULL, NULL, ''),
-(3133, 89, 265, NULL, NULL, NULL, NULL, ''),
-(3134, 89, 266, NULL, NULL, NULL, NULL, ''),
-(3135, 89, 267, NULL, NULL, NULL, NULL, ''),
-(3136, 89, 268, NULL, NULL, NULL, NULL, ''),
-(3137, 89, 269, NULL, NULL, NULL, NULL, ''),
-(3138, 89, 270, NULL, NULL, NULL, NULL, ''),
-(3139, 89, 271, NULL, NULL, NULL, NULL, ''),
-(3140, 89, 272, NULL, NULL, NULL, NULL, ''),
-(3141, 89, 273, NULL, NULL, NULL, NULL, ''),
-(3142, 89, 274, NULL, NULL, NULL, NULL, ''),
-(3143, 89, 275, NULL, NULL, NULL, NULL, ''),
-(3144, 89, 276, NULL, NULL, NULL, NULL, ''),
-(3145, 90, 253, '200000', '0', '1', '2022-02-16 13:15:42', 'admin1'),
-(3146, 90, 254, '200000', '0', '1', '2022-02-16 13:15:50', 'admin1'),
-(3147, 90, 255, '200000', '0', '1', '2022-02-16 13:22:00', 'admin1'),
-(3148, 90, 256, NULL, NULL, NULL, NULL, ''),
-(3149, 90, 257, NULL, NULL, NULL, NULL, ''),
-(3150, 90, 258, NULL, NULL, NULL, NULL, ''),
-(3151, 90, 259, NULL, NULL, NULL, NULL, ''),
-(3152, 90, 260, NULL, NULL, NULL, NULL, ''),
-(3153, 90, 261, NULL, NULL, NULL, NULL, ''),
-(3154, 90, 262, NULL, NULL, NULL, NULL, ''),
-(3155, 90, 263, NULL, NULL, NULL, NULL, ''),
-(3156, 90, 264, NULL, NULL, NULL, NULL, ''),
-(3157, 90, 265, NULL, NULL, NULL, NULL, ''),
-(3158, 90, 266, NULL, NULL, NULL, NULL, ''),
-(3159, 90, 267, NULL, NULL, NULL, NULL, ''),
-(3160, 90, 268, NULL, NULL, NULL, NULL, ''),
-(3161, 90, 269, NULL, NULL, NULL, NULL, ''),
-(3162, 90, 270, NULL, NULL, NULL, NULL, ''),
-(3163, 90, 271, NULL, NULL, NULL, NULL, ''),
-(3164, 90, 272, NULL, NULL, NULL, NULL, ''),
-(3165, 90, 273, NULL, NULL, NULL, NULL, ''),
-(3166, 90, 274, NULL, NULL, NULL, NULL, ''),
-(3167, 90, 275, NULL, NULL, NULL, NULL, ''),
-(3168, 90, 276, NULL, NULL, NULL, NULL, ''),
-(3169, 91, 253, NULL, NULL, NULL, NULL, ''),
-(3170, 91, 254, NULL, NULL, NULL, NULL, ''),
-(3171, 91, 255, NULL, NULL, NULL, NULL, ''),
-(3172, 91, 256, NULL, NULL, NULL, NULL, ''),
-(3173, 91, 257, NULL, NULL, NULL, NULL, ''),
-(3174, 91, 258, NULL, NULL, NULL, NULL, ''),
-(3175, 91, 259, NULL, NULL, NULL, NULL, ''),
-(3176, 91, 260, NULL, NULL, NULL, NULL, ''),
-(3177, 91, 261, NULL, NULL, NULL, NULL, ''),
-(3178, 91, 262, NULL, NULL, NULL, NULL, ''),
-(3179, 91, 263, NULL, NULL, NULL, NULL, ''),
-(3180, 91, 264, NULL, NULL, NULL, NULL, ''),
-(3181, 91, 265, NULL, NULL, NULL, NULL, ''),
-(3182, 91, 266, NULL, NULL, NULL, NULL, ''),
-(3183, 91, 267, NULL, NULL, NULL, NULL, ''),
-(3184, 91, 268, NULL, NULL, NULL, NULL, ''),
-(3185, 91, 269, NULL, NULL, NULL, NULL, ''),
-(3186, 91, 270, NULL, NULL, NULL, NULL, ''),
-(3187, 91, 271, NULL, NULL, NULL, NULL, ''),
-(3188, 91, 272, NULL, NULL, NULL, NULL, ''),
-(3189, 91, 273, NULL, NULL, NULL, NULL, ''),
-(3190, 91, 274, NULL, NULL, NULL, NULL, ''),
-(3191, 91, 275, NULL, NULL, NULL, NULL, ''),
-(3192, 91, 276, NULL, NULL, NULL, NULL, ''),
-(3193, 92, 253, NULL, NULL, NULL, NULL, ''),
-(3194, 92, 254, NULL, NULL, NULL, NULL, ''),
-(3195, 92, 255, NULL, NULL, NULL, NULL, ''),
-(3196, 92, 256, NULL, NULL, NULL, NULL, ''),
-(3197, 92, 257, NULL, NULL, NULL, NULL, ''),
-(3198, 92, 258, NULL, NULL, NULL, NULL, ''),
-(3199, 92, 259, NULL, NULL, NULL, NULL, ''),
-(3200, 92, 260, NULL, NULL, NULL, NULL, ''),
-(3201, 92, 261, NULL, NULL, NULL, NULL, ''),
-(3202, 92, 262, NULL, NULL, NULL, NULL, ''),
-(3203, 92, 263, NULL, NULL, NULL, NULL, ''),
-(3204, 92, 264, NULL, NULL, NULL, NULL, ''),
-(3205, 92, 265, NULL, NULL, NULL, NULL, ''),
-(3206, 92, 266, NULL, NULL, NULL, NULL, ''),
-(3207, 92, 267, NULL, NULL, NULL, NULL, ''),
-(3208, 92, 268, NULL, NULL, NULL, NULL, ''),
-(3209, 92, 269, NULL, NULL, NULL, NULL, ''),
-(3210, 92, 270, NULL, NULL, NULL, NULL, ''),
-(3211, 92, 271, NULL, NULL, NULL, NULL, ''),
-(3212, 92, 272, NULL, NULL, NULL, NULL, ''),
-(3213, 92, 273, NULL, NULL, NULL, NULL, ''),
-(3214, 92, 274, NULL, NULL, NULL, NULL, ''),
-(3215, 92, 275, NULL, NULL, NULL, NULL, ''),
-(3216, 92, 276, NULL, NULL, NULL, NULL, ''),
-(3217, 93, 253, NULL, NULL, NULL, NULL, ''),
-(3218, 93, 254, NULL, NULL, NULL, NULL, ''),
-(3219, 93, 255, NULL, NULL, NULL, NULL, ''),
-(3220, 93, 256, NULL, NULL, NULL, NULL, ''),
-(3221, 93, 257, NULL, NULL, NULL, NULL, ''),
-(3222, 93, 258, NULL, NULL, NULL, NULL, ''),
-(3223, 93, 259, NULL, NULL, NULL, NULL, ''),
-(3224, 93, 260, NULL, NULL, NULL, NULL, ''),
-(3225, 93, 261, NULL, NULL, NULL, NULL, ''),
-(3226, 93, 262, NULL, NULL, NULL, NULL, ''),
-(3227, 93, 263, NULL, NULL, NULL, NULL, ''),
-(3228, 93, 264, NULL, NULL, NULL, NULL, ''),
-(3229, 93, 265, NULL, NULL, NULL, NULL, ''),
-(3230, 93, 266, NULL, NULL, NULL, NULL, ''),
-(3231, 93, 267, NULL, NULL, NULL, NULL, ''),
-(3232, 93, 268, NULL, NULL, NULL, NULL, ''),
-(3233, 93, 269, NULL, NULL, NULL, NULL, ''),
-(3234, 93, 270, NULL, NULL, NULL, NULL, ''),
-(3235, 93, 271, NULL, NULL, NULL, NULL, ''),
-(3236, 93, 272, NULL, NULL, NULL, NULL, ''),
-(3237, 93, 273, NULL, NULL, NULL, NULL, ''),
-(3238, 93, 274, NULL, NULL, NULL, NULL, ''),
-(3239, 93, 275, NULL, NULL, NULL, NULL, ''),
-(3240, 93, 276, NULL, NULL, NULL, NULL, '');
+(3289, 79, 277, NULL, NULL, NULL, NULL, ''),
+(3290, 79, 278, NULL, NULL, NULL, NULL, ''),
+(3291, 79, 279, NULL, NULL, NULL, NULL, ''),
+(3292, 79, 280, NULL, NULL, NULL, NULL, ''),
+(3293, 79, 281, NULL, NULL, NULL, NULL, ''),
+(3294, 79, 282, NULL, NULL, NULL, NULL, ''),
+(3295, 79, 283, NULL, NULL, NULL, NULL, ''),
+(3296, 79, 284, NULL, NULL, NULL, NULL, ''),
+(3297, 79, 285, NULL, NULL, NULL, NULL, ''),
+(3298, 79, 286, NULL, NULL, NULL, NULL, ''),
+(3299, 79, 287, NULL, NULL, NULL, NULL, ''),
+(3300, 79, 288, NULL, NULL, NULL, NULL, ''),
+(3301, 80, 277, NULL, NULL, NULL, NULL, ''),
+(3302, 80, 278, NULL, NULL, NULL, NULL, ''),
+(3303, 80, 279, NULL, NULL, NULL, NULL, ''),
+(3304, 80, 280, NULL, NULL, NULL, NULL, ''),
+(3305, 80, 281, NULL, NULL, NULL, NULL, ''),
+(3306, 80, 282, NULL, NULL, NULL, NULL, ''),
+(3307, 80, 283, NULL, NULL, NULL, NULL, ''),
+(3308, 80, 284, NULL, NULL, NULL, NULL, ''),
+(3309, 80, 285, NULL, NULL, NULL, NULL, ''),
+(3310, 80, 286, NULL, NULL, NULL, NULL, ''),
+(3311, 80, 287, NULL, NULL, NULL, NULL, ''),
+(3312, 80, 288, NULL, NULL, NULL, NULL, ''),
+(3313, 81, 277, NULL, NULL, NULL, NULL, ''),
+(3314, 81, 278, NULL, NULL, NULL, NULL, ''),
+(3315, 81, 279, NULL, NULL, NULL, NULL, ''),
+(3316, 81, 280, NULL, NULL, NULL, NULL, ''),
+(3317, 81, 281, NULL, NULL, NULL, NULL, ''),
+(3318, 81, 282, NULL, NULL, NULL, NULL, ''),
+(3319, 81, 283, NULL, NULL, NULL, NULL, ''),
+(3320, 81, 284, NULL, NULL, NULL, NULL, ''),
+(3321, 81, 285, NULL, NULL, NULL, NULL, ''),
+(3322, 81, 286, NULL, NULL, NULL, NULL, ''),
+(3323, 81, 287, NULL, NULL, NULL, NULL, ''),
+(3324, 81, 288, NULL, NULL, NULL, NULL, ''),
+(3325, 82, 277, '200000', '0', '1', '2022-04-10 09:19:05', 'admin1'),
+(3326, 82, 278, NULL, NULL, NULL, NULL, ''),
+(3327, 82, 279, NULL, NULL, NULL, NULL, ''),
+(3328, 82, 280, NULL, NULL, NULL, NULL, ''),
+(3329, 82, 281, NULL, NULL, NULL, NULL, ''),
+(3330, 82, 282, NULL, NULL, NULL, NULL, ''),
+(3331, 82, 283, NULL, NULL, NULL, NULL, ''),
+(3332, 82, 284, NULL, NULL, NULL, NULL, ''),
+(3333, 82, 285, NULL, NULL, NULL, NULL, ''),
+(3334, 82, 286, NULL, NULL, NULL, NULL, ''),
+(3335, 82, 287, NULL, NULL, NULL, NULL, ''),
+(3336, 82, 288, NULL, NULL, NULL, NULL, ''),
+(3337, 83, 277, '200000', '0', '1', '2022-03-21 11:47:37', 'admin1'),
+(3338, 83, 278, NULL, NULL, NULL, NULL, ''),
+(3339, 83, 279, NULL, NULL, NULL, NULL, ''),
+(3340, 83, 280, NULL, NULL, NULL, NULL, ''),
+(3341, 83, 281, NULL, NULL, NULL, NULL, ''),
+(3342, 83, 282, NULL, NULL, NULL, NULL, ''),
+(3343, 83, 283, NULL, NULL, NULL, NULL, ''),
+(3344, 83, 284, NULL, NULL, NULL, NULL, ''),
+(3345, 83, 285, NULL, NULL, NULL, NULL, ''),
+(3346, 83, 286, NULL, NULL, NULL, NULL, ''),
+(3347, 83, 287, NULL, NULL, NULL, NULL, ''),
+(3348, 83, 288, NULL, NULL, NULL, NULL, ''),
+(3349, 84, 277, NULL, NULL, NULL, NULL, ''),
+(3350, 84, 278, NULL, NULL, NULL, NULL, ''),
+(3351, 84, 279, NULL, NULL, NULL, NULL, ''),
+(3352, 84, 280, NULL, NULL, NULL, NULL, ''),
+(3353, 84, 281, NULL, NULL, NULL, NULL, ''),
+(3354, 84, 282, NULL, NULL, NULL, NULL, ''),
+(3355, 84, 283, NULL, NULL, NULL, NULL, ''),
+(3356, 84, 284, NULL, NULL, NULL, NULL, ''),
+(3357, 84, 285, NULL, NULL, NULL, NULL, ''),
+(3358, 84, 286, NULL, NULL, NULL, NULL, ''),
+(3359, 84, 287, NULL, NULL, NULL, NULL, ''),
+(3360, 84, 288, NULL, NULL, NULL, NULL, ''),
+(3361, 85, 277, NULL, NULL, NULL, NULL, ''),
+(3362, 85, 278, NULL, NULL, NULL, NULL, ''),
+(3363, 85, 279, NULL, NULL, NULL, NULL, ''),
+(3364, 85, 280, NULL, NULL, NULL, NULL, ''),
+(3365, 85, 281, NULL, NULL, NULL, NULL, ''),
+(3366, 85, 282, NULL, NULL, NULL, NULL, ''),
+(3367, 85, 283, NULL, NULL, NULL, NULL, ''),
+(3368, 85, 284, NULL, NULL, NULL, NULL, ''),
+(3369, 85, 285, NULL, NULL, NULL, NULL, ''),
+(3370, 85, 286, NULL, NULL, NULL, NULL, ''),
+(3371, 85, 287, NULL, NULL, NULL, NULL, ''),
+(3372, 85, 288, NULL, NULL, NULL, NULL, ''),
+(3373, 86, 277, NULL, NULL, NULL, NULL, ''),
+(3374, 86, 278, NULL, NULL, NULL, NULL, ''),
+(3375, 86, 279, NULL, NULL, NULL, NULL, ''),
+(3376, 86, 280, NULL, NULL, NULL, NULL, ''),
+(3377, 86, 281, NULL, NULL, NULL, NULL, ''),
+(3378, 86, 282, NULL, NULL, NULL, NULL, ''),
+(3379, 86, 283, NULL, NULL, NULL, NULL, ''),
+(3380, 86, 284, NULL, NULL, NULL, NULL, ''),
+(3381, 86, 285, NULL, NULL, NULL, NULL, ''),
+(3382, 86, 286, NULL, NULL, NULL, NULL, ''),
+(3383, 86, 287, NULL, NULL, NULL, NULL, ''),
+(3384, 86, 288, NULL, NULL, NULL, NULL, ''),
+(3385, 87, 277, NULL, NULL, NULL, NULL, ''),
+(3386, 87, 278, NULL, NULL, NULL, NULL, ''),
+(3387, 87, 279, NULL, NULL, NULL, NULL, ''),
+(3388, 87, 280, NULL, NULL, NULL, NULL, ''),
+(3389, 87, 281, NULL, NULL, NULL, NULL, ''),
+(3390, 87, 282, NULL, NULL, NULL, NULL, ''),
+(3391, 87, 283, NULL, NULL, NULL, NULL, ''),
+(3392, 87, 284, NULL, NULL, NULL, NULL, ''),
+(3393, 87, 285, NULL, NULL, NULL, NULL, ''),
+(3394, 87, 286, NULL, NULL, NULL, NULL, ''),
+(3395, 87, 287, NULL, NULL, NULL, NULL, ''),
+(3396, 87, 288, NULL, NULL, NULL, NULL, ''),
+(3397, 88, 277, NULL, NULL, NULL, NULL, ''),
+(3398, 88, 278, NULL, NULL, NULL, NULL, ''),
+(3399, 88, 279, NULL, NULL, NULL, NULL, ''),
+(3400, 88, 280, NULL, NULL, NULL, NULL, ''),
+(3401, 88, 281, NULL, NULL, NULL, NULL, ''),
+(3402, 88, 282, NULL, NULL, NULL, NULL, ''),
+(3403, 88, 283, NULL, NULL, NULL, NULL, ''),
+(3404, 88, 284, NULL, NULL, NULL, NULL, ''),
+(3405, 88, 285, NULL, NULL, NULL, NULL, ''),
+(3406, 88, 286, NULL, NULL, NULL, NULL, ''),
+(3407, 88, 287, NULL, NULL, NULL, NULL, ''),
+(3408, 88, 288, NULL, NULL, NULL, NULL, ''),
+(3409, 89, 277, NULL, NULL, NULL, NULL, ''),
+(3410, 89, 278, NULL, NULL, NULL, NULL, ''),
+(3411, 89, 279, NULL, NULL, NULL, NULL, ''),
+(3412, 89, 280, NULL, NULL, NULL, NULL, ''),
+(3413, 89, 281, NULL, NULL, NULL, NULL, ''),
+(3414, 89, 282, NULL, NULL, NULL, NULL, ''),
+(3415, 89, 283, NULL, NULL, NULL, NULL, ''),
+(3416, 89, 284, NULL, NULL, NULL, NULL, ''),
+(3417, 89, 285, NULL, NULL, NULL, NULL, ''),
+(3418, 89, 286, NULL, NULL, NULL, NULL, ''),
+(3419, 89, 287, NULL, NULL, NULL, NULL, ''),
+(3420, 89, 288, NULL, NULL, NULL, NULL, ''),
+(3421, 90, 277, NULL, NULL, NULL, NULL, ''),
+(3422, 90, 278, NULL, NULL, NULL, NULL, ''),
+(3423, 90, 279, NULL, NULL, NULL, NULL, ''),
+(3424, 90, 280, NULL, NULL, NULL, NULL, ''),
+(3425, 90, 281, NULL, NULL, NULL, NULL, ''),
+(3426, 90, 282, NULL, NULL, NULL, NULL, ''),
+(3427, 90, 283, NULL, NULL, NULL, NULL, ''),
+(3428, 90, 284, NULL, NULL, NULL, NULL, ''),
+(3429, 90, 285, NULL, NULL, NULL, NULL, ''),
+(3430, 90, 286, NULL, NULL, NULL, NULL, ''),
+(3431, 90, 287, NULL, NULL, NULL, NULL, ''),
+(3432, 90, 288, NULL, NULL, NULL, NULL, ''),
+(3433, 91, 277, NULL, NULL, NULL, NULL, ''),
+(3434, 91, 278, NULL, NULL, NULL, NULL, ''),
+(3435, 91, 279, NULL, NULL, NULL, NULL, ''),
+(3436, 91, 280, NULL, NULL, NULL, NULL, ''),
+(3437, 91, 281, NULL, NULL, NULL, NULL, ''),
+(3438, 91, 282, NULL, NULL, NULL, NULL, ''),
+(3439, 91, 283, NULL, NULL, NULL, NULL, ''),
+(3440, 91, 284, NULL, NULL, NULL, NULL, ''),
+(3441, 91, 285, NULL, NULL, NULL, NULL, ''),
+(3442, 91, 286, NULL, NULL, NULL, NULL, ''),
+(3443, 91, 287, NULL, NULL, NULL, NULL, ''),
+(3444, 91, 288, NULL, NULL, NULL, NULL, ''),
+(3445, 92, 277, NULL, NULL, NULL, NULL, ''),
+(3446, 92, 278, NULL, NULL, NULL, NULL, ''),
+(3447, 92, 279, NULL, NULL, NULL, NULL, ''),
+(3448, 92, 280, NULL, NULL, NULL, NULL, ''),
+(3449, 92, 281, NULL, NULL, NULL, NULL, ''),
+(3450, 92, 282, NULL, NULL, NULL, NULL, ''),
+(3451, 92, 283, NULL, NULL, NULL, NULL, ''),
+(3452, 92, 284, NULL, NULL, NULL, NULL, ''),
+(3453, 92, 285, NULL, NULL, NULL, NULL, ''),
+(3454, 92, 286, NULL, NULL, NULL, NULL, ''),
+(3455, 92, 287, NULL, NULL, NULL, NULL, ''),
+(3456, 92, 288, NULL, NULL, NULL, NULL, ''),
+(3457, 93, 277, NULL, NULL, NULL, NULL, ''),
+(3458, 93, 278, NULL, NULL, NULL, NULL, ''),
+(3459, 93, 279, NULL, NULL, NULL, NULL, ''),
+(3460, 93, 280, NULL, NULL, NULL, NULL, ''),
+(3461, 93, 281, NULL, NULL, NULL, NULL, ''),
+(3462, 93, 282, NULL, NULL, NULL, NULL, ''),
+(3463, 93, 283, NULL, NULL, NULL, NULL, ''),
+(3464, 93, 284, NULL, NULL, NULL, NULL, ''),
+(3465, 93, 285, NULL, NULL, NULL, NULL, ''),
+(3466, 93, 286, NULL, NULL, NULL, NULL, ''),
+(3467, 93, 287, NULL, NULL, NULL, NULL, ''),
+(3468, 93, 288, NULL, NULL, NULL, NULL, ''),
+(3469, 94, 277, NULL, NULL, NULL, NULL, ''),
+(3470, 94, 278, NULL, NULL, NULL, NULL, ''),
+(3471, 94, 279, NULL, NULL, NULL, NULL, ''),
+(3472, 94, 280, NULL, NULL, NULL, NULL, ''),
+(3473, 94, 281, NULL, NULL, NULL, NULL, ''),
+(3474, 94, 282, NULL, NULL, NULL, NULL, ''),
+(3475, 94, 283, NULL, NULL, NULL, NULL, ''),
+(3476, 94, 284, NULL, NULL, NULL, NULL, ''),
+(3477, 94, 285, NULL, NULL, NULL, NULL, ''),
+(3478, 94, 286, NULL, NULL, NULL, NULL, ''),
+(3479, 94, 287, NULL, NULL, NULL, NULL, ''),
+(3480, 94, 288, NULL, NULL, NULL, NULL, ''),
+(3481, 95, 277, NULL, NULL, NULL, NULL, ''),
+(3482, 95, 278, NULL, NULL, NULL, NULL, ''),
+(3483, 95, 279, NULL, NULL, NULL, NULL, ''),
+(3484, 95, 280, NULL, NULL, NULL, NULL, ''),
+(3485, 95, 281, NULL, NULL, NULL, NULL, ''),
+(3486, 95, 282, NULL, NULL, NULL, NULL, ''),
+(3487, 95, 283, NULL, NULL, NULL, NULL, ''),
+(3488, 95, 284, NULL, NULL, NULL, NULL, ''),
+(3489, 95, 285, NULL, NULL, NULL, NULL, ''),
+(3490, 95, 286, NULL, NULL, NULL, NULL, ''),
+(3491, 95, 287, NULL, NULL, NULL, NULL, ''),
+(3492, 95, 288, NULL, NULL, NULL, NULL, ''),
+(3493, 96, 277, NULL, NULL, NULL, NULL, ''),
+(3494, 96, 278, NULL, NULL, NULL, NULL, ''),
+(3495, 96, 279, NULL, NULL, NULL, NULL, ''),
+(3496, 96, 280, NULL, NULL, NULL, NULL, ''),
+(3497, 96, 281, NULL, NULL, NULL, NULL, ''),
+(3498, 96, 282, NULL, NULL, NULL, NULL, ''),
+(3499, 96, 283, NULL, NULL, NULL, NULL, ''),
+(3500, 96, 284, NULL, NULL, NULL, NULL, ''),
+(3501, 96, 285, NULL, NULL, NULL, NULL, ''),
+(3502, 96, 286, NULL, NULL, NULL, NULL, ''),
+(3503, 96, 287, NULL, NULL, NULL, NULL, ''),
+(3504, 96, 288, NULL, NULL, NULL, NULL, ''),
+(3505, 98, 277, NULL, NULL, NULL, NULL, ''),
+(3506, 98, 278, NULL, NULL, NULL, NULL, ''),
+(3507, 98, 279, NULL, NULL, NULL, NULL, ''),
+(3508, 98, 280, NULL, NULL, NULL, NULL, ''),
+(3509, 98, 281, NULL, NULL, NULL, NULL, ''),
+(3510, 98, 282, NULL, NULL, NULL, NULL, ''),
+(3511, 98, 283, NULL, NULL, NULL, NULL, ''),
+(3512, 98, 284, NULL, NULL, NULL, NULL, ''),
+(3513, 98, 285, NULL, NULL, NULL, NULL, ''),
+(3514, 98, 286, NULL, NULL, NULL, NULL, ''),
+(3515, 98, 287, NULL, NULL, NULL, NULL, ''),
+(3516, 98, 288, NULL, NULL, NULL, NULL, ''),
+(3517, 99, 277, NULL, NULL, NULL, NULL, ''),
+(3518, 99, 278, NULL, NULL, NULL, NULL, ''),
+(3519, 99, 279, NULL, NULL, NULL, NULL, ''),
+(3520, 99, 280, NULL, NULL, NULL, NULL, ''),
+(3521, 99, 281, NULL, NULL, NULL, NULL, ''),
+(3522, 99, 282, NULL, NULL, NULL, NULL, ''),
+(3523, 99, 283, NULL, NULL, NULL, NULL, ''),
+(3524, 99, 284, NULL, NULL, NULL, NULL, ''),
+(3525, 99, 285, NULL, NULL, NULL, NULL, ''),
+(3526, 99, 286, NULL, NULL, NULL, NULL, ''),
+(3527, 99, 287, NULL, NULL, NULL, NULL, ''),
+(3528, 99, 288, NULL, NULL, NULL, NULL, ''),
+(3529, 100, 277, '200000', '0', '1', '2022-04-08 14:50:13', 'admin1'),
+(3530, 100, 278, NULL, NULL, NULL, NULL, ''),
+(3531, 100, 279, NULL, NULL, NULL, NULL, ''),
+(3532, 100, 280, NULL, NULL, NULL, NULL, ''),
+(3533, 100, 281, NULL, NULL, NULL, NULL, ''),
+(3534, 100, 282, NULL, NULL, NULL, NULL, ''),
+(3535, 100, 283, NULL, NULL, NULL, NULL, ''),
+(3536, 100, 284, NULL, NULL, NULL, NULL, ''),
+(3537, 100, 285, NULL, NULL, NULL, NULL, ''),
+(3538, 100, 286, NULL, NULL, NULL, NULL, ''),
+(3539, 100, 287, NULL, NULL, NULL, NULL, ''),
+(3540, 100, 288, NULL, NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_jurnal_umum`
+-- Struktur dari tabel `tb_jurnal_umum`
 --
 
 CREATE TABLE `tb_jurnal_umum` (
@@ -556,17 +443,18 @@ CREATE TABLE `tb_jurnal_umum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_jurnal_umum`
+-- Dumping data untuk tabel `tb_jurnal_umum`
 --
 
 INSERT INTO `tb_jurnal_umum` (`id_jurnal_umum`, `pemasukan`, `pengeluaran`, `tgl_jurnal`, `keterangan`, `created_by`) VALUES
-(50, '', '100000', '2022-02-14', 'beli buku', 'admin1'),
-(51, '10000', '', '2022-02-15', 'jariah bendahara', 'admin1');
+(51, '10000', '', '2022-02-15', 'jariah bendahara', 'admin1'),
+(52, '12000000', '', '2022-02-23', 'saldo terakhir manual', 'admin1'),
+(53, '', '200000', '2022-02-23', 'listrik', 'admin1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kamar`
+-- Struktur dari tabel `tb_kamar`
 --
 
 CREATE TABLE `tb_kamar` (
@@ -575,7 +463,7 @@ CREATE TABLE `tb_kamar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_kamar`
+-- Dumping data untuk tabel `tb_kamar`
 --
 
 INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`) VALUES
@@ -592,7 +480,7 @@ INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kelas`
+-- Struktur dari tabel `tb_kelas`
 --
 
 CREATE TABLE `tb_kelas` (
@@ -601,7 +489,7 @@ CREATE TABLE `tb_kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_kelas`
+-- Dumping data untuk tabel `tb_kelas`
 --
 
 INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
@@ -615,7 +503,7 @@ INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_tahun`
+-- Struktur dari tabel `tb_tahun`
 --
 
 CREATE TABLE `tb_tahun` (
@@ -625,44 +513,43 @@ CREATE TABLE `tb_tahun` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_tahun`
+-- Dumping data untuk tabel `tb_tahun`
 --
 
 INSERT INTO `tb_tahun` (`id_tahun`, `nama_tahun`, `nominal_tagihan`) VALUES
-(20, '2022', '200000'),
-(21, '2023', '120000');
+(22, '2022', '200000');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_admin`
+-- Indeks untuk tabel `tb_admin`
 --
 ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `tb_bulan`
+-- Indeks untuk tabel `tb_bulan`
 --
 ALTER TABLE `tb_bulan`
   ADD PRIMARY KEY (`id_bulan`);
 
 --
--- Indexes for table `tb_data_santri`
+-- Indeks untuk tabel `tb_data_santri`
 --
 ALTER TABLE `tb_data_santri`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_data_tagihan`
+-- Indeks untuk tabel `tb_data_tagihan`
 --
 ALTER TABLE `tb_data_tagihan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_tahun` (`id_tahun`);
 
 --
--- Indexes for table `tb_data_transaksi`
+-- Indeks untuk tabel `tb_data_transaksi`
 --
 ALTER TABLE `tb_data_transaksi`
   ADD PRIMARY KEY (`id_data_transaksi`),
@@ -671,99 +558,99 @@ ALTER TABLE `tb_data_transaksi`
   ADD KEY `id_data_tagihan_2` (`id_data_tagihan`);
 
 --
--- Indexes for table `tb_jurnal_umum`
+-- Indeks untuk tabel `tb_jurnal_umum`
 --
 ALTER TABLE `tb_jurnal_umum`
   ADD PRIMARY KEY (`id_jurnal_umum`);
 
 --
--- Indexes for table `tb_kamar`
+-- Indeks untuk tabel `tb_kamar`
 --
 ALTER TABLE `tb_kamar`
   ADD PRIMARY KEY (`id_kamar`);
 
 --
--- Indexes for table `tb_kelas`
+-- Indeks untuk tabel `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`id_kelas`);
 
 --
--- Indexes for table `tb_tahun`
+-- Indeks untuk tabel `tb_tahun`
 --
 ALTER TABLE `tb_tahun`
   ADD PRIMARY KEY (`id_tahun`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_admin`
+-- AUTO_INCREMENT untuk tabel `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tb_bulan`
+-- AUTO_INCREMENT untuk tabel `tb_bulan`
 --
 ALTER TABLE `tb_bulan`
   MODIFY `id_bulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `tb_data_santri`
+-- AUTO_INCREMENT untuk tabel `tb_data_santri`
 --
 ALTER TABLE `tb_data_santri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
--- AUTO_INCREMENT for table `tb_data_tagihan`
+-- AUTO_INCREMENT untuk tabel `tb_data_tagihan`
 --
 ALTER TABLE `tb_data_tagihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=289;
 
 --
--- AUTO_INCREMENT for table `tb_data_transaksi`
+-- AUTO_INCREMENT untuk tabel `tb_data_transaksi`
 --
 ALTER TABLE `tb_data_transaksi`
-  MODIFY `id_data_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3241;
+  MODIFY `id_data_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3541;
 
 --
--- AUTO_INCREMENT for table `tb_jurnal_umum`
+-- AUTO_INCREMENT untuk tabel `tb_jurnal_umum`
 --
 ALTER TABLE `tb_jurnal_umum`
-  MODIFY `id_jurnal_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id_jurnal_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- AUTO_INCREMENT for table `tb_kamar`
+-- AUTO_INCREMENT untuk tabel `tb_kamar`
 --
 ALTER TABLE `tb_kamar`
   MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tb_kelas`
+-- AUTO_INCREMENT untuk tabel `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
   MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_tahun`
+-- AUTO_INCREMENT untuk tabel `tb_tahun`
 --
 ALTER TABLE `tb_tahun`
-  MODIFY `id_tahun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_tahun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tb_data_tagihan`
+-- Ketidakleluasaan untuk tabel `tb_data_tagihan`
 --
 ALTER TABLE `tb_data_tagihan`
   ADD CONSTRAINT `tb_data_tagihan_ibfk_1` FOREIGN KEY (`id_tahun`) REFERENCES `tb_tahun` (`id_tahun`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tb_data_transaksi`
+-- Ketidakleluasaan untuk tabel `tb_data_transaksi`
 --
 ALTER TABLE `tb_data_transaksi`
   ADD CONSTRAINT `tb_data_transaksi_ibfk_1` FOREIGN KEY (`id_data_tagihan`) REFERENCES `tb_data_tagihan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

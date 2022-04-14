@@ -28,6 +28,15 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
+    <?php if ($this->session->flashdata('message')) : ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= $this->session->flashdata('message'); ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            <?php endif; ?>
       <p class="login-box-msg">Isikan data dengan benar.</p>
 
       <form action="<?= base_url('login_santri/login') ?>" method="post">
@@ -72,5 +81,15 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url('') ?>template/AdminLTE/dist/js/adminlte.min.js"></script>
 
+<script>
+        // setTimeout(function() {
+        $.ajax({
+            url: "http://localhost/spp_inay/data_santri/hilangflasdata",
+        });
+        // }, 1000);
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
 </html>

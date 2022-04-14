@@ -191,6 +191,14 @@ class Profil_santri extends CI_Controller
 				$foto = $this->upload->data('file_name');
 			}
 		}
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
+		$this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$data = $this->session->set_flashdata('message', validation_errors());
+			redirect('profil_santri/edit/'.$id, $data);
+		} else {
 
 		$data = [
 			'nama' => $this->input->post('nama'),
@@ -210,6 +218,7 @@ class Profil_santri extends CI_Controller
 		$data = $this->session->set_flashdata('message', 'diedit');
 
 		redirect('profil_santri/detail/'.$id);
+	}
 	}
 
 	public function hapus($id)

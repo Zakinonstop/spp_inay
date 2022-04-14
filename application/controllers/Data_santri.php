@@ -84,10 +84,10 @@ class Data_santri extends CI_Controller
 
 	public function add_save()
 	{
-
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
 		$this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
-		// $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+		$this->form_validation->set_rules('status', 'status', 'required');
 		$pass_awal = rand();
 		$password = substr($pass_awal,0,5);
 
@@ -178,6 +178,10 @@ class Data_santri extends CI_Controller
 
 	public function edit_save($id)
 	{
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
+		$this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
+		$this->form_validation->set_rules('status', 'status', 'required');
 		$foto = $_FILES['foto'];
 		
 		if ($foto['name'] == '') {
@@ -194,6 +198,10 @@ class Data_santri extends CI_Controller
 				$foto = $this->upload->data('file_name');
 			}
 		}
+		if ($this->form_validation->run() == FALSE) {
+			$data = $this->session->set_flashdata('message', validation_errors());
+			redirect('data_santri/edit/'.$id, $data);
+		} else {
 
 		$data = [
 			'nama' => $this->input->post('nama'),
@@ -214,6 +222,7 @@ class Data_santri extends CI_Controller
 		$data = $this->session->set_flashdata('message', 'diedit');
 
 		redirect('data_santri');
+		}
 	}
 
 	public function hapus($id)

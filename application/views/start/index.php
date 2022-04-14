@@ -40,6 +40,7 @@
 </div>
 <!-- /.login-box -->
 
+
 <!-- jQuery -->
 <script src="<?= base_url('') ?>template/AdminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -47,5 +48,15 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url('') ?>template/AdminLTE/dist/js/adminlte.min.js"></script>
 
+<script>
+        // setTimeout(function() {
+        $.ajax({
+            url: "http://localhost/spp_inay/data_santri/hilangflasdata",
+        });
+        // }, 1000);
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
 </html>

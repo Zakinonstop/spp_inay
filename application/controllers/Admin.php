@@ -86,6 +86,7 @@ class Admin extends CI_Controller
 	{
 
 		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = $this->session->set_flashdata('message', validation_errors());
@@ -105,18 +106,26 @@ class Admin extends CI_Controller
 
 	public function edit_save($id)
 	{
-		$data = [
-			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password'),
-			'email' => $this->input->post('email'),
-		];
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 
-		$this->m_admin->update($data, $id);
+		if ($this->form_validation->run() == FALSE) {
+			$data = $this->session->set_flashdata('message', validation_errors());
+			redirect('admin/edit/'.$id, $data);
+		} else {
+			$data = [
+				'username' => $this->input->post('username'),
+				'password' => $this->input->post('password'),
+				'email' => $this->input->post('email'),
+			];
+
+			$this->m_admin->update($data, $id);
 
 
-		$data = $this->session->set_flashdata('message', 'diedit');
+			$data = $this->session->set_flashdata('message', 'diedit');
 
-		redirect('admin');
+			redirect('admin');
+		}
 	}
 
 	public function hapus($id)

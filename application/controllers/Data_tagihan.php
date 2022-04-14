@@ -114,18 +114,25 @@ class Data_tagihan extends CI_Controller
 
 	public function edit_save($id)
 	{
-		$data = [
-			'nominal' => $this->input->post('nominal'),
-			'id_tahun' => $this->input->post('tahun'),
-			'id_bulan' => $this->input->post('bulan'),
-		];
+		$this->form_validation->set_rules('nominal', 'Nominal', 'required');
 
-		$edit = $this->m_data_tagihan->update($data, $id);
+		if ($this->form_validation->run() == FALSE) {
+			$data = $this->session->set_flashdata('message', validation_errors());
+			redirect('data_tagihan/edit/'.$id, $data);
+		} else {
+			$data = [
+				'nominal' => $this->input->post('nominal'),
+				'id_tahun' => $this->input->post('tahun'),
+				'id_bulan' => $this->input->post('bulan'),
+			];
+
+			$edit = $this->m_data_tagihan->update($data, $id);
 
 
-		$data = $this->session->set_flashdata('message', 'diedit');
+			$data = $this->session->set_flashdata('message', 'diedit');
 
-		redirect('data_tagihan');
+			redirect('data_tagihan');
+	}
 	}
 
 	public function hapus($id)

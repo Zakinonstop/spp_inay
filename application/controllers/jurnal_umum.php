@@ -127,6 +127,8 @@ class Jurnal_umum extends CI_Controller
 	{
 
 		$this->form_validation->set_rules('pemasukan', 'Nominal Pemasukan', 'required');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+		$this->form_validation->set_rules('tgl_jurnal', 'Tanggal', 'required');
 		// $pemasukan = $this->input->post('pemasukan');
 		
 		// $saldo_terakhir =$this->m_jurnal_umum->get_last_saldo();
@@ -156,7 +158,9 @@ class Jurnal_umum extends CI_Controller
 	public function add_save_pengeluaran()
 	{
 
-		$this->form_validation->set_rules('pengeluaran', 'Nominal Pengeluaran', 'required');
+		$this->form_validation->set_rules('pemasukan', 'Nominal Pemasukan', 'required');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+		$this->form_validation->set_rules('tgl_jurnal', 'Tanggal', 'required');
 		// $saldo_terakhir =$this->m_jurnal_umum->get_last_saldo();
 		// $pengeluaran = $this->input->post('pengeluaran');
 		// $saldo_sekarang = $saldo_terakhir - $pengeluaran ;
@@ -166,7 +170,7 @@ class Jurnal_umum extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = $this->session->set_flashdata('message', validation_errors());
-			redirect('jurnal_umum/add', $data);
+			redirect('jurnal_umum/add_pengeluaran', $data);
 		} else {
 			$data = [
 				'pengeluaran' => $this->input->post('pengeluaran'),
@@ -184,7 +188,9 @@ class Jurnal_umum extends CI_Controller
 
 	public function edit_save($id)
 	{
-		$this->form_validation->set_rules('tgl_jurnal', 'tgl_jurnal', 'required');
+		$this->form_validation->set_rules('pemasukan', 'Nominal Pemasukan', 'required');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+		$this->form_validation->set_rules('tgl_jurnal', 'Tanggal', 'required');
 		// ambil max_id sebelum akhir
 		// max_id akhir
 		// $count_saldo = $this->db->query('SELECT id_jurnal_umum FROM tb_jurnal_umum')->num_rows();
@@ -204,7 +210,7 @@ class Jurnal_umum extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = $this->session->set_flashdata('message', validation_errors());
-			redirect('jurnal_umum/edit', $data);
+			redirect('jurnal_umum/edit/'.$id, $data);
 		} else {
 			$data = [
 				'pemasukan' => $this->input->post('pemasukan'),

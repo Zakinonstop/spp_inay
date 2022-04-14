@@ -55,7 +55,8 @@ class Login_santri extends CI_Controller
 			// echo $nama;
 			redirect('dashboard_santri');
 		}else {
-			redirect('login_santri');
+			$data = $this->session->set_flashdata('message', 'Username atau password salah !');
+			redirect('login_santri', $data);
 		}
 	}
 

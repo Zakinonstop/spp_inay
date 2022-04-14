@@ -67,7 +67,7 @@
                 <label for="tgl_masuk">Tanggal Masuk Pondok</label>
                 <input type="date" class="form-control" name="tgl_masuk" id="tgl_masuk" >
             </div>
-
+            
             <div class="form-group">
                 <label for="status">Status</label>
                 <select name="status" id="status" class="form-control">

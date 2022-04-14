@@ -51,7 +51,8 @@ class Login extends CI_Controller
 			$this->session->set_userdata($data);
 			redirect('dashboard');
 		}else {
-			redirect('login');
+			$data = $this->session->set_flashdata('message', 'Username atau password salah !');
+			redirect('login', $data);
 		}
 	}
 
@@ -59,5 +60,10 @@ class Login extends CI_Controller
 	{
 		$this->session_destroy;
 		redirect('');
+	}
+
+	public function hilangflasdata()
+	{
+		$this->session->set_flashdata('message', '');
 	}
 }

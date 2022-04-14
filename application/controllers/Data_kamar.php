@@ -85,7 +85,7 @@ class Data_kamar extends CI_Controller
 	public function add_save()
 	{
 
-		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('nama', 'Nama Kamar', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = $this->session->set_flashdata('message', validation_errors());
@@ -103,16 +103,22 @@ class Data_kamar extends CI_Controller
 
 	public function edit_save($id)
 	{
-		$data = [
-			'nama_kamar' => $this->input->post('nama'),
-		];
+		$this->form_validation->set_rules('nama', 'Nama Kamar', 'required');
+		if ($this->form_validation->run() == FALSE) {
+			$data = $this->session->set_flashdata('message', validation_errors());
+			redirect('data_kamar/edit/'.$id, $data);
+		} else {
+			$data = [
+				'nama_kamar' => $this->input->post('nama'),
+			];
 
-		$edit = $this->m_data_kamar->update($data, $id);
+			$edit = $this->m_data_kamar->update($data, $id);
 
 
-		$data = $this->session->set_flashdata('message', 'diedit');
+			$data = $this->session->set_flashdata('message', 'diedit');
 
-		redirect('data_kamar');
+			redirect('data_kamar');
+		}
 	}
 
 	public function hapus($id)
