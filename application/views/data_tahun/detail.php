@@ -12,6 +12,14 @@
         </div>
 
     </div>
+<!-- 
+    <div class="card-body">
+        <div class="form-group">
+            <label for="Nama">Nominal : </label>
+            <label for="Nama"><?= $data->nominal ?></label>
+        </div>
+
+    </div> -->
     <!-- /.card-body -->
 
     <div class="card-footer">

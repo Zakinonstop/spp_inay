@@ -10,19 +10,19 @@
             <div class="col-lg-12">
                 <table class="table table-striped table-sm">
                     <tr>
-                        <td>Nama</td>
+                        <td>Tahun</td>
                         <td>:</td>
                         <td><?= $data->nama_tahun ?></td>
                         <!-- <td rowspan="8"></td> -->
                         <!-- <td rowspan="8"><td><img width="100 %" src="<?= base_url('assets/foto/')?><?= $data->foto?>" alt=""></td></td> -->
                     </tr>
                     <tr>
-                        <td>NIS</td>
+                        <td>Bulan</td>
                         <td>:</td>
                         <td><?= $data->nama_bulan ?></td>
                     </tr>
                     <tr>
-                        <td>Alamat</td>
+                        <td>Nominal</td>
                         <td>:</td>
                         <td><?= $data->nominal ?></td>
                     </tr>
