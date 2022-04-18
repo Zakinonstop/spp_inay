@@ -86,7 +86,7 @@ class Data_tahun extends CI_Controller
 	{
 
 		$this->form_validation->set_rules('nama', 'Nama Tahun', 'required');
-		$this->form_validation->set_rules('nominal_tagihan', 'Nominal Tagihan', 'required');
+		// $this->form_validation->set_rules('nominal_tagihan', 'Nominal Tagihan', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = $this->session->set_flashdata('message', validation_errors());
