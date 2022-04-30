@@ -221,7 +221,7 @@ class Jurnal_umum extends CI_Controller
 			];
 
 			$this->m_jurnal_umum->edit_save($data, $id);
-			$data = $this->session->set_flashdata('message', 'disimpan');
+			$data = $this->session->set_flashdata('message', 'diedit');
 			redirect('jurnal_umum', $data);
 		}
 	}

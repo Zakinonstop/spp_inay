@@ -58,7 +58,7 @@
     <!-- /.card-body -->
 
     <div class="card-footer">
-        <a type="button" class="btn btn-success" href="<?= base_url('data_santri') ?>">Kembali</a>
+        <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/view/') ?><?= $data->id_data_santri ?>">Kembali</a>
     </div>
 
 </div>

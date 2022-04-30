@@ -2,10 +2,10 @@
           <div class="col-lg-12">
             <div class="card card-info card-outline">
               <div class="card-body">
-                <h4 class="card-title"><b>History Pembayaran</b></h4>
+                <h4 class="card-title"><b>Edit data diri</b></h4>
 
                 <p class="card-text">
-                  Ini adalah halaman dimana para santri dapat melihat history pembayaran spp-nya.
+                  Ini adalah halaman edit data pribadi.
                 </p>
               </div>
             </div><!-- /.card -->
