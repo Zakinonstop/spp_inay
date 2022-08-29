@@ -8,13 +8,18 @@ class Data_tahun extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_data_tahun');
 		$this->load->library('form_validation');
+		if(isset($_SESSION['username'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()
 	{
 		// $this->load->library('pagination');
 
-		// $config['base_url'] = 'http://localhost/spp_inay/data_tahun/index/';
+		// $config['base_url'] = base_url('data_tahun/index/');
 		// $config['total_rows'] = $this->m_data_tahun->count_search_data();
 		// $config['per_page'] = 10;
 		// $config['start'] = $this->uri->segment(3);
@@ -135,7 +140,7 @@ class Data_tahun extends CI_Controller
 	public function edit_save($id)
 	{
 		$this->form_validation->set_rules('nama', 'Nama Tahun', 'required');
-		$this->form_validation->set_rules('nominal_tagihan', 'Nominal Tagihan', 'required');
+		$this->form_validation->set_rules('nominal', 'Nominal Tagihan', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = $this->session->set_flashdata('message', validation_errors());

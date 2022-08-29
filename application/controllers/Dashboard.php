@@ -8,6 +8,12 @@ class Dashboard extends CI_Controller
 		parent:: __construct();
 		$this->load->model('m_data_transaksi');
 		$this->load->library('form_validation');
+		
+		if(isset($_SESSION['username'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()

@@ -4,8 +4,8 @@
     <!-- /.card-header -->
     <div class="card-body">
         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
-            <div class="row d-flex">
-                <div class="col-6">
+            <div class="row d-flex table-responsive">
+                <div class="col-sm-6">
                     <!-- <div class="dataTables_length" id="example1_length"><label>Show <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
                                 <option value="10">10</option>
                                 <option value="25">25</option>
@@ -15,7 +15,7 @@
 
                 </div>
 
-                <div class="col-6">
+                <div class="col-sm-6 ">
 
                     <div class="dataTables_length float-right" id="example1_length">
                         <!-- <a href="<?= base_url('data_santri/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
@@ -25,11 +25,11 @@
             </div>
             <br>
             <div class="row d-flex ml-4">
-                <div class="col-8">
+                <div class="col-sm-8">
 
                 </div>
 
-                <div class="col-2">
+                <div class="col-sm-2">
 
                     <div class="dataTables_length float-right" id="example1_length">
                         <!-- <a href="<?= base_url('data_santri/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
@@ -63,19 +63,20 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 table-responsive">
                     <table id="example1" class="table table-bordered table-striped table-sm dataTable" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending">No</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nama</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">NIS</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Tgl Lahir</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Alamat: activate to sort column ascending">Alamat</th>
+                                <!--<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Tgl Lahir</th>-->
+                                <!--<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Alamat: activate to sort column ascending">Alamat</th>-->
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kamar: activate to sort column ascending">Kamar</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Kelas</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Bayar</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Kelas: activate to sort column ascending">Action</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -89,8 +90,8 @@
                                     <td><?= ++$start ?></td>
                                     <td><?= $ds->nama; ?></td>
                                     <td><?= $ds->nis; ?></td>
-                                    <td><?= $ds->tgl_lahir; ?></td>
-                                    <td><?= $ds->alamat; ?></td>
+                                    <!--<td><?= $ds->tgl_lahir; ?></td>-->
+                                    <!--<td><?= $ds->alamat; ?></td>-->
                                     <td><?= $ds->nama_kamar; ?></td>
                                     <td><?= $ds->nama_kelas; ?></td>
                                     <td style="padding: 5px;" width="70">
@@ -105,6 +106,7 @@
                                     <td width="50">
                                         <a href="<?= base_url('data_santri/hapus/') ?><?= $ds->id ?>" class="text-danger" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-trash"></i></a>
                                     </td>
+                                    
                                 </tr>
                             <?php } ?>
                         </tbody>

@@ -10,6 +10,11 @@ class Grafik extends CI_Controller
 		// $this->load->library('form_validation');
 		$this->load->model('m_jurnal_umum');
 		$this->load->model('m_data_transaksi');
+		if(isset($_SESSION['username'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()

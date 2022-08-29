@@ -8,13 +8,18 @@ class Admin extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_admin');
 		$this->load->library('form_validation');
+		if(isset($_SESSION['username'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()
 	{
 		$this->load->library('pagination');
 
-		$config['base_url'] = 'http://localhost/spp_inay/admin/index/';
+		$config['base_url'] = base_url('admin/index/');
 		$config['total_rows'] = $this->m_admin->count_search_data();
 		$config['per_page'] = 5;
 		$config['start'] = $this->uri->segment(3);
@@ -74,7 +79,7 @@ class Admin extends CI_Controller
 	public function add()
 	{
 		$data = [
-			'title' => 'Tambah Data kamar',
+			'title' => 'Tambah Data Administrator',
 			'isi' => 'admin/add',
 			'admin' => $this->m_admin->get_kamar(),
 		];

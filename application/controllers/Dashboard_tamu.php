@@ -15,7 +15,7 @@ class Dashboard_tamu extends CI_Controller
 	{
 		$this->load->library('pagination');
 
-		$config['base_url'] = 'http://localhost/spp_inay/dashboard_tamu/index/';
+		$config['base_url'] = base_url('dashboard_tamu/index/');
 		$config['total_rows'] = $this->m_data_santri->count_search_data();
 		$config['per_page'] = 10;
 		$config['start'] = $this->uri->segment(3);

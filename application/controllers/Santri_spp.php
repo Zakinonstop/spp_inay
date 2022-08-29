@@ -11,6 +11,11 @@ class Santri_spp extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_santri_spp');
 		$this->load->library('form_validation');
+			if(isset($_SESSION['nama'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()

@@ -8,6 +8,11 @@ class User_profile extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_history_transaksi');
 		$this->load->library('form_validation');
+		if(isset($_SESSION['nama'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()

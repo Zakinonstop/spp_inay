@@ -22,7 +22,7 @@
 
             <div class="form-group">
                 <label for="Nama">Nominal Tagihan</label>
-                <input type="text" class="form-control" name="nominal" placeholder="200000">
+                <input type="text" class="form-control" name="nominal" value="<?= $data->nominal_tagihan ?>">
             </div>
 
         </div>

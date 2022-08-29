@@ -11,6 +11,11 @@ class input_transaksi extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_input_transaksi');
 		$this->load->library('form_validation');
+		if(isset($_SESSION['username'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()
@@ -164,7 +169,7 @@ class input_transaksi extends CI_Controller
 	{
 		$this->load->library('pagination');
 
-		$config['base_url'] = 'http://localhost/spp_inay/input_transaksi/view/'.$idnya_santri.'/index/';
+		$config['base_url'] = base_url('input_transaksi/view/'.$idnya_santri.'/index/');
 		$config['total_rows'] = $this->m_input_transaksi->count_search_data($idnya_santri);
 		$config['per_page'] = 12;
 		$config['start'] = $this->uri->segment(5);

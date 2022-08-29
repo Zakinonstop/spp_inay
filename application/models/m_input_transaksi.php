@@ -486,7 +486,7 @@ class m_input_transaksi extends CI_Model
 
 		$nama = $data->nama;
 		$enter = '%0A';
-		$text = 'Assalamualaikum kang '. $nama .''.$enter.$enter.'Kami dari bendahara ingin memberitahukan bahwa sudah waktunya membayar syahriah bulan '.$bulan.' ini sebesar '.$nominal.$enter.$enter.'Untuk datanya bisa diakses di https://www.sppinay.com/'.$enter.$enter.'Terimakasih'.$enter.'Ttd'.$enter.$enter.'*Bendahara*';
+		$text = 'Assalamualaikum kang '. $nama .''.$enter.$enter.'Kami dari bendahara ingin memberitahukan bahwa sudah waktunya membayar syahriah bulan '.$bulan.' ini sebesar '.$nominal.$enter.$enter.'Untuk datanya bisa diakses di '. Base_url() .''.$enter.$enter.'Terimakasih'.$enter.'Ttd'.$enter.$enter.'*Bendahara*';
 		
 		$url = prep_url('https://api.whatsapp.com/send?phone='.$hp.'&text='.$text);
 		redirect($url);

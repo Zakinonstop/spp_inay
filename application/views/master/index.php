@@ -82,7 +82,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="http://localhost/spp_inay/dashboard" class="nav-link">
+                            <a href="<?= base_url('') ?>dashboard" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <!-- <i class="nav-icon far fa-image"></i> -->
                                 <p>
@@ -92,7 +92,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="http://localhost/spp_inay/data_santri" class="nav-link">
+                            <a href="<?= base_url('') ?>data_santri" class="nav-link">
                                 <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
                                     Data Santri
@@ -101,7 +101,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="http://localhost/spp_inay/data_kamar" class="nav-link">
+                            <a href="<?= base_url('') ?>data_kamar" class="nav-link">
                             <i class="nav-icon fas fa-igloo"></i>
                                 <p>
                                     Data Kamar
@@ -111,7 +111,7 @@
                         <hr>
                         
                         <li class="nav-item">
-                            <a href="http://localhost/spp_inay/data_tahun" class="nav-link">
+                            <a href="<?= base_url('') ?>data_tahun" class="nav-link">
                             <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
                                     Data Tahun
@@ -119,7 +119,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="http://localhost/spp_inay/data_tagihan" class="nav-link">
+                            <a href="<?= base_url('') ?>data_tagihan" class="nav-link">
                             <i class="nav-icon fas fa-file-invoice-dollar"></i>
                                 <p>
                                     Data Tagihan
@@ -128,7 +128,7 @@
                         </li>
                         <hr>
                         <!-- <li class="nav-item">
-                            <a href="http://localhost/spp_inay/data_transaksi" class="nav-link">
+                            <a href="<?= base_url('') ?>data_transaksi" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Data Transaksi
@@ -137,7 +137,7 @@
                         </li> -->
 
                         <li class="nav-item">
-                            <a href="http://localhost/spp_inay/history_transaksi" class="nav-link">
+                            <a href="<?= base_url('') ?>history_transaksi" class="nav-link">
                             <i class="nav-icon fas fa-history"></i>
                                 <p>
                                     History Transaksi
@@ -146,7 +146,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="http://localhost/spp_inay/grafik" class="nav-link">
+                            <a href="<?= base_url('') ?>grafik" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
                                     Grafik                                 </p>
@@ -181,7 +181,7 @@
         
 <!-- 
                         <li class="nav-item">
-                            <a href="http://localhost/spp_inay/input_transaksi" class="nav-link">
+                            <a href="<?= base_url('') ?>input_transaksi" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Input transaksi
@@ -275,7 +275,7 @@
     <script>
         // setTimeout(function() {
         $.ajax({
-            url: "http://localhost/spp_inay/data_santri/hilangflasdata",
+            url: "<?= base_url('') ?>data_santri/hilangflasdata",
         });
         // }, 1000);
         $(function() {

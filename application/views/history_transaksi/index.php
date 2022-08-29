@@ -54,7 +54,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 table-responsive">
                     <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr role="row">

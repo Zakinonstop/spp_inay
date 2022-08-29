@@ -24,6 +24,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?= base_url('') ?>template/AdminLTE/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="<?= base_url('') ?>assets/css/style.css">
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
@@ -34,7 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <a href="<?= base_url('dashboard_tamu')?>" class="navbar-brand">
         <img src="<?= base_url('') ?>assets/foto/logo_pondok.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-             <a href="#" class="nav-link" style=" color: white; ">INAY APP SISTEM</a>
+             <a href="#" class="nav-link" style=" color: white; ">SISTEM PEMBAYARAN SPP </a>
       </a>
       
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                <a type="button" href="<?= base_url('login_tamu/logout')?>" class="btn btn-block btn-danger btn-sm"><b>LOGOUT</b></a>
+                <a type="button" href="<?= base_url('login_tamu/logout')?>" class="btn btn-block btn-danger btn-sm"><b>KELUAR</b></a>
                 </li>
 
             </ul>
@@ -69,16 +71,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content-header">
       <div class="container">
         <div class="row mb-2">
-          <div class="col-sm-9">
-            <h5 class="m-0 text-dark"> <marquee>Inay Aplication Sistem || Nek ora ngaji yo mulang ngaji.Iki mung conto sak sakke kata katane mung pengin
-              dowo dowo wae, anandan sariharjo ngaglik sleman yogyakarta.
+          <div class="col-sm-12">
+            <h5 class="m-0 text-dark text-center"> <marquee>Inay Aplication Sistem || Sistem ini dibuat untuk memudahkan teman - teman santri dalam hal informasi 
+              pembayaran biaya bulanan atau SPP atau Syahriah  Semoga bermanfaat.
             </marquee></h5>
-          </div><!-- /.col -->
-          <div class="col-sm-3">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">History Transaksi</a></li>
-            </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -106,10 +102,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      <b>Versi</b> 1.0.0
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2021-2022 |</strong> PONDOK PESANTREN INAYATULLAH.
   </footer>
 </div>
 <!-- ./wrapper -->

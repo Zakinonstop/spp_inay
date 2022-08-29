@@ -8,13 +8,18 @@ class History_transaksi extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_history_transaksi');
 		$this->load->library('form_validation');
+		if(isset($_SESSION['username'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()
 	{
 		$this->load->library('pagination');
 
-		$config['base_url'] = 'http://localhost/spp_inay/history_transaksi/index/';
+		$config['base_url'] = base_url('history_transaksi/index/');
 		$config['total_rows'] = $this->m_history_transaksi->count_search_data();
 		$config['per_page'] = 10;
 		$config['start'] = $this->uri->segment(3);
