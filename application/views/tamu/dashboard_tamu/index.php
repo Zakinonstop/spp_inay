@@ -1,17 +1,17 @@
 <div class="row">
-          <div class="col-lg-12">
-            <div class="card card-info card-outline">
-              <div class="card-body">
+    <div class="col-lg-12">
+        <div class="card card-info card-outline">
+            <div class="card-body">
                 <h4 class="card-title"><b>Data Santri</b></h4>
                 <p class="card-text">
-                  Ini adalah halaman dimana para orang tua dapat melihat riwayat pembayaran spp putra-putrinya.
+                    Ini adalah halaman dimana para orang tua dapat melihat riwayat pembayaran spp putra-putrinya.
                 </p>
-              </div>
-            </div><!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          
-        </div>
+            </div>
+        </div><!-- /.card -->
+    </div>
+    <!-- /.col-md-6 -->
+
+</div>
 
 <!-- Default box -->
 <div class="card card-secondary">
@@ -42,7 +42,7 @@
 
             </div>
             <br>
-            <div class="row d-flex ml-4">
+            <div class="row d-flex">
                 <div class="col-sm-8">
                 </div>
                 <div class="col-sm-4">
@@ -51,7 +51,7 @@
                     </div>
                     <form action="" method="post">
                         <div class="input-group input-group-md">
-                            <input type="text" class="form-control" placeholder="Cari data santri.." name="keyword">
+                            <input type="text" class="form-control" placeholder="Cari data santri.." name="keyword" autocomplete="off">
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Cari">Cari</button>
                             </span>
