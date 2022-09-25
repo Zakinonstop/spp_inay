@@ -26,6 +26,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <link rel="stylesheet" href="<?= base_url('') ?>assets/css/style.css">
+    <style>
+        .navbar {
+            /* height: 200px; */
+            position: fixed;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            margin-top: 50px;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body class="hold-transition layout-top-nav">
