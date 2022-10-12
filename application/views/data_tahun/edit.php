@@ -6,7 +6,7 @@
     <!-- form start -->
     <form role="form" action="<?= base_url('data_tahun/edit_save/' . $data->id_tahun) ?>" method="POST">
         <div class="card-body">
-        <?php if ($this->session->flashdata('message')) : ?>
+            <?php if ($this->session->flashdata('message')) : ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <?= $this->session->flashdata('message'); ?>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -23,6 +23,11 @@
             <div class="form-group">
                 <label for="Nama">Nominal Tagihan</label>
                 <input type="text" class="form-control" name="nominal" value="<?= $data->nominal_tagihan ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="Nama">Tagihan Ustadz</label>
+                <input type="text" class="form-control" name="nominal_ustadz" value="<?= $data->nominal_ustadz ?>">
             </div>
 
         </div>

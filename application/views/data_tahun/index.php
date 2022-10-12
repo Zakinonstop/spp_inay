@@ -66,6 +66,7 @@
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending">No</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nama tahun</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nominal Tagihan</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Tagihan Ustadz</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Nama: activate to sort column ascending">Action</th>
                             </tr>
                         </thead>
@@ -80,9 +81,10 @@
                                     <td width="50"><?= ++$start ?></td>
                                     <td><?= $ds->nama_tahun; ?></td>
                                     <td><?= $ds->nominal_tagihan; ?></td>
-                                    <td width="50">
+                                    <td><?= $ds->nominal_ustadz; ?></td>
+                                    <!-- <td width="50">
                                         <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Detail" href="<?= base_url('data_tahun/detail/') ?><?= $ds->id_tahun ?>"><i class="fa fa-eye"></i></a>
-                                    </td>
+                                    </td> -->
                                     <td width="50">
                                         <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url('data_tahun/edit/') ?><?= $ds->id_tahun ?>"><i class="fa fa-edit"></i></a>
                                     </td>

@@ -155,6 +155,19 @@ class m_input_transaksi extends CI_Model
         // return $this->db->get('tb_data_transaksi')->result();
     }
 
+    // public function get_all_data_pagination($limit, $start, $idnya_santri)
+    // {
+    //     $this->db->join('tb_data_santri', 'tb_data_santri.id = tb_data_transaksi.id_data_santri');
+    //     $this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+    //     $this->db->join('tb_kamar', 'tb_kamar.id_kamar = tb_data_santri.id_kamar');
+    //     $this->db->join('tb_kelas', 'tb_kelas.id_kelas = tb_data_santri.id_kelas');
+    //     $this->db->join('tb_tahun', 'tb_data_tagihan.id_tahun = tb_tahun.id_tahun');
+    //     $this->db->join('tb_bulan', 'tb_data_tagihan.id_bulan = tb_bulan.id_bulan');
+    //     $this->db->order_by('id_data_santri', 'ASC');
+    //     $this->db->order_by('tb_tahun.id_tahun', 'ASC');
+    //     $this->db->order_by('tb_bulan.id_bulan', 'ASC');
+    //     return $this->db->get_where('tb_data_transaksi', array('id_data_santri' => $idnya_santri), $limit, $start)->result();
+    // }
     public function get_all_data_pagination($limit, $start, $idnya_santri)
     {
         $this->db->join('tb_data_santri', 'tb_data_santri.id = tb_data_transaksi.id_data_santri');
@@ -168,6 +181,17 @@ class m_input_transaksi extends CI_Model
         $this->db->order_by('tb_bulan.id_bulan', 'ASC');
         return $this->db->get_where('tb_data_transaksi', array('id_data_santri' => $idnya_santri), $limit, $start)->result();
     }
+
+    public function getNominal2()
+    {
+        return $query = $this->db->query('select *,((nominal-25000)/2+25000) AS nominal2 from tb_data_tagihan');
+    }
+
+    public function checkUstadz($id)
+    {
+        return $this->db->get_where('tb_data_santri', ['id' => $id])->result();
+    }
+
     public function get_tahun_tagihan($idnya_santri)
     {
         $this->db->join('tb_data_santri', 'tb_data_santri.id = tb_data_transaksi.id_data_santri');
@@ -328,23 +352,61 @@ class m_input_transaksi extends CI_Model
         $this->db->order_by('tb_tahun.id_tahun', 'ASC');
         $this->db->order_by('tb_bulan.id_bulan', 'ASC');
 
-        $this->db->select('nominal,jumlah_bayar');
-        $query = $this->db->get_where('tb_data_transaksi', ['id_data_transaksi' => $id])->row();
-        $sisa = $query->jumlah_bayar - $query->nominal;
-        if ($sisa >= 0) {
-            $keterangan = '1'; //lunas
-        } else {
-            $keterangan = '0';
-        }
-        date_default_timezone_set('ASIA/JAKARTA');
-        $data = [
-            'sisa' => $sisa,
-            'tanggal_bayar' => date("Y-m-d H:i:s"),
-            'keterangan' => $keterangan,
-        ];
+        // cek status 
+        $this->db->select('status');
+        $getStatus = $this->db->get_where('tb_data_transaksi', ['id_data_transaksi' => $id])->row();
+        // echo $getStatus->status;
+        // die;
 
-        $this->db->where('id_data_transaksi', $id);
-        return $this->db->update('tb_data_transaksi', $data);
+        // select nominal 
+        if ($getStatus->status == 3) {
+            // echo 'ustadz';
+            // die;
+            $nominal2 = $this->getNominal2()->row_array();
+            $nominalnya = $nominal2['nominal2'];
+
+            $this->db->select('jumlah_bayar');
+
+            $this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+            $query = $this->db->get_where('tb_data_transaksi', ['id_data_transaksi' => $id])->row();
+            $sisa = $query->jumlah_bayar - $nominalnya;
+            if ($sisa >= 0) {
+                $keterangan = '1'; //lunas
+            } else {
+                $keterangan = '0';
+            }
+            date_default_timezone_set('ASIA/JAKARTA');
+            $data = [
+                'sisa' => $sisa,
+                'tanggal_bayar' => date("Y-m-d H:i:s"),
+                'keterangan' => $keterangan,
+            ];
+
+            $this->db->where('id_data_transaksi', $id);
+            return $this->db->update('tb_data_transaksi', $data);
+        } else {
+            // echo 'bukan ustadz';
+
+            $this->db->select('nominal,jumlah_bayar');
+
+            $this->db->join('tb_data_tagihan', 'tb_data_tagihan.id = tb_data_transaksi.id_data_tagihan');
+            $query = $this->db->get_where('tb_data_transaksi', ['id_data_transaksi' => $id])->row();
+            $sisa = $query->jumlah_bayar - $query->nominal;
+            if ($sisa >= 0) {
+                $keterangan = '1'; //lunas
+            } else {
+                $keterangan = '0';
+            }
+            date_default_timezone_set('ASIA/JAKARTA');
+            $data = [
+                'sisa' => $sisa,
+                'tanggal_bayar' => date("Y-m-d H:i:s"),
+                'keterangan' => $keterangan,
+            ];
+
+            $this->db->where('id_data_transaksi', $id);
+            return $this->db->update('tb_data_transaksi', $data);
+        }
     }
 
     public function edit_save($data, $id)

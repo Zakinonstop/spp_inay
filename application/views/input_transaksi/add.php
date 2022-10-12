@@ -19,25 +19,25 @@
             <div class="form-group">
                 <label for="Nama">Nama : </label>
                 <label for="Nama"><?= $data_tr_santri->nama ?></label>
-               
+
             </div>
 
             <div class="form-group">
                 <label for="Nama">Status : </label>
                 <label for="Nama">
-                    <?php 
-                                if ($data_tr_santri->status == 1) {
-                                    echo 'Santri Aktif';
-                                }elseif ($data_tr_santri->status == 2) {
-                                    echo 'Pengurus';
-                                }elseif ($data_tr_santri->status == 3) {
-                                    echo 'Ustadz / Ustadzah';
-                                }elseif ($data_tr_santri->status == 4) {
-                                    echo 'Alumni';
-                                }
-                            ?>
+                    <?php
+                    if ($data_tr_santri->status == 1) {
+                        echo 'Santri Aktif';
+                    } elseif ($data_tr_santri->status == 2) {
+                        echo 'Pengurus';
+                    } elseif ($data_tr_santri->status == 3) {
+                        echo 'Ustadz / Ustadzah';
+                    } elseif ($data_tr_santri->status == 4) {
+                        echo 'Alumni';
+                    }
+                    ?>
                 </label>
-                
+
             </div>
 
 
@@ -53,28 +53,29 @@
 
             <div class="form-group">
                 <label for="Nama">Besar Tagihan : </label>
-                <label for="Nama"><?= $data_tr_santri->nominal ?></label>
-            </div>
-
-            <div class="form-group">
-                <label for="Nama">Potongan : </label>
                 <label for="Nama">
                     <?php
-                    if ($data_tr_santri->status == 2) {
-                        echo 20000;
-                    }elseif ($data_tr_santri->status == 3) {
-                        echo $data_tr_santri->nominal * 50/100 ;
-                    }else {
-                        echo 0;
+                    if ($data_tr_santri->status == 3) {
+                        echo $nominal2['nominal2'];
+                    } else {
+                        echo $data_tr_santri->nominal;
                     }
-                   ?>
+
+                    ?>
                 </label>
             </div>
 
             <div class="form-group">
                 <label for="Nama">Jumlah Bayar : </label>
-                <input type="number" class="form-control" name="jumlah_bayar" id="jumlah_bayar" value="<?= $data_tr_santri->nominal ?>">
-                <input hidden type="text" class="form-control" name="id_transaksi" id="id_transaksi" value="<?= $data_tr_santri->id_data_transaksi ?>">
+                <?php
+                if ($data_tr_santri->status == 3) {
+                    $bayar = $nominal2['nominal2'];
+                } else {
+                    $bayar = $data_tr_santri->nominal;
+                }
+                ?>
+                <input type="number" class="form-control" name="jumlah_bayar" id="jumlah_bayar" value="<?= $bayar ?>">
+                <input hidden type=" text" class="form-control" name="id_transaksi" id="id_transaksi" value="<?= $data_tr_santri->id_data_transaksi ?>">
             </div>
 
         </div>

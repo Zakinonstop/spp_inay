@@ -37,14 +37,14 @@
 
                     <form action="" method="post">
                         <div class="input-group input-group-md">
-                            <input type="text" class="form-control" placeholder="Cari data santri.." name="keyword">
+                            <input type="text" class="form-control" placeholder="Cari data santri.." name="keyword" autocomplete="off">
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Cari">Cari</button>
                             </span>
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="col-2">
                     <a href="<?= base_url('data_santri/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a>
                 </div>
@@ -76,7 +76,7 @@
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Kelas</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Bayar</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Kelas: activate to sort column ascending">Action</th>
-                               
+
                             </tr>
                         </thead>
                         <tbody>
@@ -95,18 +95,18 @@
                                     <td><?= $ds->nama_kamar; ?></td>
                                     <td><?= $ds->nama_kelas; ?></td>
                                     <td style="padding: 5px;" width="70">
-                                        <a type="button" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('input_transaksi/view/') ?><?= $ds->id ?>">Input Transaksi</a>
+                                        <a type="button" class="btn btn-sm btn-info" title="Input Transaksi" href="<?= base_url('input_transaksi/view/') ?><?= $ds->id ?>">Input Transaksi</a>
                                     </td>
                                     <td width="50">
-                                        <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Detail" href="<?= base_url('data_santri/detail/') ?><?= $ds->id ?>"><i class="fa fa-eye"></i></a>
+                                        <a class="text-primary" title="Detail" href="<?= base_url('data_santri/detail/') ?><?= $ds->id ?>"><i class="fa fa-eye"></i></a>
                                     </td>
                                     <td width="50">
-                                        <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url('data_santri/edit/') ?><?= $ds->id ?>"><i class="fa fa-edit"></i></a>
+                                        <a class="text-primary" title="Edit" href="<?= base_url('data_santri/edit/') ?><?= $ds->id ?>"><i class="fa fa-edit"></i></a>
                                     </td>
                                     <td width="50">
                                         <a href="<?= base_url('data_santri/hapus/') ?><?= $ds->id ?>" class="text-danger" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-trash"></i></a>
                                     </td>
-                                    
+
                                 </tr>
                             <?php } ?>
                         </tbody>

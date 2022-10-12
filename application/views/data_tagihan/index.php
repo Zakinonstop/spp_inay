@@ -1,7 +1,7 @@
 <!-- Default box -->
 <div class="card card-secondary">
     <div class="card-header">
-    Tagihan
+        Tagihan
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -68,14 +68,17 @@
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending">No</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Tahun</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Bulan</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nominal</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Tagihan Santri</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Tagihan Ustadz</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Nama: activate to sort column ascending">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
+                            // var_dump($data_tagihan);
                             $no = 0;
                             foreach ($data_tagihan as $ds) {
+
                                 $no++ ?>
 
                                 <tr role="row" class="odd">
@@ -84,6 +87,7 @@
                                     <td><?= $ds->nama_tahun; ?></td>
                                     <td><?= $ds->nama_bulan; ?></td>
                                     <td><?= $ds->nominal; ?></td>
+                                    <td><?= $ds->tagihan_ustadz; ?></td>
                                     <td width="50">
                                         <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Detail" href="<?= base_url('data_tagihan/detail/') ?><?= $ds->id ?>"><i class="fa fa-eye"></i></a>
                                     </td>
@@ -112,7 +116,7 @@
                 </div>
                 <div class="col-sm-12 col-md-7 float-right">
                     <div class="dataTables_paginate paging_simple_numbers float-right" id="example1_paginate">
-                        <?= $pagination; ?>    
+                        <?= $pagination; ?>
                     </div>
                 </div>
             </div>

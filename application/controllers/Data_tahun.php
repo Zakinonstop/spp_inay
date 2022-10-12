@@ -89,6 +89,8 @@ class Data_tahun extends CI_Controller
     {
 
         $this->form_validation->set_rules('nama', 'Nama Tahun', 'required');
+        $this->form_validation->set_rules('nominal', 'Tagihan Santri', 'required');
+        $this->form_validation->set_rules('nominal_ustadz', 'Tagihan Ustadz', 'required');
         // $this->form_validation->set_rules('nominal_tagihan', 'Nominal Tagihan', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -98,17 +100,18 @@ class Data_tahun extends CI_Controller
             $data = [
                 'nama_tahun' => $this->input->post('nama'),
                 'nominal_tagihan' => $this->input->post('nominal'),
+                'nominal_ustadz' => $this->input->post('nominal_ustadz'),
             ];
-            $nominal = $this->input->post('nominal');
+            // $nominal = $this->input->post('nominal');
 
             $this->m_data_tahun->save($data);
 
-            $id_tahun = $this->db->query('SELECT id_tahun, nominal_tagihan FROM `tb_tahun` WHERE id_tahun IN (SELECT MAX(id_tahun) FROM `tb_tahun`)')->row();
+            $id_tahun = $this->db->query('SELECT * FROM `tb_tahun` WHERE id_tahun IN (SELECT MAX(id_tahun) FROM `tb_tahun`)')->row();
             $id_bulan_t = $this->db->query('SELECT id_bulan FROM `tb_bulan` ')->result();
 
 
             foreach ($id_bulan_t as $bul) {
-                $this->db->insert('tb_data_tagihan', ['id_tahun' => $id_tahun->id_tahun, 'id_bulan' => $bul->id_bulan, 'nominal' => $id_tahun->nominal_tagihan]);
+                $this->db->insert('tb_data_tagihan', ['id_tahun' => $id_tahun->id_tahun, 'id_bulan' => $bul->id_bulan, 'nominal' => $id_tahun->nominal_tagihan, 'tagihan_ustadz' => $id_tahun->nominal_ustadz]);
             }
 
             //ambil id_santri
@@ -120,16 +123,9 @@ class Data_tahun extends CI_Controller
                     $this->db->insert('tb_data_transaksi', ['id_data_santri' => $ds->id, 'id_data_tagihan' => $dt->id]);
                 }
                 // kodingan insert
-
             }
-
-
-
-
             // kondisi ketika dua duanya ada maka update
-
             // ketika tdk ada maka insert
-
             $data = $this->session->set_flashdata('message', 'disimpan');
             redirect('data_tahun', $data);
         }
@@ -139,6 +135,7 @@ class Data_tahun extends CI_Controller
     {
         $this->form_validation->set_rules('nama', 'Nama Tahun', 'required');
         $this->form_validation->set_rules('nominal', 'Nominal Tagihan', 'required');
+        $this->form_validation->set_rules('nominal_ustadz', 'Tagihan Ustadz', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data = $this->session->set_flashdata('message', validation_errors());
@@ -147,13 +144,11 @@ class Data_tahun extends CI_Controller
             $data = [
                 'nama_tahun' => $this->input->post('nama'),
                 'nominal_tagihan' => $this->input->post('nominal'),
+                'nominal_ustadz' => $this->input->post('nominal_ustadz'),
             ];
 
             $edit = $this->m_data_tahun->update($data, $id);
-
-
             $data = $this->session->set_flashdata('message', 'diedit');
-
             redirect('data_tahun');
         }
     }

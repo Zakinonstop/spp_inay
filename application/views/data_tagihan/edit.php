@@ -22,8 +22,8 @@
                 <select name="tahun" id="tahun" class="form-control">
                     <?php foreach ($data_tahun as $dk) { ?>
                         <option value="<?= $dk->id_tahun ?>" <?php if ($dk->id_tahun == $data->id_tahun) {
-                                                                    echo 'selected';
-                                                                } ?>><?= $dk->nama_tahun ?></option>
+                                                                        echo 'selected';
+                                                                    } ?>><?= $dk->nama_tahun ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -33,15 +33,20 @@
                 <select name="bulan" id="bulan" class="form-control">
                     <?php foreach ($data_bulan as $dk) { ?>
                         <option value="<?= $dk->id_bulan ?>" <?php if ($dk->id_bulan == $data->id_bulan) {
-                                                                    echo 'selected';
-                                                                } ?>><?= $dk->nama_bulan ?></option>
+                                                                        echo 'selected';
+                                                                    } ?>><?= $dk->nama_bulan ?></option>
                     <?php } ?>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="nominal">Nominal</label>
+                <label for="nominal">Tagihan Santri</label>
                 <input type="text" class="form-control" name="nominal" placeholder="Masukkan nominal" value="<?= $data->nominal ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="nominal">Tagihan Ustadz</label>
+                <input type="text" class="form-control" name="tagihan_ustadz" placeholder="Masukkan nominal" value="<?= $data->tagihan_ustadz ?>">
             </div>
 
         </div>
