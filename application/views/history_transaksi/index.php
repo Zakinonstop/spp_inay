@@ -1,47 +1,11 @@
 <!-- Default box -->
 <div class="card card-secondary">
-
     <div class="card-header">
-        History 
+        Riwayat Pembayaran
     </div>
     <!-- /.card-header -->
     <div class="card-body card-outline">
         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
-            <div class="row d-flex">
-                <div class="col-6">
-                    <!-- <div class="dataTables_length" id="example1_length"><label>Show <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select> entries</label></div> -->
-
-                </div>
-
-                <div class="col-6">
-
-                    <!-- <div class="dataTables_length float-right" id="example1_length">
-                        <a href="<?= base_url('history_transaksi/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a>
-                    </div> -->
-                </div>
-
-            </div>
-            <br>
-            <div class="row d-flex">
-                <div class="col-9">
-                    
-                </div>
-
-                <div class="col-3">
-
-                    <div class="dataTables_length float-right" id="example1_length">
-                        <!-- <a href="<?= base_url('history_transaksi/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
-                    </div>
-
-                </div>
-
-            </div>
-            <br>
             <div>
                 <?php if ($this->session->flashdata('message')) : ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -55,7 +19,7 @@
 
             <div class="row">
                 <div class="col-sm-12 table-responsive">
-                    <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                    <table id="example1" class="table table-striped dataTable" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending">No</th>
@@ -78,7 +42,7 @@
                             foreach ($history_transaksi as $ds) {
 
                                 $no++
-                            ?>
+                                ?>
 
                                 <tr role="row" class="odd">
                                     <!-- <td class="sorting_1"></td> -->
@@ -90,14 +54,14 @@
                                     <!-- <td><?= $ds->jumlah_bayar; ?></td> -->
                                     <td>
                                         <?php
-                                        $cek_keterangan = $ds->keterangan;
-                                        if ($ds->jumlah_bayar >= 0) {
-                                            echo $ds->jumlah_bayar;
-                                        } else if ($urut == 0) { ?>
+                                            $cek_keterangan = $ds->keterangan;
+                                            if ($ds->jumlah_bayar >= 0) {
+                                                echo $ds->jumlah_bayar;
+                                            } else if ($urut == 0) { ?>
                                             <?php $urut++; ?>
                                             <a type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('history_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Input Transaksi</a>
-                                            <?php } else { ?>
-                                                <a type="button" aria-disabled="true" class="btn btn-sm btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('history_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Input Transaksi</a>
+                                        <?php } else { ?>
+                                            <a type="button" aria-disabled="true" class="btn btn-sm btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Input Transaksi" href="<?= base_url('history_transaksi/add/') ?><?= $ds->id_data_transaksi ?>">Input Transaksi</a>
                                         <?php } ?>
 
                                     </td>
@@ -110,32 +74,32 @@
                                             </button> -->
                                             <!-- <a type="button" class="btn btn-sm btn-primary" onclick="confirm('Uang sisa digunakan untuk spp bulan selanjutnya ?')" data-toggle="tooltip" data-placement="top" title="Untuk bulan Selanjutnya" href="<?= base_url('history_transaksi/next/') ?><?= $ds->id_data_transaksi ?>">next</a> -->
                                             <!-- <a type="button" class="btn btn-sm btn-primary" onclick="confirm('Untuk Kembalian ?')" data-toggle="tooltip" data-placement="top" title="Untuk bulan Selanjutnya" href="<?= base_url('history_transaksi/kembalian/') ?><?= $ds->id_data_transaksi ?>">Kembalian</a> -->
-                                            <?php } else if ($ds->sisa < 0) { ?>
-                                                <?php $urut--; ?>
-                                                <p><?= $ds->sisa; ?></p>
-                                                <?php } else { ?>
-                                                    <?= $ds->sisa; ?>
-                                                    <?php } ?>
-                                                    
-                                                    
-                                                </td>
-                                                
-                                                <td>
-                                            <?php
+                                        <?php } else if ($ds->sisa < 0) { ?>
+                                            <?php $urut--; ?>
+                                            <p><?= $ds->sisa; ?></p>
+                                        <?php } else { ?>
+                                            <?= $ds->sisa; ?>
+                                        <?php } ?>
+
+
+                                    </td>
+
+                                    <td>
+                                        <?php
                                             if ($ds->keterangan == 1) { ?>
                                             <h6><span class="badge badge-pill badge-success">LUNAS</span></h6>
                                             <!-- <a type="button" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="#">Lunas</a> -->
-                                            <?php } elseif ($ds->keterangan == '0') { ?>
-                                                <h6><span class="badge badge-pill badge-success">BELUM LUNAS</span></h6>
-                                                <!-- <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Belum Lunas" href="#">Belum Lunas</a> -->
-                                                <?php } ?>
-                                                <!-- <?= $ds->keterangan; ?> -->
-                                            </td>
-                                            
-                                            <td><?= $ds->created_by; ?></td>
-                                            <td><?= $ds->tanggal_bayar; ?></td>
-                                        </tr>
-                                        <?php
+                                        <?php } elseif ($ds->keterangan == '0') { ?>
+                                            <h6><span class="badge badge-pill badge-success">BELUM LUNAS</span></h6>
+                                            <!-- <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Belum Lunas" href="#">Belum Lunas</a> -->
+                                        <?php } ?>
+                                        <!-- <?= $ds->keterangan; ?> -->
+                                    </td>
+
+                                    <td><?= $ds->created_by; ?></td>
+                                    <td><?= $ds->tanggal_bayar; ?></td>
+                                </tr>
+                            <?php
                             } ?>
                         </tbody>
                     </table>

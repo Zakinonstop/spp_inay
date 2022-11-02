@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 05:46 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Host: localhost:3306
+-- Generation Time: Nov 02, 2022 at 11:30 PM
+-- Server version: 10.3.36-MariaDB-cll-lve
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -1737,16 +1738,15 @@ INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
 CREATE TABLE `tb_tahun` (
   `id_tahun` int(11) NOT NULL,
   `nama_tahun` varchar(200) NOT NULL,
-  `nominal_tagihan` varchar(200) NOT NULL,
-  `nominal_ustadz` varchar(10) NOT NULL
+  `nominal_tagihan` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_tahun`
 --
 
-INSERT INTO `tb_tahun` (`id_tahun`, `nama_tahun`, `nominal_tagihan`, `nominal_ustadz`) VALUES
-(1, '1444 H', '175000', '100000');
+INSERT INTO `tb_tahun` (`id_tahun`, `nama_tahun`, `nominal_tagihan`) VALUES
+(1, '1444 H', '175000');
 
 --
 -- Indexes for dumped tables

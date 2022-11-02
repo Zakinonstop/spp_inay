@@ -23,14 +23,10 @@
                 </div>
 
             </div>
-            <br>
-            <div class="row d-flex ml-4">
+            <div class="row d-flex">
                 <div class="col-sm-8">
-
                 </div>
-
                 <div class="col-sm-2">
-
                     <div class="dataTables_length float-right" id="example1_length">
                         <!-- <a href="<?= base_url('data_santri/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
                     </div>
@@ -48,7 +44,6 @@
                 <div class="col-2">
                     <a href="<?= base_url('data_santri/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a>
                 </div>
-
             </div>
             <br>
             <div>
@@ -64,18 +59,16 @@
 
             <div class="row">
                 <div class="col-sm-12 table-responsive">
-                    <table id="example1" class="table table-bordered table-striped table-sm dataTable" role="grid" aria-describedby="example1_info">
+                    <table id="example1" class="table table-striped table-sm dataTable" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending">No</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nama</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">NIS</th>
-                                <!--<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Tgl Lahir</th>-->
-                                <!--<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Alamat: activate to sort column ascending">Alamat</th>-->
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kamar: activate to sort column ascending">Kamar</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Kelas</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Bayar</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Kelas: activate to sort column ascending">Action</th>
+                                <th class="sorting_asc text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending">No</th>
+                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nama</th>
+                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">NIS</th>
+                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kamar: activate to sort column ascending">Kamar</th>
+                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Kelas</th>
+                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Kelas: activate to sort column ascending">Bayar</th>
+                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" aria-label="Kelas: activate to sort column ascending">Action</th>
 
                             </tr>
                         </thead>
@@ -87,9 +80,9 @@
 
                                 <tr role="row" class="odd">
                                     <!-- <td class="sorting_1"></td> -->
-                                    <td><?= ++$start ?></td>
+                                    <td class="text-center"><?= ++$start ?></td>
                                     <td><?= $ds->nama; ?></td>
-                                    <td><?= $ds->nis; ?></td>
+                                    <td class="text-center"><?= $ds->nis; ?></td>
                                     <!--<td><?= $ds->tgl_lahir; ?></td>-->
                                     <!--<td><?= $ds->alamat; ?></td>-->
                                     <td><?= $ds->nama_kamar; ?></td>
