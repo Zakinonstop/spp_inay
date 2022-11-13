@@ -25,8 +25,18 @@
     <link rel="stylesheet" href="<?= base_url('') ?>assets/css/style.css">
 </head>
 <style>
-    .sidebar {
-        overflow-y: hidden;
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+        /* border-radius: 30px; */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: grey;
+        border-radius: 10px;
     }
 
     .content-wrapper {
