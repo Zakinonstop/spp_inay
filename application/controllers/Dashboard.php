@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_data_transaksi');
+        $this->load->model('m_jurnal_umum');
         $this->load->library('form_validation');
 
         if (isset($_SESSION['username'])) { } else {
@@ -26,6 +27,7 @@ class Dashboard extends CI_Controller
             'jumlah_pemasukan' => $this->m_data_transaksi->jumlah_pemasukan(),
             'jumlah_pengeluaran' => $this->m_data_transaksi->jumlah_pengeluaran(),
             // 'total_pengeluaran' => $this->m_data_transaksi->total_pengeluaran(),
+            'jurnal_umum' => $this->m_jurnal_umum->get_all_data(),
             'start' => $this->uri->segment(3),
             // 'pagination' => $pagination_link,
             'jumlah_data' => $this->m_data_transaksi->count_search_data(),

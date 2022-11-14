@@ -85,7 +85,7 @@
             <!-- Brand Logo -->
             <a href="#" class="brand-link navbar-success">
                 <img src="<?= base_url('') ?>assets/foto/logo_pondok.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">INAYATULLAH</span>
+                <span class="brand-text font-weight-dark">INAYATULLAH</span>
             </a>
 
             <!-- Sidebar -->
@@ -94,17 +94,10 @@
                     <div class="text-center">
                         <img class="profile-user-img img-fluid img-circle" src="<?= base_url('') ?>assets/foto/logo_pondok.png" alt="User profile picture">
                     </div>
-
                     <h3 style="color : white;" class="profile-username text-center"><?= $this->session->userdata['username'] ?></h3>
-
-                    <p style="color : white;" class="text-muted text-center"><?= $this->session->userdata['email'] ?></p>
-
-
-                    <a href="<?= base_url('admin/edit/') ?><?= $this->session->userdata['id_admin'] ?>" class="btn btn-warning btn-block btn-sm"><b style="color: black;">Edit Profile</b></a>
                 </div>
                 <!-- Sidebar user (optional) -->
-                <div class="user-panel pb-3 mb-3 d-flex">
-
+                <div class="user-panel ml-3 d-flex" style="height: 4px; width: 87%; background-color:yellow">
                 </div>
 
                 <!-- Sidebar Menu -->
@@ -128,6 +121,7 @@
                                 </p>
                             </a>
                         </li>
+                        <hr>
 
                         <li class="nav-item">
                             <a href="<?= base_url('') ?>data_kamar" class="nav-link">
@@ -137,7 +131,6 @@
                                 </p>
                             </a>
                         </li>
-                        <hr>
 
                         <li class="nav-item">
                             <a href="<?= base_url('') ?>data_tahun" class="nav-link">
@@ -156,14 +149,6 @@
                             </a>
                         </li>
                         <hr>
-                        <!-- <li class="nav-item">
-                            <a href="<?= base_url('') ?>data_transaksi" class="nav-link">
-                                <i class="nav-icon far fa-image"></i>
-                                <p>
-                                    Data Transaksi
-                                </p>
-                            </a>
-                        </li> -->
 
                         <li class="nav-item">
                             <a href="<?= base_url('') ?>history_transaksi" class="nav-link">
@@ -174,14 +159,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="<?= base_url('') ?>grafik" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Grafik </p>
-                            </a>
-                        </li>
-                        <hr>
                         <li class="nav-item">
                             <a href="<?= base_url('jurnal_umum') ?>" class="nav-link">
                                 <i class="fas fa-edit nav-icon"></i>
