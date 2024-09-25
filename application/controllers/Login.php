@@ -41,13 +41,16 @@ class Login extends CI_Controller
 			$email = $cl->email;
 		};
 
-		$data = [
+	
+
+		if ($cek_login->num_rows() > 0) {
+		    
+		    $data = [
 			'id_admin' => $id_admin,
 			'username' => $username,
 			'email' => $email,
-		];
-
-		if ($cek_login->num_rows() > 0) {
+		    ];
+		
 			$this->session->set_userdata($data);
 			redirect('dashboard');
 		}else {
@@ -58,7 +61,7 @@ class Login extends CI_Controller
 
 	public function logout()
 	{
-		$this->session_destroy;
+	    $this->session->sess_destroy();
 		redirect('');
 	}
 

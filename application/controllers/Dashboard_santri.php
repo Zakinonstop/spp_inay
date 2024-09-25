@@ -8,6 +8,11 @@ class Dashboard_santri extends CI_Controller
 		parent:: __construct();
 		// $this->load->model('m_data_transaksi');
 		$this->load->library('form_validation');
+		if(isset($_SESSION['nama'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()

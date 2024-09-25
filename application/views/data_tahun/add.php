@@ -18,12 +18,17 @@
             <?php endif; ?>
             <div class="form-group">
                 <label for="Nama">Nama tahun</label>
-                <input type="text" class="form-control" name="nama" placeholder="Masukkan Tahun">
+                <input type="text" class="form-control" autocomplete="off" name="nama" placeholder="1445 H">
             </div>
 
             <div class="form-group">
-                <label for="Nama">Nominal Tagihan</label>
-                <input type="text" class="form-control" name="nominal" placeholder="200000">
+                <label for="Nama">Tagihan Santri</label>
+                <input type="text" class="form-control" autocomplete="off" name="nominal" placeholder="175000">
+            </div>
+
+            <div class="form-group">
+                <label for="Nama">Tagihan Ustadz</label>
+                <input type="text" class="form-control" autocomplete="off" name="nominal_ustadz" placeholder="100000">
             </div>
 
         </div>

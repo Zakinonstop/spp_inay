@@ -1,28 +1,33 @@
-Revisi Terakhir
-- notifikasi form tambah data edit data | DONE
-- notifikasi login | DONE
------- USER ADMIN ----------
-# ADD DATA SANTRI | DONE
- Yang required
- - nama
- - Kamar
- - jenis kelamin
- - kelas
- - nomor hp
- - status
+GUEST
 
-# DATA KAMAR | DONE
- - notifikasi Nama diubah ke nama kamar
-# DATA TAHUN | DONE
- - rename notif nama ke Nama Tahun
- - required nominal
-# DATA TAGIHAN | DONE
- - edit form > nominal di jadiin required
-# JURNAL UMUM | DONE
- - required ditambah tanggal dan keterangan
-# ADMINISTRATOR | DONE
- - required tambah kan password
------------- USER SANTRI -------------
-semua form harus required | DONE
+LOGIN
+- Bahasa diubah indonesia | Done
+- tampilan dipercantiq, beri foto | done
 
-https://passport.duitku.com/TopUp/v2/TopUpVAPage.aspx?ref=BRS1ZREOY8JQ5C304
+TAMU
+DASHBOARD
+- INAY APP SISTEM => SISTEM PEMBAYARAN SPP | Done
+- Tabel Judul Rata tengah | Done
+- angka rata tengah | Done
+- Nomor induk rata tengah | Done
+- tulisan nomor induk santri => nomor induk | Done
+- History transaksi diubah riwayat transaksi | Done
+- Logout ganti keluar | Done
+- Footer copyright diubah/ ambil dari santri | Done
+- Action ubah aksi | Done
+- Showing ubah menampilkan ... data | Done
+# search data santri tidak berfungsi saat index/10 | DOne
+- caption Data Santri history diubah riwayat | Done
+
+SANTRI 
+- Inay App SISTEM diubah ponpes inayatullah
+- Logout ganti keluar
+- Lihat => Lihat syahriah
+SPP
+- History Pembayaran => Riwayat Pembayaran
+- Saat direload flashdata tetap muncul
+- Showing .. diubah menampilkan 
+
+PROFIL
+- Saat edit data ditambah tombol kembali
+- Footer masih nggabung

@@ -20,10 +20,10 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image:url( <?= base_url('assets/foto/bg-image.jpg') ?> );">
 <div class="login-box">
   <div class="login-logo">
-    <b>Login Via</b>
+    <b>Masuk Sebagai</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -31,7 +31,7 @@
       <p class="login-box-msg"></p>
       <a href="<?= base_url('login')?>" type="button" class="btn btn-block bg-gradient-warning btn-lg">ADMIN</a>
       <a href="<?= base_url('login_santri')?>" type="button" class="btn btn-block bg-gradient-success btn-lg">SANTRI</a>
-      <a href="<?= base_url('login_tamu')?>" type="button" class="btn btn-block bg-gradient-info btn-lg">GUEST</a>
+      <a href="<?= base_url('login_tamu')?>" type="button" class="btn btn-block bg-gradient-info btn-lg">TAMU</a>
       <div class="social-auth-links text-center mb-3">
       </div>
     </div>

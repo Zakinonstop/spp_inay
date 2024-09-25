@@ -9,7 +9,7 @@ class m_data_santri extends CI_Model
 		$this->db->join('tb_kamar', 'tb_kamar.id_kamar = tb_data_santri.id_kamar');
 		$this->db->join('tb_kelas', 'tb_kelas.id_kelas = tb_data_santri.id_kelas');
 		// $this->db->group_by("nama_kamar");
-		$this->db->order_by('nama_kamar', 'ASC');
+		$this->db->order_by('nama', 'ASC');
 		return $this->db->get('tb_data_santri', $limit, $start)->result();
 	}
 
@@ -41,7 +41,7 @@ class m_data_santri extends CI_Model
 		$this->db->or_like('alamat', $keyword);
 		$this->db->or_like('nama_kamar', $keyword);
 		$this->db->or_like('nama_kelas', $keyword);
-		$this->db->order_by('nama_kamar', 'ASC');
+		$this->db->order_by('nama', 'ASC');
 		return $this->db->get('tb_data_santri', $limit, $start)->result();
 	}
 
@@ -103,7 +103,7 @@ class m_data_santri extends CI_Model
 		// die();
 		$nama = $data->nama;
 		$enter = '%0A';
-		$text = 'Assalamualaikum kang '. $nama .''.$enter.$enter.'Kami dari bendahara ingin memberitahukan bahwa akan diadakan *Sistem Pembayaran SPP Berbasis Website*'.$enter.$enter.'Maka dari itu silakan kang '.$nama.' bisa login ke link berikut www.sppinay.com dengan memasukkan :'.$enter.'NIS : '.$nis.$enter.'Password : '.$password.$enter.$enter.'Mohon jaga baik-baik NIS dan Password tersebut.'.$enter.$enter.'Terimakasih'.$enter.'Ttd'.$enter.$enter.'*Bendahara*';
+		$text = 'Assalamualaikum kang '. $nama .''.$enter.$enter.'Kami dari bendahara ingin memberitahukan bahwa akan diadakan *Sistem Pembayaran SPP Berbasis Website*'.$enter.$enter.'Maka dari itu silakan kang '.$nama.' bisa login ke link berikut '. base_url().' pada login via santri kemudian memasukkan :'.$enter.'NIS : '.$nis.$enter.'Password : '.$password.$enter.$enter.'Mohon jaga baik-baik NIS dan Password tersebut.'.$enter.$enter.'Apabila orantua atau wali ingin mengetahui history pembayaran spp bisa menggunakan login via Guest.'.$enter.$enter.$enter.'Terimakasih'.$enter.'Ttd'.$enter.$enter.'*Bendahara*';
 
 		$url = prep_url('https://api.whatsapp.com/send?phone='.$hp.'&text='.$text);
 		redirect($url);

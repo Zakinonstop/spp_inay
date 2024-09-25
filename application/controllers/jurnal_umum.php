@@ -8,13 +8,18 @@ class Jurnal_umum extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_jurnal_umum');
 		$this->load->library('form_validation');
+		if(isset($_SESSION['username'])) {
+        
+        }else{
+            redirect('start');
+        }
 	}
 
 	public function index()
 	{
 		$this->load->library('pagination');
 
-		$config['base_url'] = 'http://localhost/spp_inay/jurnal_umum/index/';
+		$config['base_url'] = base_url('jurnal_umum/index/');
 		$config['total_rows'] = $this->m_jurnal_umum->count_search_data();
 		$config['per_page'] = 10;
 		$config['start'] = $this->uri->segment(3);
@@ -158,7 +163,7 @@ class Jurnal_umum extends CI_Controller
 	public function add_save_pengeluaran()
 	{
 
-		$this->form_validation->set_rules('pemasukan', 'Nominal Pemasukan', 'required');
+		$this->form_validation->set_rules('pengeluaran', 'Nominal Pengeluaran', 'required');
 		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
 		$this->form_validation->set_rules('tgl_jurnal', 'Tanggal', 'required');
 		// $saldo_terakhir =$this->m_jurnal_umum->get_last_saldo();
@@ -188,7 +193,47 @@ class Jurnal_umum extends CI_Controller
 
 	public function edit_save($id)
 	{
-		$this->form_validation->set_rules('pemasukan', 'Nominal Pemasukan', 'required');
+// 		$this->form_validation->set_rules('pemasukan', 'Nominal Penerimaan', 'required');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+		$this->form_validation->set_rules('tgl_jurnal', 'Tanggal', 'required');
+		// ambil max_id sebelum akhir
+		// max_id akhir
+		// $count_saldo = $this->db->query('SELECT id_jurnal_umum FROM tb_jurnal_umum')->num_rows();
+		// echo $count_saldo;
+		// die();
+		// $saldo_sebelum_akhir = $this->m_jurnal_umum->saldo_sebelum_akhir();
+		// echo $saldo_sebelum_akhir;
+		// die();
+		// $pemasukan = $this->input->post('pemasukan');
+		// $pengeluaran = $this->input->post('pengeluaran');
+		// if ($pemasukan) {
+		// 	$saldo = $saldo_sebelum_akhir + $pemasukan;
+		// }else {
+		// 	$saldo = $saldo_sebelum_akhir - $pengeluaran;
+			
+		// };
+
+		if ($this->form_validation->run() == FALSE) {
+			$data = $this->session->set_flashdata('message', validation_errors());
+			redirect('jurnal_umum/edit/'.$id, $data);
+		} else {
+			$data = [
+				'pemasukan' => $this->input->post('pemasukan'),
+				'pengeluaran' => $this->input->post('pengeluaran'),
+				'keterangan' => $this->input->post('keterangan'),
+				'tgl_jurnal' => $this->input->post('tgl_jurnal'),
+				// 'saldo' => $saldo,
+			];
+
+			$this->m_jurnal_umum->edit_save($data, $id);
+			$data = $this->session->set_flashdata('message', 'diedit');
+			redirect('jurnal_umum', $data);
+		}
+	}
+	
+		public function edit_save_pengeluaran($id)
+	{
+		$this->form_validation->set_rules('pengeluaran', 'Nominal Pengeluaran', 'required');
 		$this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
 		$this->form_validation->set_rules('tgl_jurnal', 'Tanggal', 'required');
 		// ambil max_id sebelum akhir

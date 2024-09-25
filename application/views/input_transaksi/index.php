@@ -26,7 +26,7 @@
             <br>
             <div class="row  ">
                 <div class="col-9">
-                    <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_per_santri/')?><?= $idnya_santri ;?>" target="_blank">Print Per Santri</a>
+                    <a type="button" class="btn btn-success" href="<?= base_url('input_transaksi/print_per_santri/') ?><?= $idnya_santri; ?>" target="_blank">Print Per Santri</a>
                 </div>
 
                 <div class="col-3">
@@ -35,7 +35,7 @@
                         <!-- <a href="<?= base_url('input_transaksi/add') ?>" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tambah Data">Tambah Data</a> -->
                     </div>
 
-                   
+
                 </div>
 
             </div>
@@ -52,7 +52,9 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-12">
+
+
+                <div class="col-sm-12 table-responsive">
                     <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr role="row">
@@ -75,10 +77,8 @@
                             // $start = 0;
                             $urut = 0;
                             $urut2 = 0;
-                            foreach ($input_transaksi as $ds) {
-
-                                // $start++ ;
-                            ?>
+                            $status = $status;
+                            foreach ($input_transaksi as $ds) { ?>
 
                                 <tr role="row" class="odd">
                                     <!-- <td class="sorting_1"></td> -->
@@ -86,13 +86,19 @@
                                     <td><?= $ds->nama; ?></td>
                                     <td><?= $ds->nama_tahun; ?></td>
                                     <td><?= $ds->nama_bulan; ?></td>
-                                    <td><?= $ds->nominal; ?></td>
+                                    <?php
+                                        if ($status != 3) { ?>
+                                        <td><?= $ds->nominal; ?></td>
+                                    <?php } else { ?>
+                                        <td><?= $getNominal2['nominal2']; ?></td>
+                                    <?php } ?>
+
                                     <td>
                                         <?php
-                                        $cek_keterangan = $ds->keterangan;
-                                        if ($ds->jumlah_bayar != null) {
-                                            echo $ds->jumlah_bayar;
-                                        } else if ($urut == 0) { ?>
+                                            $cek_keterangan = $ds->keterangan;
+                                            if ($ds->jumlah_bayar != null) {
+                                                echo $ds->jumlah_bayar;
+                                            } else if ($urut == 0) { ?>
                                             <?php $urut++; ?>
                                             <a type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Bayar" href="<?= base_url('input_transaksi/add/') ?><?= $ds->id_data_transaksi ?>"> Bayar </a>
                                             <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Set Lunas" href="<?= base_url('input_transaksi/set_lunas/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Set Lunas</a>
@@ -111,20 +117,20 @@
                                             <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" "><?= $ds->sisa; ?></a>
 
                                             <!-- ambil bulan transaksi -->
-                                            <?php 
-                                            if ($ds->nama_bulan != 'Desember') { ?>
+                                            <?php
+                                                    if ($ds->nama_bulan != 'Desember') { ?>
                                                 
-                                                <button type="button" class="btn btn-default btn-success btn-sm" data-toggle="modal" data-target="#modal-default">
-                                                    Next
+                                                <button type=" button" class="btn btn-default btn-success btn-sm" data-toggle="modal" data-target="#modal-default">
+                                                Next
                                                 </button>
                                             <?php }
-                                            ?>
-                                            
+                                                    ?>
+
 
                                             <button type="button" class="btn btn-default btn-success btn-sm" data-toggle="modal" data-target="#modal-kembalian">
                                                 Kembalian
                                             </button>
-                                            
+
                                         <?php } else if ($ds->sisa < 0) { ?>
                                             <?php $urut--; ?>
                                             <p><?= $ds->sisa; ?> | <a type="button" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Update Transaksi" href="<?= base_url('input_transaksi/update/') ?><?= $ds->id_data_transaksi ?>">update transaksi</a></p>
@@ -137,7 +143,7 @@
 
                                     <td>
                                         <?php
-                                        if ($ds->keterangan == 1) { ?>
+                                            if ($ds->keterangan == 1) { ?>
                                             <h6><span class="badge badge-pill badge-success">LUNAS</span></h6>
                                         <?php } elseif ($ds->keterangan == '0') { ?>
                                             <h6><span class="badge badge-pill badge-success">BELUM LUNAS</span></h6>
@@ -146,12 +152,12 @@
 
 
                                     <td>
-                                        
-                                    <?php 
-                                    if ($ds->tanggal_bayar != '') { ?>
-                                        <?=date('d F Y H:i:s ', strtotime($ds->tanggal_bayar));  ?>
-                                    <?php }?>
- 
+
+                                        <?php
+                                            if ($ds->tanggal_bayar != '') { ?>
+                                            <?= date('d F Y H:i:s ', strtotime($ds->tanggal_bayar));  ?>
+                                        <?php } ?>
+
                                     </td>
                                     <td><?= $ds->created_by; ?></td>
                                     <!-- <td><?= $ds->tanggal_bayar; ?></td> -->
@@ -162,20 +168,18 @@
                                     <td width="50">
                                         <a class="text-primary" data-toggle="tooltip" data-placement="top" title="Edit" href="<?= base_url('input_transaksi/edit/') ?><?= $ds->id_data_transaksi ?>"><i class="fa fa-edit"></i></a>
                                     </td>
-                                    
-                                    <td  width="50">
+
+                                    <td width="50">
                                         <?php
-                                        $cek_keterangan = $ds->keterangan;
-                                        if ($ds->jumlah_bayar != null) {
-                                            
-                                        } else if ($urut2 == 0) { ?>
+                                            $cek_keterangan = $ds->keterangan;
+                                            if ($ds->jumlah_bayar != null) { } else if ($urut2 == 0) { ?>
                                             <?php $urut2++; ?>
-                                                <a type="button" target="__blank" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
-                                            <?php } else { ?>
-                                                <a type="button" target="__blank" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
+                                            <a type="button" target="__blank" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
+                                        <?php } else { ?>
+                                            <a type="button" target="__blank" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Lunas" href="<?= base_url('input_transaksi/reminder/') ?><?= $ds->id_data_transaksi ?>/<?= $ds->id_data_santri ?>">Reminder</a>
                                         <?php } ?>
                                     </td>
-                                   
+
                                 </tr>
                             <?php
                             } ?>
@@ -189,8 +193,7 @@
                     }
                     ?>
                 </div>
-            </di
-            <div class="row">
+                </di <div class="row">
                 <div class="col-sm-12 col-md-5">
                     <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing <?= $start; ?> of <?= $jumlah_data; ?> entries</div>
                 </div>
@@ -216,20 +219,20 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-                
-                <form action="<?= base_url('input_transaksi/next/') ?><?= $ambil_id_trans ?>" method="post">
-                    <input hidden type="text" name="id_data_santri" value="<?= $ambil_id_santri ?>">
-                   
 
-                    <div class="modal-body">
-                        <p>Untuk Bulan Depan ?</p>
-                    </div>
+            <form action="<?= base_url('input_transaksi/next/') ?><?= $ambil_id_trans ?>" method="post">
+                <input hidden type="text" name="id_data_santri" value="<?= $ambil_id_santri ?>">
 
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Yes</button>
-                    </div>
-                </form>
+
+                <div class="modal-body">
+                    <p>Untuk Bulan Depan ?</p>
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
+                </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -245,20 +248,20 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-                
-                <form action="<?= base_url('input_transaksi/kembalian/') ?><?= $ambil_id_trans ?>" method="post">
-                    <input hidden type="text" name="id_data_santri" value="<?= $ambil_id_santri ?>">
-                   
 
-                    <div class="modal-body">
-                        <p>Untuk Kembalian ?</p>
-                    </div>
+            <form action="<?= base_url('input_transaksi/kembalian/') ?><?= $ambil_id_trans ?>" method="post">
+                <input hidden type="text" name="id_data_santri" value="<?= $ambil_id_santri ?>">
 
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Yes</button>
-                    </div>
-                </form>
+
+                <div class="modal-body">
+                    <p>Untuk Kembalian ?</p>
+                </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
+                </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>

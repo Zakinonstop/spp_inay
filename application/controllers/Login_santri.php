@@ -33,6 +33,8 @@ class Login_santri extends CI_Controller
 		// ];
 
 		// cek inputan di database
+	
+		
 		$cek_login = $this->m_login_santri->cek_login()->num_rows();
 		$session_santri = $this->m_login_santri->cek_login()->result();
 		foreach ($session_santri as $key => $ses) {
@@ -41,28 +43,32 @@ class Login_santri extends CI_Controller
 			$nis = $ses->nis;
 		}
 
-		$data = [
+	
+
+		if ($cek_login > 0) {
+
+            $data = [
 			'id' => $id,
 			'nama' => $nama,
 			'nis' => $nis,
 			'status' => 'login',
-		];
-
-		if ($cek_login > 0) {
-
+		    ];
+		
 			$this->session->set_userdata($data);
 			// echo 'ada';
 			// echo $nama;
 			redirect('dashboard_santri');
 		}else {
-			$data = $this->session->set_flashdata('message', 'NIS atau password salah !');
-			redirect('login_santri', $data);
+		   
+			$data2 = $this->session->set_flashdata('message', 'NIS atau password salah !');
+			
+			redirect('login_santri', $data2);
 		}
 	}
 
 	public function logout()
 	{
-		$this->session_destroy;
+		$this->session->sess_destroy();
 		redirect('');
 	}
 }

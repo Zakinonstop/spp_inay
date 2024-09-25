@@ -14,7 +14,7 @@
                         <td>:</td>
                         <td><?= $data->nama_tahun ?></td>
                         <!-- <td rowspan="8"></td> -->
-                        <!-- <td rowspan="8"><td><img width="100 %" src="<?= base_url('assets/foto/')?><?= $data->foto?>" alt=""></td></td> -->
+                        <!-- <td rowspan="8"><td><img width="100 %" src="<?= base_url('assets/foto/') ?><?= $data->foto ?>" alt=""></td></td> -->
                     </tr>
                     <tr>
                         <td>Bulan</td>
@@ -22,28 +22,33 @@
                         <td><?= $data->nama_bulan ?></td>
                     </tr>
                     <tr>
-                        <td>Nominal</td>
+                        <td>Tagihan Santri</td>
                         <td>:</td>
                         <td><?= $data->nominal ?></td>
                     </tr>
-                   
+                    <tr>
+                        <td>Tagihan Ustadz</td>
+                        <td>:</td>
+                        <td><?= $data->nominal_ustadz ?></td>
+                    </tr>
+
                 </table>
             </div>
-           
-        </div>
-        
-        </div>
-            </div>
-          
-            <div class="card-footer">
-                <a type="button" class="btn btn-success" href="<?= base_url('data_tagihan') ?>">Kembali</a>
-            </div>
-        </div>
 
-
-      
+        </div>
 
     </div>
+</div>
+
+<div class="card-footer">
+    <a type="button" class="btn btn-success" href="<?= base_url('data_tagihan') ?>">Kembali</a>
+</div>
+</div>
+
+
+
+
+</div>
 
 
 </div>

@@ -8,6 +8,7 @@ class Login_tamu extends CI_Controller
 		parent:: __construct();
 		$this->load->model('m_login_santri');
 		$this->load->library('form_validation');
+		$this->load->library('session');
 	}
 
 	public function index()
@@ -61,7 +62,8 @@ class Login_tamu extends CI_Controller
 
 	public function logout()
 	{
-		$this->session_destroy;
+	    $this->session->sess_destroy();
+		// $this->session_destroy;
 		redirect('');
 	}
 }
