@@ -88,7 +88,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
       <div class="container">
-          <!-- isikonten -->
+          <!-- isikonten --> 
+          
           <?php
                 if ($isi) {
                     $this->load->view($isi);

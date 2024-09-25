@@ -85,6 +85,7 @@
             <!-- /.card-body -->
             <div class="card-footer">
                 Semoga Bermanfaat.
+                <!-- oke  -->
             </div>
             <!-- /.card-footer-->
         </div>
